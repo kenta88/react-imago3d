@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Miss } from 'react-router';
 
-import VrRoute from './modules/imago/routes';
+import VrRoute from './modules/vr/routes';
 import PageNotFound from './components/PageNotFound';
 
 const App = () => {

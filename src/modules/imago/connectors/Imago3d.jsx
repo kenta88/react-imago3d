@@ -2,7 +2,7 @@ import React from 'react';
 
 import Layout from '../../../connectors/Layout';
 
-class Vr extends React.Component {
+class Imago3d extends React.Component {
     constructor() {
         super();
         this.state = {};
@@ -17,4 +17,4 @@ class Vr extends React.Component {
     }
 }
 
-export default Vr;
+export default Imago3d;

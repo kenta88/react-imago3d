@@ -1,10 +1,10 @@
 import { Match } from 'react-router';
 
-import { Vr } from './connectors';
+import { Imago3d } from './connectors';
 
 const Routes = () => (
     <div>
-        <Match exactly pattern="/vr" component={Vr} />
+        <Match exactly pattern="/" component={Imago3d} />
     </div>
 );
 

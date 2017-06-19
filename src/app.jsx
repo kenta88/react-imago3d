@@ -1,21 +1,28 @@
 import React from 'react';
 import { BrowserRouter, Miss } from 'react-router';
+import { Provider } from 'react-redux';
 
-import VrRoute from './modules/imago/routes';
+import ImagoRoute from './modules/imago/routes';
 import PageNotFound from './components/PageNotFound';
 
-const App = () => {
+type Props = {
+  store: Object,
+}
+
+const App = ({ store } : Props) => {
     const layout = (
         <div>
-            <VrRoute />
+            <ImagoRoute />
             <Miss component={PageNotFound} />
         </div>
     );
 
     return (
-        <BrowserRouter>
-            {layout}
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                {layout}
+            </BrowserRouter>
+        </Provider>
     );
 };
 

@@ -1,21 +1,34 @@
 import React from 'react';
 import { BrowserRouter, Miss } from 'react-router';
+import { Provider } from 'react-redux';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import VrRoute from './modules/vr/routes';
+import ImagoRoute from './modules/imago/routes';
+
 import PageNotFound from './components/PageNotFound';
 
-const App = () => {
+type Props = {
+  store: Object,
+}
+
+const App = ({ store } : Props) => {
     const layout = (
         <div>
-            <VrRoute />
+            <ImagoRoute />
             <Miss component={PageNotFound} />
         </div>
     );
 
     return (
-        <BrowserRouter>
-            {layout}
-        </BrowserRouter>
+        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+            <Provider store={store}>
+                <BrowserRouter>
+                    {layout}
+                </BrowserRouter>
+            </Provider>
+        </MuiThemeProvider>
     );
 };
 

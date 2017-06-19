@@ -1,6 +1,5 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
-import { connect } from 'react-redux';
 import {
     Row,
     Col,
@@ -9,19 +8,9 @@ import {
 import Layout from '../../../connectors/Layout';
 import Canvas from '../components/Canvas';
 
-type Props = {
-    list: Array<any>,
-}
-
-@connect(
-    store => ({
-        list: store,
-    })
-)
 class Imago3d extends React.Component {
-    constructor(props: Props) {
-        super(props);
-        console.log('ciaoo', props);
+    constructor() {
+        super();
         this.state = {
             canvasContainerSize: null,
         };

@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import ImagoRoute from './modules/imago/routes';
+
 import PageNotFound from './components/PageNotFound';
 
 type Props = {

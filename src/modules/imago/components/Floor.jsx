@@ -13,7 +13,21 @@ class Floor extends React.Component {
         return (
             <group>
                 <mesh
-                    position={new THREE.Vector3(0, 10, 0)}
+                    position={new THREE.Vector3(5, 10, 5)}
+                    castShadow
+                    receiveShadow
+                >
+                    <boxGeometry
+                        width={10}
+                        height={20}
+                        depth={10}
+                    />
+                    <meshLambertMaterial
+                        color={0xffbbaa}
+                    />
+                </mesh>
+                <mesh
+                    position={new THREE.Vector3(-5, 10, -5)}
                     castShadow
                     receiveShadow
                 >
@@ -57,6 +71,8 @@ class Floor extends React.Component {
                     />
                     <meshLambertMaterial
                         color={0x777777}
+                        opacity={0.6}
+                        transparent
                     />
                 </mesh>
             </group>

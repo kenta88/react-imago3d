@@ -32,25 +32,13 @@ class OrtographicCamera extends React.Component {
         controls.minPolarAngle = 0;
         controls.maxPolarAngle = Math.PI / 2;
         controls.enableKeys = false;
-        controls.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: null };
+        // controls.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: null };
         controls.addEventListener('change', () => {
             this.setState({
                 position: this.camera.position,
             });
         });
         this.controls = controls;
-        // this.keys = { LEFT: 37, UP: 38, RIGHT: 39, BOTTOM: 40 };
-        window.addEventListener('keydown', (event) => { // todo: move camera
-            console.log(this.state.position);
-            switch (event.keyCode) {
-                case 37:
-                    break;
-                case 39:
-                    break;
-                default:
-                    break;
-            }
-        }, false);
     }
 
     render() {
@@ -64,7 +52,6 @@ class OrtographicCamera extends React.Component {
                 near={-1000}
                 far={1000}
                 position={this.state.position}
-                lookAt={new THREE.Vector3(0, 0, 0)}
                 ref={(camera) => {
                     this.camera = camera;
                 }}

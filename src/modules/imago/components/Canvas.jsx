@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import React3 from 'react-three-renderer';
 import * as THREE from 'three';
 
+import Lights from './Lights';
+import Floor from './Floor';
+import OrtographicCamera from './OrtographicCamera';
+
 class Canvas extends React.Component {
 
     constructor(props) {
@@ -11,7 +15,7 @@ class Canvas extends React.Component {
     }
 
     render() {
-        const d = 60;
+        const fog = new THREE.Fog(0xcce0ff, 500, 10000);
         return (
             <React3
                 antialias
@@ -19,47 +23,16 @@ class Canvas extends React.Component {
                 width={this.props.width}
                 height={this.props.height}
                 shadowMapEnabled
-                clearColor={0x666666}
+                clearColor={fog.color}
             >
-                <scene>
-                    <mesh
-                        position={new THREE.Vector3(0, 0, 0)}
-                        castShadow
-                        receiveShadow
-                    >
-                        <boxGeometry
-                            width={10}
-                            height={10}
-                            depth={10}
-                        />
-                        <meshLambertMaterial
-                            color={0xffbbaa}
-                        />
-                    </mesh>
-                    <ambientLight
-                        color={0x666666}
-                    />
-                    <spotLight
-                        color={0xadddaa}
-                        intensity={0.75}
-                        shadowMapWidth={512}
-                        shadowMapHeight={512}
-                        shadowCameraFar={30}
-                        shadowCameraNear={d}
-                        position={new THREE.Vector3(10, 10, 10)}
-                        lookAt={new THREE.Vector3(0, 0, -5)}
-                    />
-                    <orthographicCamera
-                        name="camera"
-                        left={(this.props.width / -18)}
-                        right={(this.props.width / 18)}
-                        top={this.props.height / 18}
-                        bottom={this.props.height / -18}
-                        near={-80}
-                        far={160}
-                        // position={new THREE.Vector3(15, 10, 10)}
-                        lookAt={new THREE.Vector3(0, 0, 0)}
-                        position={new THREE.Vector3(-10, 5, -10)}
+                <scene
+                    fog={fog}
+                >
+                    <Lights />
+                    <Floor />
+                    <OrtographicCamera
+                        width={this.props.width}
+                        height={this.props.height}
                     />
                 </scene>
             </React3>

@@ -13,8 +13,8 @@ import {
     Avatar,
 } from 'material-ui';
 import {
-    lime400,
-    yellow600,
+    blueGrey600,
+    brown500,
 } from 'material-ui/styles/colors';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -69,7 +69,7 @@ class Header extends React.Component {
             <div>
                 <AppBar
                     style={{
-                        backgroundColor: lime400,
+                        backgroundColor: blueGrey600,
                     }}
                     iconElementRight={
                         <CustomIconMenu />
@@ -95,7 +95,7 @@ class Header extends React.Component {
                                             size="2x"
                                         />
                                     }
-                                    backgroundColor={yellow600}
+                                    backgroundColor={brown500}
                                 />
                             }
                             rightIcon={

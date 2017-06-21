@@ -1,3 +1,4 @@
+// import autobind from 'autobind-decorator';
 import React from 'react';
 import PropTypes from 'prop-types';
 import React3 from 'react-three-renderer';
@@ -5,7 +6,8 @@ import * as THREE from 'three';
 
 import Lights from './Lights';
 import Floor from './Floor';
-import OrtographicCamera from './OrtographicCamera';
+// import OrtographicCamera from './OrtographicCamera';
+import PerspectiveCamera from './PerspectiveCamera';
 
 class Canvas extends React.Component {
 
@@ -13,6 +15,7 @@ class Canvas extends React.Component {
         super(props);
         this.state = {};
     }
+
 
     render() {
         const fog = new THREE.Fog(0xcce0ff, 500, 10000);
@@ -30,7 +33,11 @@ class Canvas extends React.Component {
                 >
                     <Lights />
                     <Floor />
-                    <OrtographicCamera
+                    {/* <OrtographicCamera
+                        width={this.props.width}
+                        height={this.props.height}
+                    />*/}
+                    <PerspectiveCamera
                         width={this.props.width}
                         height={this.props.height}
                     />

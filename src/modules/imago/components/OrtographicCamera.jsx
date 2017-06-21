@@ -19,7 +19,7 @@ class OrtographicCamera extends React.Component {
     }
 
     initializeOrbitControls() {
-        const controls = new OrbitControls(this.camera, this.react3);
+        const controls = new OrbitControls(this.camera);
         controls.rotateSpeed = 1.0;
         controls.zoomSpeed = 1.2;
         controls.panSpeed = 0.8;

@@ -9,9 +9,7 @@ class PerspectiveCamera extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            position: new THREE.Vector3(-10, 10, -10),
-        };
+        this.state = {};
     }
 
     componentDidMount() {

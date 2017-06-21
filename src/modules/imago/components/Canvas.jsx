@@ -6,8 +6,8 @@ import * as THREE from 'three';
 
 import Lights from './Lights';
 import Floor from './Floor';
-// import OrtographicCamera from './OrtographicCamera';
-import PerspectiveCamera from './PerspectiveCamera';
+import OrtographicCamera from './OrtographicCamera';
+// import PerspectiveCamera from './PerspectiveCamera';
 
 class Canvas extends React.Component {
 
@@ -33,14 +33,14 @@ class Canvas extends React.Component {
                 >
                     <Lights />
                     <Floor />
-                    {/* <OrtographicCamera
-                        width={this.props.width}
-                        height={this.props.height}
-                    />*/}
-                    <PerspectiveCamera
+                    <OrtographicCamera
                         width={this.props.width}
                         height={this.props.height}
                     />
+                    {/* <PerspectiveCamera
+                        width={this.props.width}
+                        height={this.props.height}
+                    />*/}
                 </scene>
             </React3>
         );

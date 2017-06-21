@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Miss } from 'react-router';
 import { Provider } from 'react-redux';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import ImagoRoute from './modules/imago/routes';
 import PageNotFound from './components/PageNotFound';
@@ -21,7 +21,7 @@ const App = ({ store } : Props) => {
     );
 
     return (
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <MuiThemeProvider>
             <Provider store={store}>
                 <BrowserRouter>
                     {layout}

@@ -22,16 +22,17 @@ class OrtographicCamera extends React.Component {
         const controls = new OrbitControls(this.camera);
         controls.rotateSpeed = 1.0;
         controls.zoomSpeed = 1.2;
-        controls.panSpeed = 0.8;
+        controls.panSpeed = 8.5;
         controls.noZoom = false;
         controls.noPan = false;
         controls.staticMoving = true;
         controls.dynamicDampingFactor = 0.3;
         controls.minZoom = 0.3;
         controls.maxZoom = 2;
+        controls.keyPanSpeed = 25.0;
         controls.minPolarAngle = 0;
         controls.maxPolarAngle = Math.PI / 2;
-        controls.enableKeys = false;
+        controls.enableKeys = true;
         // controls.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: null };
         controls.addEventListener('change', () => {
             this.setState({
@@ -44,7 +45,7 @@ class OrtographicCamera extends React.Component {
     render() {
         return (
             <orthographicCamera
-                name="camera"
+                name={this.props.name}
                 left={(this.props.width / -18)}
                 right={(this.props.width / 18)}
                 top={this.props.height / 18}
@@ -63,6 +64,7 @@ class OrtographicCamera extends React.Component {
 OrtographicCamera.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
+    name: PropTypes.string,
 };
 
 export default OrtographicCamera;

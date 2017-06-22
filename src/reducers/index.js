@@ -1,19 +1,8 @@
-import { combineReducers } from 'redux';
-import { fromJS } from 'immutable';
+import { combineReducers } from 'redux-immutable';
 
-export const initialState = fromJS({
-    list: [1, 2, 3],
-});
-
-const test = (state = initialState, action) => {
-    switch (action.type) {
-        default: {
-            return state;
-        }
-    }
-};
+import editorReducer from './editor';
 
 export default combineReducers({
-    test,
+    editor: editorReducer,
 });
 

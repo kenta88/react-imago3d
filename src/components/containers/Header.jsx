@@ -1,5 +1,6 @@
 // @flow
 import autobind from 'autobind-decorator';
+import { connect } from 'react-redux';
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import {
@@ -21,14 +22,36 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import { addCube } from '../../actions/editor';
+import { getAddingCube } from '../../reducers/editor';
+
+type Props = {
+    addCube: () => void,
+    isAddingCube: boolean,
+};
+
 injectTapEventPlugin();
 
+@connect(
+    store => ({
+        isAddingCube: getAddingCube(store),
+    }), {
+        addCube,
+    }
+)
 class Header extends React.Component {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
+            isAddingCube: this.props.isAddingCube,
             open: false,
         };
+    }
+
+    @autobind
+    onClickCube() {
+        this.props.addCube();
+        this.closeDrawner();
     }
 
     @autobind
@@ -87,6 +110,7 @@ class Header extends React.Component {
                 >
                     <List>
                         <ListItem
+                            onClick={this.onClickCube}
                             leftAvatar={
                                 <Avatar
                                     icon={

@@ -324,7 +324,6 @@ var OrbitControls = function ( object, domElement ) {
 		var offset = new THREE.Vector3();
 
 		return function pan ( deltaX, deltaY ) {
-
 			var element = scope.domElement === document ? scope.domElement.body : scope.domElement;
 
 			if ( scope.object instanceof THREE.PerspectiveCamera ) {
@@ -867,10 +866,65 @@ var OrbitControls = function ( object, domElement ) {
 
 	}
 
+	let mouseMoveAnimationLoop = null;
+	let mouseMoveAnimationVx = 0;
+	let mouseMoveAnimationVy = 0;
+	let isCameraMoving = false;
+	let vx = 0;
+	let vy = 0;
+
+	function handleEdgeMouseMovePan (x, y) {
+		const w0 = window.innerWidth / 2;
+		const h0 = window.innerHeight / 2;
+		let x0 = (x < w0) ? - (w0 - x) : x - w0;
+		let y0 = (y < h0) ? - (h0 - y) : y - h0;
+
+		console.log(x0,y0);
+		y0 = ( Math.abs(x0) < w0 + 50 && Math.abs(x0) > w0 - 50) ? 0 : y0;
+		x0 = ( Math.abs(y0) < h0 + 50 && Math.abs(y0) > h0 - 50) ? 0 : x0;
+
+		vx = (x0 > 7) ? -7 : (x0 < -7) ? 7 : x0;
+		vy = (y0 > 7) ? -7 : (y0 < -7) ? 7 : y0;
+
+		const updateControls = () => {
+			if(!isCameraMoving) {
+				isCameraMoving = true;
+			}
+			pan(vx, vy);
+			scope.update();
+			mouseMoveAnimationLoop = window.requestAnimationFrame(updateControls);
+		};
+		if(!isCameraMoving) {
+			mouseMoveAnimationLoop = window.requestAnimationFrame(updateControls);
+		}
+	}
+
+	function mouseMoveCloseToTheEdge(event) {
+		const w = window.innerWidth;
+		const h = window.innerHeight;
+		const x = event.clientX;
+		const y = event.clientY;
+		const offset = 100;
+
+		if(y + offset > h || y - offset <= 0 || x + offset > w || x - offset <= 0) {
+			handleEdgeMouseMovePan(x, y);
+		} else {
+			pan(0, 0);
+			scope.update();
+			window.cancelAnimationFrame(mouseMoveAnimationLoop);
+			isCameraMoving = false;
+			mouseMoveAnimationLoop = null;
+		}
+
+	}
+
 	//
 	scope.domElement.addEventListener( 'contextmenu', onContextMenu, false );
 
 	scope.domElement.addEventListener( 'mousedown', onMouseDown, false );
+	scope.domElement.addEventListener( 'mousemove', (event) => {
+		// mouseMoveCloseToTheEdge(event);
+	}, false );
 	scope.domElement.addEventListener( 'wheel', onMouseWheel, false );
 
 	scope.domElement.addEventListener( 'touchstart', onTouchStart, false );

@@ -8,6 +8,7 @@ import { getAddingCube } from '../../../reducers/editor';
 
 import Lights from './Lights';
 import Floor from './Floor';
+import Editor from './Editor';
 import OrtographicCamera from './OrtographicCamera';
 import PerspectiveCamera from './PerspectiveCamera';
 
@@ -45,6 +46,9 @@ class Canvas extends React.Component {
                     fog={fog}
                 >
                     <Lights />
+                    <Editor
+                        isAddingCube={this.props.isAddingCube}
+                    />
                     <Floor />
                     <OrtographicCamera
                         name="camera"

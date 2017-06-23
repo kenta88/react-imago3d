@@ -12,7 +12,7 @@ class Floor extends React.Component {
         const groundQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2);
         return (
             <group>
-                <mesh
+                {/* <mesh
                     position={new THREE.Vector3(5, 10, 5)}
                     castShadow
                     receiveShadow
@@ -39,7 +39,7 @@ class Floor extends React.Component {
                     <meshLambertMaterial
                         color={0xffbbaa}
                     />
-                </mesh>
+                </mesh>*/}
                 <mesh
                     quaternion={groundQuaternion}
                     position={new THREE.Vector3(0, 0, 0)}

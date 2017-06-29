@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
 class Floor extends React.Component {
@@ -62,6 +63,7 @@ class Floor extends React.Component {
                     receiveShadow
                     quaternion={groundQuaternion}
                     position={new THREE.Vector3(0, 0.3, 0)}
+                    ref={this.props.onRef}
                 >
                     <planeBufferGeometry
                         width={100}
@@ -79,5 +81,9 @@ class Floor extends React.Component {
         );
     }
 }
+
+Floor.propTypes = {
+    onRef: PropTypes.func,
+};
 
 export default Floor;

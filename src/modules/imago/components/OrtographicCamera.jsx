@@ -40,6 +40,7 @@ class OrtographicCamera extends React.Component {
             });
         });
         this.controls = controls;
+        this.props.onRef(this.camera);
     }
 
     render() {
@@ -65,6 +66,7 @@ OrtographicCamera.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     name: PropTypes.string,
+    onRef: PropTypes.func,
 };
 
 export default OrtographicCamera;

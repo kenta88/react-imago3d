@@ -26,9 +26,25 @@ type Props = {
 class Canvas extends React.Component {
     constructor(props: Props) {
         super(props);
+        this.mouse = new THREE.Vector2();
+        this.raycaster = new THREE.Raycaster();
+        this.camera = null;
+        this.floor = null;
         this.state = {
             isAddingCube: this.props.isAddingCube,
         };
+    }
+
+    componentDidMount() {
+        window.addEventListener('mousemove', (event) => {
+            event.preventDefault();
+            this.mouse.x = ((event.x / this.props.width) * 2) - 1;
+            this.mouse.y = (-(event.y / this.props.height) * 2) + 1;
+            this.camera.updateMatrixWorld();
+            this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
+            const intersects = this.raycaster.intersectObject(this.floor);
+            console.log(intersects);
+        }, false);
     }
 
     render() {
@@ -49,11 +65,18 @@ class Canvas extends React.Component {
                     <Editor
                         isAddingCube={this.props.isAddingCube}
                     />
-                    <Floor />
+                    <Floor
+                        onRef={(floor) => {
+                            this.floor = floor;
+                        }}
+                    />
                     <OrtographicCamera
                         name="camera"
                         width={this.props.width}
                         height={this.props.height}
+                        onRef={(camera) => {
+                            this.camera = camera;
+                        }}
                     />
                     <PerspectiveCamera
                         isActive={false}

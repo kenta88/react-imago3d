@@ -14,22 +14,32 @@ import Floor from '../components/Floor';
 import Editor from '../components/Editor';
 import OrtographicCamera from '../components/OrtographicCamera';
 import PerspectiveCamera from '../components/PerspectiveCamera';
-import { getAddingCube } from '../../../reducers/editor';
+import {
+    getEditorStore,
+} from '../../../reducers/editor';
+import { addCube } from '../../../actions/editor';
 
 type Props = {
-    isAddingCube: boolean,
+    editorStore: Object,
+    addCube: () => void,
 };
 
 @connect(
     store => ({
-        isAddingCube: getAddingCube(store),
+        editorStore: getEditorStore(store),
     }),
+    {
+        addCube
+    }
 )
 class Imago3d extends React.Component {
     constructor(props: Props) {
         super(props);
         this.camera = null;
         this.floor = null;
+        this.editorActions = {
+            addCube: this.props.addCube,
+        };
         this.state = {
             canvasContainerSize: null,
         };
@@ -70,7 +80,8 @@ class Imago3d extends React.Component {
                                     >
                                         <Lights />
                                         <Editor
-                                            isAddingCube={this.props.isAddingCube}
+                                            store={this.props.editorStore}
+                                            actions={this.editorActions}
                                             camera={this.camera}
                                             floor={this.floor}
                                         />

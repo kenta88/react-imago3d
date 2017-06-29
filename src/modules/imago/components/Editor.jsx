@@ -2,11 +2,11 @@ import React from 'react';
 import * as THREE from 'three';
 
 type Props = {
-    isAddingCube: boolean,
+    store: Object,
+    actions: Object,
     camera: Object,
     floor: Object,
 };
-
 class Editor extends React.Component {
 
     constructor(props: Props) {
@@ -31,7 +31,7 @@ class Editor extends React.Component {
 
     onMouseMove(event) {
         event.preventDefault();
-        if (this.props.isAddingCube) {
+        if (this.props.store.addingCube) {
             const relativeMouseCoords = this.getRelativeMouseCord(event);
             this.movingBoundigBox(relativeMouseCoords);
         }
@@ -39,7 +39,7 @@ class Editor extends React.Component {
 
     onMouseClick(event) {
         event.preventDefault();
-        if (this.props.isAddingCube) {
+        if (this.props.store.addingCube) {
             this.addCube();
         }
     }
@@ -83,12 +83,13 @@ class Editor extends React.Component {
         this.setState({
             cubes,
         });
+        this.props.actions.addCube();
     }
 
     render() {
         return (
             <group>
-                {this.props.isAddingCube ? (
+                {this.props.store.addingCube ? (
                     <mesh
                         position={this.state.position}
                         castShadow

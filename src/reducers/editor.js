@@ -15,6 +15,10 @@ export const getAddingCube = (store: Store) => {
     return store.getIn(['editor', 'addingCube']);
 };
 
+export const getEditorStore = (store: Store) => {
+    return store.get('editor').toJS();
+};
+
 export default (state: Store = initialState, action: Action) => {
     switch (action.type) {
         case EDITOR.TOGGLE_ADD_CUBE: {

@@ -26,43 +26,11 @@ type Props = {
 class Canvas extends React.Component {
     constructor(props: Props) {
         super(props);
-        this.mouse = new THREE.Vector2();
-        this.auxVector2 = new THREE.Vector2();
-        this.raycaster = new THREE.Raycaster();
         this.camera = null;
         this.floor = null;
         this.state = {
             isAddingCube: this.props.isAddingCube,
         };
-    }
-
-    componentDidMount() {
-        window.addEventListener('mousemove', (event) => {
-            event.preventDefault();
-            const relativeMouseCoords = this.getRelativeMouseCord(event);
-            this.mouse.x = relativeMouseCoords.x;
-            this.mouse.y = relativeMouseCoords.y;
-
-            this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-            const intersects = this.raycaster.intersectObject(this.floor, true);
-            if (intersects.length) {
-                console.log('intersects');
-            }
-        }, false);
-    }
-
-    getRelativeMouseCord(event) {
-        const containerRect = event.target.getBoundingClientRect();
-        let relativeMouseCoords = new THREE.Vector2();
-        relativeMouseCoords.x = event.clientX;
-        relativeMouseCoords.y = event.clientY;
-
-        relativeMouseCoords = relativeMouseCoords.clone()
-        .sub(this.auxVector2.set(containerRect.left, containerRect.top))
-        .divide(this.auxVector2.set(containerRect.width, containerRect.height));
-        relativeMouseCoords.x = (relativeMouseCoords.x * 2) - 1;
-        relativeMouseCoords.y = (-relativeMouseCoords.y * 2) + 1;
-        return relativeMouseCoords;
     }
 
     render() {
@@ -76,7 +44,7 @@ class Canvas extends React.Component {
                 shadowMapEnabled
                 shadowMapType={THREE.PCFShadowMap}
                 clearColor={fog.color}
-                pixelRatio={window.devicePixelRatio}
+                // pixelRatio={window.devicePixelRatio}
                 sortObjects={false}
             >
                 <scene
@@ -85,6 +53,8 @@ class Canvas extends React.Component {
                     <Lights />
                     <Editor
                         isAddingCube={this.props.isAddingCube}
+                        camera={this.camera}
+                        floor={this.floor}
                     />
                     <Floor
                         onRef={(floor) => {

@@ -10,7 +10,7 @@ class OrtographicCamera extends React.Component {
         super(props);
         this.camera = null;
         this.state = {
-            position: new THREE.Vector3(-10, 5, -10),
+            position: new THREE.Vector3(-150, 100, -150),
         };
     }
 
@@ -34,11 +34,11 @@ class OrtographicCamera extends React.Component {
         controls.maxPolarAngle = Math.PI / 2;
         controls.enableKeys = true;
         // controls.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: null };
-        controls.addEventListener('change', () => {
-            this.setState({
-                position: this.camera.position,
-            });
-        });
+        // controls.addEventListener('change', () => {
+        //     this.setState({
+        //         position: this.camera.position,
+        //     });
+        // });
         this.controls = controls;
         this.props.onRef(this.camera);
     }

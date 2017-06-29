@@ -61,16 +61,21 @@ class Floor extends React.Component {
                 <mesh
                     castShadow
                     receiveShadow
-                    quaternion={groundQuaternion}
+                    // quaternion={groundQuaternion}
                     position={new THREE.Vector3(0, 0.3, 0)}
                     ref={this.props.onRef}
                 >
-                    <planeBufferGeometry
+                    <boxGeometry
+                        width={100}
+                        height={1}
+                        depth={100}
+                    />
+                    {/* <planeBufferGeometry
                         width={100}
                         height={100}
                         widthSegments={1}
                         heightSegments={1}
-                    />
+                    />*/}
                     <meshLambertMaterial
                         color={0x777777}
                         opacity={0.6}

@@ -43,16 +43,11 @@ class Canvas extends React.Component {
             this.mouse.x = relativeMouseCoords.x;
             this.mouse.y = relativeMouseCoords.y;
 
-            // this.mouse.x = ((event.clientX / window.innerWidth) * 2) - 1;
-            // this.mouse.y = (-(event.clientY / window.innerHeight) * 2) + 1;
-
-            // this.raycaster.ray.origin.set(0, 0, 0);
-            // this.camera.localToWorld(this.raycaster.ray.origin);
-
             this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-            // this.raycaster.ray.origin.z = this.camera.far;
-            const intersects = this.raycaster.intersectObject(this.floor);
-            console.log(intersects);
+            const intersects = this.raycaster.intersectObject(this.floor, true);
+            if (intersects.length) {
+                console.log('intersects');
+            }
         }, false);
     }
 

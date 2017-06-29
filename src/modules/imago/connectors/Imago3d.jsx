@@ -37,9 +37,6 @@ class Imago3d extends React.Component {
         super(props);
         this.camera = null;
         this.floor = null;
-        this.editorActions = {
-            addCube: this.props.addCube,
-        };
         this.state = {
             canvasContainerSize: null,
         };
@@ -81,7 +78,9 @@ class Imago3d extends React.Component {
                                         <Lights />
                                         <Editor
                                             store={this.props.editorStore}
-                                            actions={this.editorActions}
+                                            actions={{
+                                                addCube: this.props.addCube
+                                            }}
                                             camera={this.camera}
                                             floor={this.floor}
                                         />

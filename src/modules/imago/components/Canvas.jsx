@@ -27,6 +27,7 @@ class Canvas extends React.Component {
     constructor(props: Props) {
         super(props);
         this.mouse = new THREE.Vector2();
+        this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
         this.camera = null;
         this.floor = null;
@@ -38,13 +39,35 @@ class Canvas extends React.Component {
     componentDidMount() {
         window.addEventListener('mousemove', (event) => {
             event.preventDefault();
-            this.mouse.x = ((event.x / this.props.width) * 2) - 1;
-            this.mouse.y = (-(event.y / this.props.height) * 2) + 1;
-            this.camera.updateMatrixWorld();
+            const relativeMouseCoords = this.getRelativeMouseCord(event);
+            this.mouse.x = relativeMouseCoords.x;
+            this.mouse.y = relativeMouseCoords.y;
+
+            // this.mouse.x = ((event.clientX / window.innerWidth) * 2) - 1;
+            // this.mouse.y = (-(event.clientY / window.innerHeight) * 2) + 1;
+
+            // this.raycaster.ray.origin.set(0, 0, 0);
+            // this.camera.localToWorld(this.raycaster.ray.origin);
+
             this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
+            // this.raycaster.ray.origin.z = this.camera.far;
             const intersects = this.raycaster.intersectObject(this.floor);
             console.log(intersects);
         }, false);
+    }
+
+    getRelativeMouseCord(event) {
+        const containerRect = event.target.getBoundingClientRect();
+        let relativeMouseCoords = new THREE.Vector2();
+        relativeMouseCoords.x = event.clientX;
+        relativeMouseCoords.y = event.clientY;
+
+        relativeMouseCoords = relativeMouseCoords.clone()
+        .sub(this.auxVector2.set(containerRect.left, containerRect.top))
+        .divide(this.auxVector2.set(containerRect.width, containerRect.height));
+        relativeMouseCoords.x = (relativeMouseCoords.x * 2) - 1;
+        relativeMouseCoords.y = (-relativeMouseCoords.y * 2) + 1;
+        return relativeMouseCoords;
     }
 
     render() {
@@ -56,7 +79,10 @@ class Canvas extends React.Component {
                 width={this.props.width}
                 height={this.props.height}
                 shadowMapEnabled
+                shadowMapType={THREE.PCFShadowMap}
                 clearColor={fog.color}
+                pixelRatio={window.devicePixelRatio}
+                sortObjects={false}
             >
                 <scene
                     fog={fog}

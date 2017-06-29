@@ -106,8 +106,9 @@ class Editor extends React.Component {
                         />
                     </mesh>
                 ) : null}
-                {this.state.cubes.map(position => (
+                {this.state.cubes.map((position, index) => (
                     <mesh
+                        key={index}
                         position={position}
                         castShadow
                         receiveShadow

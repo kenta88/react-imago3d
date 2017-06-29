@@ -14,6 +14,7 @@ class Editor extends React.Component {
         this.mouse = new THREE.Vector2();
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
+        this.objects = [];
         this.state = {
             position: new THREE.Vector3(0, 3.1, 0),
             cubes: [],
@@ -25,21 +26,21 @@ class Editor extends React.Component {
             this.onMouseMove(event);
         }, false);
         window.addEventListener('dblclick', (event) => {
-            this.onMouseClick(event);
+            this.onMouseDbClick(event);
         }, false);
     }
 
     onMouseMove(event) {
         event.preventDefault();
-        if (this.props.store.addingCube) {
-            const relativeMouseCoords = this.getRelativeMouseCord(event);
+        const relativeMouseCoords = this.getRelativeMouseCord(event);
+        if (this.props.store.isEditMode) {
             this.movingBoundigBox(relativeMouseCoords);
         }
     }
 
-    onMouseClick(event) {
+    onMouseDbClick(event) {
         event.preventDefault();
-        if (this.props.store.addingCube) {
+        if (this.props.store.isEditMode) {
             this.addCube();
         }
     }
@@ -83,13 +84,13 @@ class Editor extends React.Component {
         this.setState({
             cubes,
         });
-        this.props.actions.addCube();
+        this.props.actions.exitEditMode();
     }
 
     render() {
         return (
             <group>
-                {this.props.store.addingCube ? (
+                {this.props.store.isEditMode ? (
                     <mesh
                         position={this.state.position}
                         castShadow

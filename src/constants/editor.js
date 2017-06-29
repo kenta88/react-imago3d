@@ -2,5 +2,6 @@
 import { createConstants } from 'redux-module-builder';
 
 export default createConstants('editor')(
-    'TOGGLE_ADD_CUBE',
+    'CREATE_OBJECT',
+    'EXIT_EDIT_MODE',
 );

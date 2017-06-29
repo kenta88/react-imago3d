@@ -22,35 +22,31 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import { addCube } from '../../actions/editor';
-import { getAddingCube } from '../../reducers/editor';
+import { createObject } from '../../actions/editor';
 
 type Props = {
-    addCube: () => void,
-    isAddingCube: boolean,
+    createObject: (string) => void,
 };
 
 injectTapEventPlugin();
 
 @connect(
-    store => ({
-        isAddingCube: getAddingCube(store),
-    }), {
-        addCube,
+    null,
+    {
+        createObject,
     }
 )
 class Header extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
-            isAddingCube: this.props.isAddingCube,
             open: false,
         };
     }
 
     @autobind
     onClickCube() {
-        this.props.addCube();
+        this.props.createObject('cube');
         this.closeDrawner();
     }
 

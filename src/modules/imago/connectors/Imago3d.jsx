@@ -17,11 +17,13 @@ import PerspectiveCamera from '../components/PerspectiveCamera';
 import {
     getEditorStore,
 } from '../../../reducers/editor';
-import { addCube } from '../../../actions/editor';
+import {
+    exitEditMode,
+} from '../../../actions/editor';
 
 type Props = {
     editorStore: Object,
-    addCube: () => void,
+    exitEditMode: () => void,
 };
 
 @connect(
@@ -29,7 +31,7 @@ type Props = {
         editorStore: getEditorStore(store),
     }),
     {
-        addCube
+        exitEditMode,
     }
 )
 class Imago3d extends React.Component {
@@ -79,7 +81,7 @@ class Imago3d extends React.Component {
                                         <Editor
                                             store={this.props.editorStore}
                                             actions={{
-                                                addCube: this.props.addCube
+                                                exitEditMode: this.props.exitEditMode,
                                             }}
                                             camera={this.camera}
                                             floor={this.floor}

@@ -30,11 +30,11 @@ class Editor extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.camera, this.floor);
-        window.addEventListener('mousemove', (event) => {
+        console.log(this.camera, this.floor, this.canvas);
+        this.canvas.addEventListener('mousemove', (event) => {
             this.onMouseMove(event);
         }, false);
-        window.addEventListener('dblclick', (event) => {
+        this.canvas.addEventListener('dblclick', (event) => {
             this.onMouseDbClick(event);
         }, false);
     }
@@ -104,6 +104,9 @@ class Editor extends React.Component {
                 width={this.props.width}
                 height={this.props.height}
                 fog={this.fog}
+                canvasRef={(canvas) => {
+                    this.canvas = canvas;
+                }}
             >
                 <scene
                     fog={this.fog}

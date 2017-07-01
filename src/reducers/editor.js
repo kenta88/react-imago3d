@@ -12,6 +12,8 @@ export const initialState: Map<string, any> = fromJS({
     objectType: null,
 });
 
+// TODO: REFACTORING REDUCER FOR PROPER EDITOR
+
 export const getEditorStore = (store: Store) => {
     return store.get('editor').toJS();
 };

@@ -8,6 +8,7 @@ type Props = {
     height: number,
     children: Children,
     fog: Object,
+    canvasRef: () => void,
 };
 
 class Canvas extends React.Component {
@@ -28,6 +29,7 @@ class Canvas extends React.Component {
                 clearColor={this.props.fog.color}
                 // pixelRatio={window.devicePixelRatio}
                 sortObjects={false}
+                canvasRef={this.props.canvasRef}
             >
                 {this.props.children}
             </React3>

@@ -1,39 +1,19 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
-import { connect } from 'react-redux';
-import * as THREE from 'three';
 import {
     Row,
     Col,
 } from 'react-materialize';
 
 import Layout from '../../../connectors/Layout';
-import Canvas from '../components/Canvas';
-import Lights from '../components/Lights';
-import Floor from '../components/Floor';
 import Editor from '../components/Editor';
-import OrtographicCamera from '../components/OrtographicCamera';
-import PerspectiveCamera from '../components/PerspectiveCamera';
-import {
-    getEditorStore,
-} from '../../../reducers/editor';
-import {
-    exitEditMode,
-} from '../../../actions/editor';
 
 type Props = {
     editorStore: Object,
     exitEditMode: () => void,
 };
 
-@connect(
-    store => ({
-        editorStore: getEditorStore(store),
-    }),
-    {
-        exitEditMode,
-    }
-)
+
 class Imago3d extends React.Component {
     constructor(props: Props) {
         super(props);
@@ -53,7 +33,6 @@ class Imago3d extends React.Component {
     }
 
     render() {
-        const fog = new THREE.Fog(0xcce0ff, 500, 10000);
         let width = 0;
         let height = 0;
         if (this.state.canvasContainerSize) {
@@ -69,44 +48,10 @@ class Imago3d extends React.Component {
                             id="canvasContainer"
                         >
                             {this.state.canvasContainerSize ? (
-                                <Canvas
+                                <Editor
                                     width={width}
                                     height={height}
-                                    fog={fog}
-                                >
-                                    <scene
-                                        fog={fog}
-                                    >
-                                        <Lights />
-                                        <Editor
-                                            store={this.props.editorStore}
-                                            actions={{
-                                                exitEditMode: this.props.exitEditMode,
-                                            }}
-                                            camera={this.camera}
-                                            floor={this.floor}
-                                        />
-                                        <Floor
-                                            onRef={(floor) => {
-                                                this.floor = floor;
-                                            }}
-                                        />
-                                        <OrtographicCamera
-                                            name="camera"
-                                            width={width}
-                                            height={height}
-                                            onRef={(camera) => {
-                                                this.camera = camera;
-                                            }}
-                                        />
-                                        <PerspectiveCamera
-                                            isActive={false}
-                                            name="cameraxx"
-                                            width={width}
-                                            height={height}
-                                        />
-                                    </scene>
-                                </Canvas>
+                                />
                             ) : null}
                         </Col>
                     </Row>

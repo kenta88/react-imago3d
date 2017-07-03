@@ -1,17 +1,41 @@
 import React from 'react';
 import * as THREE from 'three';
+import { connect } from 'react-redux';
+
+import {
+    getIsAddingMode,
+    getCurrentObject,
+    getObjects,
+} from '../../../reducers/editor';
+import {
+    addObject,
+} from '../../../actions/editor';
 
 import Canvas from './Canvas';
 import Lights from './Lights';
 import Grid from './Grid';
+import BoundingBox from './BoundingBox';
 import OrtographicCamera from './OrtographicCamera';
 
 type Props = {
     width: number,
     height: number,
+    isAddingMode: boolean,
+    currentObject: Object,
+    objects: Array<Object>, // eslint-disable-line
+    addObject: (Object) => void,
 };
 
-
+@connect(
+    store => ({
+        isAddingMode: getIsAddingMode(store),
+        currentObject: getCurrentObject(store),
+        objects: getObjects(store),
+    }),
+    {
+        addObject,
+    }
+)
 class Editor extends React.Component {
 
     constructor(props: Props) {
@@ -24,33 +48,42 @@ class Editor extends React.Component {
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
         this.objects = [];
-        this.state = {};
+
+        this.state = {
+            currentObject: this.props.currentObject,
+        };
     }
 
     componentDidMount() {
         this.canvas.addEventListener('mousemove', () => {
-            // this.onMouseMove(event);
+            this.onMouseMove(event);
         }, false);
         this.canvas.addEventListener('dblclick', () => {
-            // this.onMouseDbClick(event);
+            this.onMouseDbClick(event);
         }, false);
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.currentObject !== this.props.currentObject) {
+            this.setState({
+                currentObject: nextProps.currentObject
+            });
+        }
     }
 
     onMouseMove(event) {
         event.preventDefault();
         const relativeMouseCoords = this.getRelativeMouseCord(event);
-        console.log(relativeMouseCoords);
-        // if (this.props.store.isEditMode) {
-        //     this.movingBoundigBox(relativeMouseCoords);
-        // }
+        if (this.props.isAddingMode) {
+            this.movingBoundigBox(relativeMouseCoords);
+        }
     }
 
     onMouseDbClick(event) {
         event.preventDefault();
-        console.log(this.addCube);
-        // if (this.props.store.isEditMode) {
-        //     this.addCube();
-        // }
+        if (this.props.isAddingMode) {
+            this.addObject();
+        }
     }
 
     getRelativeMouseCord(event) {
@@ -67,6 +100,7 @@ class Editor extends React.Component {
     }
 
     movingBoundigBox(relativeMouseCoords) {
+        const currentObject = this.state.currentObject;
         this.mouse.x = relativeMouseCoords.x;
         this.mouse.y = relativeMouseCoords.y;
         this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
@@ -79,20 +113,19 @@ class Editor extends React.Component {
                     intersects[0].point[coord] = Math.ceil(n / 5.0) * 5;
                 }
             });
-            intersects[0].point.y = 3.1;
+            intersects[0].point.y = currentObject.position.y;
+            currentObject.position = intersects[0].point;
             this.setState({
-                position: intersects[0].point,
+                currentObject,
             });
         }
     }
 
-    addCube() {
-        const cubes = this.state.cubes;
-        cubes.push(this.state.position);
+    addObject() {
+        this.props.addObject(this.state.currentObject);
         this.setState({
-            cubes,
+            currentObject: null,
         });
-        // this.props.actions.exitEditMode();
     }
 
     render() {
@@ -112,6 +145,10 @@ class Editor extends React.Component {
                     }}
                 >
                     <Lights />
+                    <BoundingBox
+                        object={this.state.currentObject}
+                        isVisible={this.props.isAddingMode}
+                    />
                     <Grid
                         onRef={(grid) => {
                             this.grid = grid;

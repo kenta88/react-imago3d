@@ -22,6 +22,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import { OBJECTS3D } from '../../constants';
 import { createObject } from '../../actions/editor';
 
 type Props = {
@@ -43,7 +44,10 @@ class Header extends React.Component {
             open: false,
         };
     }
-
+    @autobind
+    onClick3dObject(type) {
+        this.props.createObject(OBJECTS3D[type]);
+    }
     @autobind
     onClickCube() {
         this.props.createObject('cube');
@@ -125,7 +129,9 @@ class Header extends React.Component {
                             secondaryText="Create a cube"
                         />
                         <ListItem
-                            onClick={this.onClickCube}
+                            onClick={() => {
+                                this.onClick3dObject('FLOOR');
+                            }}
                             leftAvatar={
                                 <Avatar
                                     icon={

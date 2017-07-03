@@ -2,23 +2,18 @@
 
 import { EDITOR } from '../constants';
 
-export const createObject = (objectType: string, currentObject: Object) => ({
+export const createObject = (currentObject: Object) => ({
     type: EDITOR.CREATE_OBJECT,
     payload: {
-        objectType,
         currentObject,
     }
 });
 
-export const editObject = (objectId: string) => ({
-    type: EDITOR.EDIT_OBJECT,
+export const addObject = (currentObject: Object) => ({
+    type: EDITOR.ADD_OBJECT,
     payload: {
-        objectId
+        currentObject,
     }
-});
-
-export const exitEditMode = () => ({
-    type: EDITOR.EXIT_EDIT_MODE,
 });
 
 export const exitAddingMode = () => ({

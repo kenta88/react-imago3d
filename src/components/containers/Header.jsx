@@ -47,10 +47,6 @@ class Header extends React.Component {
     @autobind
     onClick3dObject(type) {
         this.props.createObject(OBJECTS3D[type]);
-    }
-    @autobind
-    onClickCube() {
-        this.props.createObject('cube');
         this.closeDrawner();
     }
 
@@ -110,7 +106,9 @@ class Header extends React.Component {
                 >
                     <List>
                         <ListItem
-                            onClick={this.onClickCube}
+                            onClick={() => {
+                                this.onClick3dObject('WALL');
+                            }}
                             leftAvatar={
                                 <Avatar
                                     icon={

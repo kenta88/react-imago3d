@@ -12,10 +12,6 @@ class Editor extends React.Component {
         this.state = {};
     }
 
-    componentDidMount() {
-        console.log(this.props.object, this.props.isVisible);
-    }
-
     render() {
         if (!this.props.isVisible) {
             return null;
@@ -35,7 +31,7 @@ class Editor extends React.Component {
                     <meshLambertMaterial
                         color={this.props.object.color}
                         opacity={0.5}
-                        transparent={this.props.object.transparent}
+                        transparent
                     />
                 </mesh>
             </group>

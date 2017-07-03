@@ -3,6 +3,7 @@ import * as THREE from 'three';
 
 export default {
     FLOOR: {
+        uuid: null,
         type: 'FLOOR',
         width: 10,
         height: 1,
@@ -12,5 +13,6 @@ export default {
         color: 0x777777,
         opacity: 1,
         transparent: false,
+        ref: null,
     },
 };

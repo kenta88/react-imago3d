@@ -1,6 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 import { connect } from 'react-redux';
+import UUID from 'uuid/v4';
 
 import {
     getIsAddingMode,
@@ -15,6 +16,7 @@ import Canvas from './Canvas';
 import Lights from './Lights';
 import Grid from './Grid';
 import BoundingBox from './BoundingBox';
+import Ensemble from './Ensemble';
 import OrtographicCamera from './OrtographicCamera';
 
 type Props = {
@@ -44,6 +46,7 @@ class Editor extends React.Component {
         this.camera = null;
         this.scene = null;
         this.grid = null;
+        this.intersected = null;
         this.mouse = new THREE.Vector2();
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
@@ -61,6 +64,9 @@ class Editor extends React.Component {
         this.canvas.addEventListener('dblclick', () => {
             this.onMouseDbClick(event);
         }, false);
+        this.canvas.addEventListener('click', () => {
+            this.onMouseClick(event);
+        }, false);
     }
 
     componentWillReceiveProps(nextProps: Props) {
@@ -77,6 +83,9 @@ class Editor extends React.Component {
         if (this.props.isAddingMode) {
             this.movingBoundigBox(relativeMouseCoords);
         }
+        if (!this.props.isAddingMode) {
+            this.highlightObjects(relativeMouseCoords);
+        }
     }
 
     onMouseDbClick(event) {
@@ -84,6 +93,17 @@ class Editor extends React.Component {
         if (this.props.isAddingMode) {
             this.addObject();
         }
+    }
+
+    onMouseClick(event) {
+        event.preventDefault();
+        if (!this.props.isAddingMode) {
+            this.editObject();
+        }
+    }
+
+    onItemsRendered(refs) {
+        console.log(refs, this.state);
     }
 
     getRelativeMouseCord(event) {
@@ -121,11 +141,46 @@ class Editor extends React.Component {
         }
     }
 
+    highlightObjects(relativeMouseCoords) {
+        this.mouse.x = relativeMouseCoords.x;
+        this.mouse.y = relativeMouseCoords.y;
+        this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
+        const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+        if (intersects.length) {
+            if (intersects[0].object.name.length) {
+                if (this.intersected) {
+                    this.intersected.material.emissive.setHex(this.intersected.currentHex);
+                }
+                this.intersected = intersects[0].object;
+                this.intersected.currentHex = this.intersected.material.emissive.getHex();
+                this.intersected.material.emissive.setHex(0xff0000);
+            } else {
+                if (this.intersected) {
+                    this.intersected.material.emissive.setHex(this.intersected.currentHex);
+                }
+                this.intersected = null;
+            }
+        } else {
+            if (this.intersected) {
+                this.intersected.material.emissive.setHex(this.intersected.currentHex);
+            }
+            this.intersected = null;
+        }
+    }
+
     addObject() {
-        this.props.addObject(this.state.currentObject);
+        const uuid = UUID();
+        this.props.addObject({
+            ...this.state.currentObject,
+            uuid,
+        });
         this.setState({
             currentObject: null,
         });
+    }
+
+    editObject() {
+        console.log(this.intersected);
     }
 
     render() {
@@ -148,6 +203,10 @@ class Editor extends React.Component {
                     <BoundingBox
                         object={this.state.currentObject}
                         isVisible={this.props.isAddingMode}
+                    />
+                    <Ensemble
+                        objects={this.props.objects}
+                        onItemsRendered={this.onItemsRendered}
                     />
                     <Grid
                         onRef={(grid) => {

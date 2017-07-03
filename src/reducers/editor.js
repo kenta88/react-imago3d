@@ -9,7 +9,10 @@ import { EDITOR } from '../constants';
 
 export const initialState: Map<string, any> = fromJS({
     isEditMode: false,
-    objectType: null,
+    isAddingMode: false,
+    objectType: '', // wall, floor, window, doors
+    currentObject: null,
+    objects: []
 });
 
 // TODO: REFACTORING REDUCER FOR PROPER EDITOR
@@ -21,11 +24,22 @@ export const getEditorStore = (store: Store) => {
 export default (state: Store = initialState, action: Action) => {
     switch (action.type) {
         case EDITOR.CREATE_OBJECT: {
-            const next = state.set('isEditMode', true);
-            return next.set('objectType', action.payload.type);
+            const next = state.set('isAddingMode', true);
+            return next.set('objectType', action.payload.objectType);
+        }
+        case EDITOR.EDIT_OBJECT: {
+            let next = state.set('isEditMode', true);
+            next = next.set('currentObject', action.payload.currentObject);
+            return next.set('objectType', action.payload.objectType);
+        }
+        case EDITOR.EXIT_ADDING_MODE: {
+            let next = state.set('isAddingMode', false);
+            next = next.set('currentObject', null);
+            return next.set('objectType', null);
         }
         case EDITOR.EXIT_EDIT_MODE: {
-            const next = state.set('isEditMode', false);
+            let next = state.set('isEditMode', false);
+            next = next.set('currentObject', null);
             return next.set('objectType', null);
         }
         default: {

@@ -20,6 +20,7 @@ class OrtographicCamera extends React.Component {
 
     initializeOrbitControls() {
         const controls = new OrbitControls(this.camera);
+        controls.enabled = this.props.controlsEnabled;
         controls.rotateSpeed = 1.0;
         controls.zoomSpeed = 1.2;
         controls.panSpeed = 8.5;
@@ -67,6 +68,7 @@ OrtographicCamera.propTypes = {
     height: PropTypes.number,
     name: PropTypes.string,
     onRef: PropTypes.func,
+    controlsEnabled: PropTypes.bool,
 };
 
 export default OrtographicCamera;

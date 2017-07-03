@@ -124,6 +124,25 @@ class Header extends React.Component {
                             primaryText="Cube"
                             secondaryText="Create a cube"
                         />
+                        <ListItem
+                            onClick={this.onClickCube}
+                            leftAvatar={
+                                <Avatar
+                                    icon={
+                                        <FontAwesome
+                                            name="th"
+                                            size="2x"
+                                        />
+                                    }
+                                    backgroundColor={brown500}
+                                />
+                            }
+                            rightIcon={
+                                <ActionInfo />
+                            }
+                            primaryText="Floor"
+                            secondaryText="Create a floor"
+                        />
                     </List>
                 </Drawer>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 
-class Floor extends React.Component {
+class Grid extends React.Component {
 
     constructor() {
         super();
@@ -13,34 +13,6 @@ class Floor extends React.Component {
         const groundQuaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -Math.PI / 2);
         return (
             <group>
-                {/* <mesh
-                    position={new THREE.Vector3(5, 10, 5)}
-                    castShadow
-                    receiveShadow
-                >
-                    <boxGeometry
-                        width={10}
-                        height={20}
-                        depth={10}
-                    />
-                    <meshLambertMaterial
-                        color={0xffbbaa}
-                    />
-                </mesh>
-                <mesh
-                    position={new THREE.Vector3(-5, 10, -5)}
-                    castShadow
-                    receiveShadow
-                >
-                    <boxGeometry
-                        width={10}
-                        height={20}
-                        depth={10}
-                    />
-                    <meshLambertMaterial
-                        color={0xffbbaa}
-                    />
-                </mesh>*/}
                 <mesh
                     quaternion={groundQuaternion}
                     position={new THREE.Vector3(0, 0, 0)}
@@ -58,7 +30,7 @@ class Floor extends React.Component {
                         wireframe
                     />
                 </mesh>
-                <mesh
+                {/* <mesh
                     castShadow
                     receiveShadow
                     // quaternion={groundQuaternion}
@@ -70,25 +42,25 @@ class Floor extends React.Component {
                         height={1}
                         depth={100}
                     />
-                    {/* <planeBufferGeometry
+                     <planeBufferGeometry
                         width={100}
                         height={100}
                         widthSegments={1}
                         heightSegments={1}
-                    />*/}
+                    />
                     <meshLambertMaterial
                         color={0x777777}
                         opacity={0.6}
                         transparent
                     />
-                </mesh>
+                </mesh>*/}
             </group>
         );
     }
 }
 
-Floor.propTypes = {
+Grid.propTypes = {
     onRef: PropTypes.func,
 };
 
-export default Floor;
+export default Grid;

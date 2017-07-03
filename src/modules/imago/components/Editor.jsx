@@ -3,7 +3,7 @@ import * as THREE from 'three';
 
 import Canvas from './Canvas';
 import Lights from './Lights';
-import Floor from './Floor';
+import Grid from './Grid';
 import OrtographicCamera from './OrtographicCamera';
 
 type Props = {
@@ -18,24 +18,21 @@ class Editor extends React.Component {
         super(props);
         this.fog = new THREE.Fog(0xcce0ff, 500, 10000);
         this.camera = null;
-        this.floor = null;
+        this.scene = null;
+        this.grid = null;
         this.mouse = new THREE.Vector2();
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
         this.objects = [];
-        this.state = {
-            position: new THREE.Vector3(0, 3.1, 0),
-            cubes: [],
-        };
+        this.state = {};
     }
 
     componentDidMount() {
-        console.log(this.camera, this.floor, this.canvas);
-        this.canvas.addEventListener('mousemove', (event) => {
-            this.onMouseMove(event);
+        this.canvas.addEventListener('mousemove', () => {
+            // this.onMouseMove(event);
         }, false);
-        this.canvas.addEventListener('dblclick', (event) => {
-            this.onMouseDbClick(event);
+        this.canvas.addEventListener('dblclick', () => {
+            // this.onMouseDbClick(event);
         }, false);
     }
 
@@ -73,7 +70,7 @@ class Editor extends React.Component {
         this.mouse.x = relativeMouseCoords.x;
         this.mouse.y = relativeMouseCoords.y;
         this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-        const intersects = this.raycaster.intersectObject(this.floor, true);
+        const intersects = this.raycaster.intersectObject(this.grid, true);
         if (intersects.length) {
             const vector = intersects[0].point;
             Object.keys(vector).forEach((coord) => {
@@ -110,11 +107,14 @@ class Editor extends React.Component {
             >
                 <scene
                     fog={this.fog}
+                    ref={(scene) => {
+                        this.scene = scene;
+                    }}
                 >
                     <Lights />
-                    <Floor
-                        onRef={(floor) => {
-                            this.floor = floor;
+                    <Grid
+                        onRef={(grid) => {
+                            this.grid = grid;
                         }}
                     />
                     <OrtographicCamera
@@ -124,45 +124,8 @@ class Editor extends React.Component {
                         onRef={(camera) => {
                             this.camera = camera;
                         }}
+                        controlsEnabled
                     />
-
-                    <group>
-                        {false ? (
-                            <mesh
-                                position={this.state.position}
-                                castShadow
-                                receiveShadow
-                            >
-                                <boxGeometry
-                                    width={10}
-                                    height={5}
-                                    depth={10}
-                                />
-                                <meshLambertMaterial
-                                    color={0xffbbaa}
-                                    opacity={0.5}
-                                    transparent
-                                />
-                            </mesh>
-                        ) : null}
-                        {this.state.cubes.map((position, index) => (
-                            <mesh
-                                key={index}
-                                position={position}
-                                castShadow
-                                receiveShadow
-                            >
-                                <boxGeometry
-                                    width={10}
-                                    height={5}
-                                    depth={10}
-                                />
-                                <meshLambertMaterial
-                                    color={0xffbbaa}
-                                />
-                            </mesh>
-                        ))}
-                    </group>
                 </scene>
             </Canvas>
         );

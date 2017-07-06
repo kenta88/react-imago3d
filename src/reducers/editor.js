@@ -17,6 +17,9 @@ export const initialState: Map<string, any> = fromJS({
 export const getIsAddingMode = (store: Store) => {
     return store.getIn(['editor', 'isAddingMode']);
 };
+export const getIsEditMode = (store: Store) => {
+    return store.getIn(['editor', 'isEditMode']);
+};
 export const getCurrentObject = (store: Store) => {
     return store.getIn(['editor', 'currentObject']);
 };
@@ -28,6 +31,10 @@ export default (state: Store = initialState, action: Action) => {
     switch (action.type) {
         case EDITOR.CREATE_OBJECT: {
             const next = state.set('isAddingMode', true);
+            return next.set('currentObject', action.payload.currentObject);
+        }
+        case EDITOR.EDIT_OBJECT: {
+            const next = state.set('isEditMode', true);
             return next.set('currentObject', action.payload.currentObject);
         }
         case EDITOR.ADD_OBJECT: {

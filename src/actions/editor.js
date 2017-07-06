@@ -9,6 +9,13 @@ export const createObject = (currentObject: Object) => ({
     }
 });
 
+export const editObject = (currentObject: Object) => ({
+    type: EDITOR.EDIT_OBJECT,
+    payload: {
+        currentObject,
+    }
+});
+
 export const addObject = (currentObject: Object) => ({
     type: EDITOR.ADD_OBJECT,
     payload: {

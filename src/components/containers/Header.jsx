@@ -47,6 +47,7 @@ class Header extends React.Component {
     @autobind
     onClick3dObject(type) {
         this.props.createObject(OBJECTS3D[type]);
+        document.body.style.cursor = 'pointer';
         this.closeDrawner();
     }
 

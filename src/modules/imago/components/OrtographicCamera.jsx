@@ -9,6 +9,7 @@ class OrtographicCamera extends React.Component {
     constructor(props) {
         super(props);
         this.camera = null;
+        this.controls = null;
         this.state = {
             position: new THREE.Vector3(-150, 100, -150),
         };
@@ -16,6 +17,10 @@ class OrtographicCamera extends React.Component {
 
     componentDidMount() {
         this.initializeOrbitControls();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.controls.enabled = nextProps.controlsEnabled;
     }
 
     initializeOrbitControls() {
@@ -41,7 +46,7 @@ class OrtographicCamera extends React.Component {
         //     });
         // });
         this.controls = controls;
-        this.props.onRef(this.camera);
+        this.props.onRef(this.camera, this.controls);
     }
 
     render() {

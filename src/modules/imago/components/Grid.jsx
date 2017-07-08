@@ -17,6 +17,7 @@ class Grid extends React.Component {
                     quaternion={groundQuaternion}
                     position={new THREE.Vector3(0, 0, 0)}
                     ref={this.props.onRef}
+                    name="grid"
                 >
                     <planeBufferGeometry
                         width={1000}

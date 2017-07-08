@@ -1,27 +1,44 @@
 import React from 'react';
+import autobind from 'autobind-decorator';
 
 type Props = {
     object: Object,
     isVisible: boolean,
+    onRef: () => void,
 };
 
-class Editor extends React.Component {
+class BoundingBox extends React.Component {
 
     constructor(props: Props) {
         super(props);
         this.state = {};
+        this.boundingBox = null;
+    }
+
+    componentDidUpdate() {
+        if (this.boundingBox) {
+            this.boundingBox.geometry.computeBoundingBox();
+            this.props.onRef(this.boundingBox);
+        }
+    }
+
+    @autobind
+    onRefObj(obj) {
+        this.boundingBox = obj;
     }
 
     render() {
         if (!this.props.isVisible) {
             return null;
         }
+        const color = this.props.object.notAllowed ? this.props.object.notAllowedColor : this.props.object.color;
         return (
             <group>
                 <mesh
                     castShadow
                     receiveShadow
                     position={this.props.object.position}
+                    ref={this.onRefObj}
                 >
                     <boxGeometry
                         width={this.props.object.width}
@@ -29,7 +46,7 @@ class Editor extends React.Component {
                         depth={this.props.object.depth}
                     />
                     <meshLambertMaterial
-                        color={this.props.object.color}
+                        color={color}
                         opacity={0.5}
                         transparent
                     />
@@ -39,4 +56,4 @@ class Editor extends React.Component {
     }
 }
 
-export default Editor;
+export default BoundingBox;

@@ -14,5 +14,7 @@ export default {
         opacity: 1,
         transparent: false,
         ref: null,
+        notAllowed: false,
+        notAllowedColor: 0xff0000,
     },
 };

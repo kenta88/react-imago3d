@@ -11,7 +11,7 @@ export const initialState: Map<string, any> = fromJS({
     isEditMode: false,
     isAddingMode: false,
     currentObject: null,
-    objects: []
+    objects: [],
 });
 
 export const getIsAddingMode = (store: Store) => {
@@ -39,9 +39,10 @@ export default (state: Store = initialState, action: Action) => {
         }
         case EDITOR.ADD_OBJECT: {
             const objects = state.get('objects');
-            let next = state.set('isAddingMode', false);
-            next = next.set('objects', objects.push(action.payload.currentObject));
-            return next.set('currentObject', null);
+            // let next = state.set('isAddingMode', false);
+            const next = state.set('objects', objects.push(action.payload.currentObject));
+            // return next.set('currentObject', null);
+            return next;
         }
         case EDITOR.EXIT_ADDING_MODE: {
             const next = state.set('isAddingMode', false);

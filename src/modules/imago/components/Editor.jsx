@@ -1,4 +1,5 @@
 import React from 'react';
+import autobind from 'autobind-decorator';
 import * as THREE from 'three';
 import { connect } from 'react-redux';
 import UUID from 'uuid/v4';
@@ -55,6 +56,7 @@ class Editor extends React.Component {
         this.plane = null;
         this.planeRaycaster = new THREE.Raycaster();
         this.intersected = null;
+        this.boundingBox = null;
         this.mouse = new THREE.Vector2();
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
@@ -62,7 +64,10 @@ class Editor extends React.Component {
         this.vertexHelper = [];
         this.mouseDown = false;
 
+        this.renderedItems = [];
+
         this.state = {
+            controlsEnabled: true,
             currentObject: this.props.currentObject,
             current3dItem: null,
         };
@@ -91,6 +96,14 @@ class Editor extends React.Component {
         if (nextProps.currentObject !== this.props.currentObject) {
             this.setState({
                 currentObject: nextProps.currentObject
+            });
+        }
+
+        if (nextProps.isAddingMode !== this.props.isAddingMode) {
+            // const cursor = (nextProps.isAddingMode) ? 'none' : 'auto';
+            // document.body.style.cursor = cursor;
+            this.setState({
+                controlsEnabled: !nextProps.isAddingMode,
             });
         }
     }
@@ -123,8 +136,9 @@ class Editor extends React.Component {
         }
     }
 
+    @autobind
     onItemsRendered(refs) {
-        console.log(refs, this.state);
+        this.renderedItems = refs;
     }
 
     getRelativeMouseCord(event) {
@@ -145,70 +159,43 @@ class Editor extends React.Component {
         this.mouse.x = relativeMouseCoords.x;
         this.mouse.y = relativeMouseCoords.y;
         this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-        const intersects = this.raycaster.intersectObject(this.grid, true);
-        if (intersects.length) {
-            const vector = intersects[0].point;
+
+        const gridIntersect = this.raycaster.intersectObject(this.grid, true)[0];
+
+        if (gridIntersect) {
+            const vector = gridIntersect.point;
             Object.keys(vector).forEach((coord) => {
                 if (coord !== 'y') {
-                    const n = intersects[0].point[coord];
-                    intersects[0].point[coord] = Math.ceil(n / 5.0) * 5;
+                    let n = gridIntersect.point[coord];
+                    n = Math.ceil(n / 5.0) * 5.0;
+                    n = !(n % 10) ? n + 5 : n;
+                    gridIntersect.point[coord] = n;
                 }
             });
-            intersects[0].point.y = currentObject.position.y;
-            currentObject.position = intersects[0].point;
+            gridIntersect.point.y = currentObject.position.y;
+            currentObject.position = gridIntersect.point;
+            // get the items with the same type
+            const boundingBoxCollide = this.renderedItems ? this.renderedItems.some((item3d) => {
+                const logicObj = this.props.objects.find((logicItem) => {
+                    return logicItem.uuid === item3d.name;
+                });
+                if (logicObj.type === currentObject.type) {
+                    return item3d.position.equals(this.boundingBox.position);
+                }
+                return false;
+            }) : [];
+            // the object collide with another one
+            currentObject.notAllowed = false;
+            if (boundingBoxCollide) {
+                currentObject.notAllowed = true;
+            }
             this.setState({
                 currentObject,
+            }, () => {
+                if (this.mouseDown && !this.state.currentObject.notAllowed) {
+                    this.addObject();
+                }
             });
-        }
-    }
-
-    highlightVertex(relativeMouseCoords) {
-        this.mouse.x = relativeMouseCoords.x;
-        this.mouse.y = relativeMouseCoords.y;
-        this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-
-        if (this.intersected && this.mouseDown) {
-            this.plane.updateMatrixWorld();
-            this.plane.position.copy(this.intersected.position);
-            this.plane.lookAt(this.camera.position);
-            const intersects = this.raycaster.intersectObject(this.plane);
-
-            if (intersects.length) {
-                const current3dItem = this.state.current3dItem;
-                const increaseRatio = Math.abs(intersects[0].point.clone().length()) /
-                Math.abs(this.intersected.position.clone().length());
-                console.log(increaseRatio);
-                //eslint-disable-line
-                current3dItem.scale.set(
-                    current3dItem.scale.x * increaseRatio,
-                    current3dItem.scale.y * increaseRatio,
-                    current3dItem.scale.z * increaseRatio,
-                );
-                current3dItem.geometry.verticesNeedUpdate = true;
-                for (let i = 0; i < this.vertexHelpers.length; i++) {
-                    // const vector = new THREE.Vector3().copy(this.vertexHelpers[i].position);
-                    const vector = this.vertexHelpers[i].position.clone().sub(current3dItem.position); //eslint-disable-line
-                    vector.multiplyScalar(increaseRatio);
-                    this.vertexHelpers[i].position.copy(vector.add(current3dItem.position));
-                }
-            }
-        } else {
-            const intersects = this.raycaster.intersectObjects(this.vertexHelpers, false);
-            if (intersects.length) {
-                if (this.intersected) {
-                    this.intersected.material.emissive.setHex(this.intersected.currentHex);
-                }
-                this.intersected = intersects[0].object;
-                this.intersected.currentHex = this.intersected.material.emissive.getHex();
-                this.intersected.material.emissive.setHex(0xff0000);
-                document.body.style.cursor = 'move';
-            } else {
-                if (this.intersected) {
-                    this.intersected.material.emissive.setHex(this.intersected.currentHex);
-                }
-                this.intersected = null;
-                document.body.style.cursor = 'auto';
-            }
         }
     }
 
@@ -218,7 +205,7 @@ class Editor extends React.Component {
         this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
         if (intersects.length) {
-            if (intersects[0].object.name.length) {
+            if (intersects[0].object.name !== 'grid') {
                 if (this.intersected) {
                     this.intersected.material.emissive.setHex(this.intersected.currentHex);
                 }
@@ -247,9 +234,6 @@ class Editor extends React.Component {
         this.props.addObject({
             ...this.state.currentObject,
             uuid,
-        });
-        this.setState({
-            currentObject: null,
         });
     }
 
@@ -329,6 +313,9 @@ class Editor extends React.Component {
                     <BoundingBox
                         object={this.state.currentObject}
                         isVisible={this.props.isAddingMode}
+                        onRef={(boundingBox) => {
+                            this.boundingBox = boundingBox;
+                        }}
                     />
                     <Ensemble
                         objects={this.props.objects}
@@ -348,7 +335,7 @@ class Editor extends React.Component {
                             this.camera = camera;
                             this.controls = controls;
                         }}
-                        controlsEnabled={!this.props.isEditMode}
+                        controlsEnabled={this.state.controlsEnabled}
                     />
                 </scene>
             </Canvas>

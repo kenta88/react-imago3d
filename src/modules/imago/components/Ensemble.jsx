@@ -24,21 +24,6 @@ class Ensemble extends React.Component {
 
     @autobind
     onRefObj(obj) {
-        // const sphere = new THREE.Mesh(
-        //     new THREE.SphereGeometry(0.5, 0.5, 0.5, 8, 8),
-        //     new THREE.MeshBasicMaterial({ color: 0x000000 })
-        // );
-        // const object = obj;
-        // const vertexHelpers = [];
-        // for (let i = 0; i < object.geometry.vertices.length; i++) {
-        //     const vertexHelper = sphere.clone();
-        //     const vertexPosition = object.geometry.vertices[i];
-        //     vertexHelper.position.copy(vertexPosition).add(object.position);
-        //     vertexHelper.visible = true;
-        //     object.vertexHelpers = vertexHelpers;
-        //     this.props.scene.add(vertexHelper);
-        //     vertexHelpers.push(vertexHelper);
-        // }
         this.renderedObject.push(obj);
     }
 

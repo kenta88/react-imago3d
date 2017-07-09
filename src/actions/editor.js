@@ -26,3 +26,7 @@ export const addObject = (currentObject: Object) => ({
 export const exitAddingMode = () => ({
     type: EDITOR.EXIT_ADDING_MODE,
 });
+
+export const exitEditingMode = () => ({
+    type: EDITOR.EXIT_EDITING_MODE,
+});

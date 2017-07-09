@@ -13,6 +13,8 @@ import {
 import {
     addObject,
     editObject,
+    exitAddingMode,
+    exitEditingMode,
 } from '../../../actions/editor';
 
 import Canvas from './Canvas';
@@ -31,6 +33,8 @@ type Props = {
     objects: Array<Object>, // eslint-disable-line
     addObject: (Object) => void,
     editObject: (Object) => void, // eslint-disable-line
+    exitAddingMode: (Object) => void, // eslint-disable-line
+    exitEditingMode: (Object) => void, // eslint-disable-line
 };
 
 @connect(
@@ -43,6 +47,8 @@ type Props = {
     {
         addObject,
         editObject,
+        exitAddingMode,
+        exitEditingMode,
     }
 )
 class Editor extends React.Component {
@@ -53,15 +59,14 @@ class Editor extends React.Component {
         this.camera = null;
         this.scene = null;
         this.grid = null;
-        this.plane = null;
-        this.planeRaycaster = new THREE.Raycaster();
-        this.intersected = null;
         this.boundingBox = null;
+
+        this.intersected = null;
+
         this.mouse = new THREE.Vector2();
         this.auxVector2 = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
         this.objects = [];
-        this.vertexHelper = [];
         this.mouseDown = false;
 
         this.renderedItems = [];
@@ -89,10 +94,15 @@ class Editor extends React.Component {
         this.canvas.addEventListener('mouseup', () => {
             this.mouseDown = false;
         }, false);
+        window.addEventListener('keydown', () => {
+            if (event.keyCode === 27) {
+                this.props.exitAddingMode();
+                this.props.exitEditingMode();
+            }
+        }, false);
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        console.log('isEditMode', nextProps.isEditMode);
         if (nextProps.currentObject !== this.props.currentObject) {
             this.setState({
                 currentObject: nextProps.currentObject
@@ -100,8 +110,6 @@ class Editor extends React.Component {
         }
 
         if (nextProps.isAddingMode !== this.props.isAddingMode) {
-            // const cursor = (nextProps.isAddingMode) ? 'none' : 'auto';
-            // document.body.style.cursor = cursor;
             this.setState({
                 controlsEnabled: !nextProps.isAddingMode,
             });
@@ -115,7 +123,7 @@ class Editor extends React.Component {
             this.movingBoundigBox(relativeMouseCoords);
         }
         if (this.props.isEditMode) {
-            this.highlightVertex(relativeMouseCoords);
+            console.log('choose the object');
         }
         if (!this.props.isAddingMode && !this.props.isEditMode) {
             this.highlightObjects(relativeMouseCoords);
@@ -237,51 +245,19 @@ class Editor extends React.Component {
         });
     }
 
-    addVertexHelper() {
-        this.plane = new THREE.Mesh(
-        new THREE.PlaneBufferGeometry(150, 150, 150, 1, 1, 1),
-        new THREE.MeshBasicMaterial({
-            color: 0x000000,
-            transparent: true,
-            opacity: 0.1,
-            depthWrite: false,
-            side: THREE.DoubleSide,
-        }));
-        this.plane.visible = true;
-        this.scene.add(this.plane);
-        const object = this.intersected;
-        this.vertexHelpers = [];
-        for (let i = 0; i < object.geometry.vertices.length; i++) {
-            const sphere = new THREE.Mesh(
-                new THREE.SphereGeometry(0.5, 0.5, 0.5, 8, 8),
-                new THREE.MeshLambertMaterial({ color: 0x000000 })
-            );
-            const vertexHelper = sphere.clone();
-            const vertexPosition = object.geometry.vertices[i];
-            vertexHelper.position.copy(vertexPosition).add(object.position);
-            vertexHelper.visible = true;
-            object.vertexHelpers = this.vertexHelpers;
-            this.scene.add(vertexHelper);
-            this.vertexHelpers.push(vertexHelper);
-        }
-    }
-
     editObject() {
         if (this.intersected) {
             document.body.style.cursor = 'auto';
-            this.addVertexHelper();
             const objectToEdit = this.props.objects.find((obj) => { // eslint-disable-line
                 return obj.uuid === this.intersected.name;
             });
             this.setState({
                 current3dItem: this.intersected,
             });
-
             const {
                 x,
                 z,
             } = this.intersected.position;
-
             this.camera.position.x = x - 150;
             this.camera.position.z = z - 150;
             this.camera.position.y = 100;

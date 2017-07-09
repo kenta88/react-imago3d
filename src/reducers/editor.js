@@ -44,6 +44,10 @@ export default (state: Store = initialState, action: Action) => {
             // return next.set('currentObject', null);
             return next;
         }
+        case EDITOR.EXIT_EDITING_MODE: {
+            const next = state.set('isEditMode', false);
+            return next.set('currentObject', null);
+        }
         case EDITOR.EXIT_ADDING_MODE: {
             const next = state.set('isAddingMode', false);
             return next.set('currentObject', null);

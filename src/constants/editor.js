@@ -6,4 +6,5 @@ export default createConstants('editor')(
     'EDIT_OBJECT',
     'ADD_OBJECT',
     'EXIT_ADDING_MODE',
+    'EXIT_EDITING_MODE',
 );

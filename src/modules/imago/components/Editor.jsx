@@ -95,9 +95,14 @@ class Editor extends React.Component {
             this.mouseDown = false;
         }, false);
         window.addEventListener('keydown', () => {
+            // esc
             if (event.keyCode === 27) {
                 this.props.exitAddingMode();
                 this.props.exitEditingMode();
+            }
+            // r - rotate
+            if (event.keyCode === 82) {
+                this.rotateBoundingBox();
             }
         }, false);
     }
@@ -172,11 +177,15 @@ class Editor extends React.Component {
 
         if (gridIntersect) {
             const vector = gridIntersect.point;
+            const step = currentObject.step;
             Object.keys(vector).forEach((coord) => {
                 if (coord !== 'y') {
                     let n = gridIntersect.point[coord];
-                    n = Math.ceil(n / 5.0) * 5.0;
-                    n = !(n % 10) ? n + 5 : n;
+                    n = Math.ceil(n / step.size) * step.size;
+                    n = !(n % step.round) ? n + step.size : n;
+                    if (step.orientation && coord === step.orientation) {
+                        n += step.size;
+                    }
                     gridIntersect.point[coord] = n;
                 }
             });
@@ -266,6 +275,30 @@ class Editor extends React.Component {
             this.controls.controlsEnabled = false;
             this.controls.update();
             this.props.editObject(objectToEdit);
+        }
+    }
+
+    rotateBoundingBox() {
+        const currentObject = this.state.currentObject;
+        if (currentObject && this.props.isAddingMode) {
+            const width = currentObject.depth;
+            const depth = currentObject.width;
+            const currentOrientation = currentObject.step.orientation;
+            let orientation = null;
+            if (currentOrientation) {
+                orientation = (currentOrientation === 'z') ? 'x' : 'z';
+            }
+            this.setState({
+                currentObject: {
+                    ...this.state.currentObject,
+                    width,
+                    depth,
+                    step: {
+                        ...this.state.currentObject.step,
+                        orientation,
+                    }
+                }
+            });
         }
     }
 

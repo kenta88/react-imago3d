@@ -16,6 +16,11 @@ export default {
         ref: null,
         notAllowed: false,
         notAllowedColor: 0xff0000,
+        step: {
+            size: 5.0,
+            round: 10,
+            orientation: null,
+        }
     },
     WALL: {
         uuid: null,
@@ -24,12 +29,17 @@ export default {
         height: 20,
         depth: 1,
         level: 0,
-        position: new THREE.Vector3(0, 5, 0),
+        position: new THREE.Vector3(0, 10, 0),
         color: 0x777777,
         opacity: 1,
         transparent: false,
         ref: null,
         notAllowed: false,
         notAllowedColor: 0xff0000,
+        step: {
+            size: 5.0,
+            round: 10,
+            orientation: 'z'
+        }
     },
 };

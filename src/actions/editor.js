@@ -23,6 +23,13 @@ export const addObject = (currentObject: Object) => ({
     }
 });
 
+export const deleteObject = (currentObjectUUID: String) => ({
+    type: EDITOR.DELETE_OBJECT,
+    payload: {
+        currentObjectUUID,
+    }
+});
+
 export const exitAddingMode = () => ({
     type: EDITOR.EXIT_ADDING_MODE,
 });

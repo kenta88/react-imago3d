@@ -44,6 +44,12 @@ export default (state: Store = initialState, action: Action) => {
             // return next.set('currentObject', null);
             return next;
         }
+        case EDITOR.DELETE_OBJECT: {
+            const objects = state.get('objects').filter((object) => {
+                return action.payload.currentObjectUUID !== object.uuid;
+            });
+            return state.set('objects', objects);
+        }
         case EDITOR.EXIT_EDITING_MODE: {
             const next = state.set('isEditMode', false);
             return next.set('currentObject', null);

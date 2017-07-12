@@ -18,6 +18,9 @@ class Ensemble extends React.Component {
 
     componentDidUpdate(prevProps: Props) {
         if (prevProps.objects !== this.props.objects) {
+            this.renderedObject = this.renderedObject.filter((item) => {
+                return item !== null;
+            });
             this.props.onItemsRendered(this.renderedObject);
         }
     }

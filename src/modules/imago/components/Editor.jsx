@@ -12,6 +12,7 @@ import {
 } from '../../../reducers/editor';
 import {
     addObject,
+    deleteObject,
     editObject,
     exitAddingMode,
     exitEditingMode,
@@ -32,6 +33,7 @@ type Props = {
     currentObject: Object,
     objects: Array<Object>, // eslint-disable-line
     addObject: (Object) => void,
+    deleteObject: (String) => void,
     editObject: (Object) => void, // eslint-disable-line
     exitAddingMode: (Object) => void, // eslint-disable-line
     exitEditingMode: (Object) => void, // eslint-disable-line
@@ -46,6 +48,7 @@ type Props = {
     }),
     {
         addObject,
+        deleteObject,
         editObject,
         exitAddingMode,
         exitEditingMode,
@@ -95,6 +98,7 @@ class Editor extends React.Component {
             this.mouseDown = false;
         }, false);
         window.addEventListener('keydown', () => {
+            console.log(event.keyCode);
             // esc
             if (event.keyCode === 27) {
                 this.props.exitAddingMode();
@@ -103,6 +107,10 @@ class Editor extends React.Component {
             // r - rotate
             if (event.keyCode === 82) {
                 this.rotateBoundingBox();
+            }
+            // back || canc - delete object
+            if (event.keyCode === 8 || event.keyCode === 46) {
+                this.deleteObject();
             }
         }, false);
     }
@@ -169,6 +177,9 @@ class Editor extends React.Component {
 
     movingBoundigBox(relativeMouseCoords) {
         const currentObject = this.state.currentObject;
+        if (!currentObject) {
+            return;
+        }
         this.mouse.x = relativeMouseCoords.x;
         this.mouse.y = relativeMouseCoords.y;
         this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
@@ -196,7 +207,7 @@ class Editor extends React.Component {
                 const logicObj = this.props.objects.find((logicItem) => {
                     return logicItem.uuid === item3d.name;
                 });
-                if (logicObj.type === currentObject.type) {
+                if (logicObj && logicObj.type === currentObject.type) {
                     return item3d.position.equals(this.boundingBox.position);
                 }
                 return false;
@@ -260,20 +271,20 @@ class Editor extends React.Component {
             const objectToEdit = this.props.objects.find((obj) => { // eslint-disable-line
                 return obj.uuid === this.intersected.name;
             });
-            this.setState({
-                current3dItem: this.intersected,
-            });
-            const {
-                x,
-                z,
-            } = this.intersected.position;
-            this.camera.position.x = x - 150;
-            this.camera.position.z = z - 150;
-            this.camera.position.y = 100;
-            this.controls.target = this.intersected.position.clone();
-            this.camera.lookAt(this.intersected.position);
-            this.controls.controlsEnabled = false;
-            this.controls.update();
+            // this.setState({
+            //     current3dItem: this.intersected,
+            // });
+            // const {
+            //     x,
+            //     z,
+            // } = this.intersected.position;
+            // this.camera.position.x = x - 150;
+            // this.camera.position.z = z - 150;
+            // this.camera.position.y = 100;
+            // this.controls.target = this.intersected.position.clone();
+            // this.camera.lookAt(this.intersected.position);
+            // this.controls.controlsEnabled = false;
+            // this.controls.update();
             this.props.editObject(objectToEdit);
         }
     }
@@ -299,6 +310,15 @@ class Editor extends React.Component {
                     }
                 }
             });
+        }
+    }
+
+    deleteObject() {
+        const currentObject = this.state.currentObject;
+        if (this.props.isEditMode && currentObject) {
+            this.props.deleteObject(currentObject.uuid);
+            this.props.exitEditingMode();
+            this.intersected = null;
         }
     }
 

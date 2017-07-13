@@ -6,19 +6,10 @@ import {
 } from 'react-materialize';
 
 import Layout from '../../../connectors/Layout';
-import Editor from '../components/Editor';
 
-type Props = {
-    editorStore: Object,
-    exitEditMode: () => void,
-};
-
-
-class Imago3d extends React.Component {
-    constructor(props: Props) {
+class Test extends React.Component {
+    constructor(props) {
         super(props);
-        this.camera = null;
-        this.floor = null;
         this.state = {
             canvasContainerSize: null,
         };
@@ -39,6 +30,7 @@ class Imago3d extends React.Component {
             width = this.state.canvasContainerSize.width - 24;
             height = window.innerHeight - 84;
         }
+        console.log(width, height);
         return (
             <Layout>
                 <div ref={this.onRefCanvasContainer}>
@@ -48,10 +40,7 @@ class Imago3d extends React.Component {
                             id="canvasContainer"
                         >
                             {this.state.canvasContainerSize ? (
-                                <Editor
-                                    width={width}
-                                    height={height}
-                                />
+                                <h2>test is ready</h2>
                             ) : null}
                         </Col>
                     </Row>
@@ -61,4 +50,4 @@ class Imago3d extends React.Component {
     }
 }
 
-export default Imago3d;
+export default Test;

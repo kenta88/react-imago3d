@@ -1,10 +1,16 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
+import 'aframe';
+import {
+    Entity,
+    Scene,
+} from 'aframe-react';
 import {
     Row,
     Col,
 } from 'react-materialize';
 
+import '../helper/ortographicCamera';
 import Layout from '../../../connectors/Layout';
 
 class Test extends React.Component {
@@ -30,7 +36,6 @@ class Test extends React.Component {
             width = this.state.canvasContainerSize.width - 24;
             height = window.innerHeight - 84;
         }
-        console.log(width, height);
         return (
             <Layout>
                 <div ref={this.onRefCanvasContainer}>
@@ -40,7 +45,24 @@ class Test extends React.Component {
                             id="canvasContainer"
                         >
                             {this.state.canvasContainerSize ? (
-                                <h2>test is ready</h2>
+                                <Scene
+                                    width={width}
+                                    height={height}
+                                >
+                                    <Entity
+                                        geometry={{
+                                            primitive: 'box',
+                                        }}
+                                        material={{ color: 'red' }}
+                                        position={{ x: 0, y: 0, z: -5 }}
+                                    />
+                                    <Entity
+                                        orto={{
+                                            width,
+                                            height,
+                                        }}
+                                    />
+                                </Scene>
                             ) : null}
                         </Col>
                     </Row>

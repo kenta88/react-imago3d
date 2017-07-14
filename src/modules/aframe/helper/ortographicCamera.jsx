@@ -1,6 +1,8 @@
 /* global AFRAME */
 import * as THREE from 'three';
 
+import OrbitControls from '../controls/OrbitControls';
+
 if (typeof AFRAME === 'undefined') {
     throw new Error('Component attempted to register before AFRAME was available.');
 }
@@ -16,8 +18,11 @@ AFRAME.registerComponent('orto', {
     },
 
     init() {
-        console.log('camera', this);
+        this.createCamera();
+        this.addOrbitControls();
+    },
 
+    createCamera() {
         const {
             width,
             height
@@ -38,7 +43,21 @@ AFRAME.registerComponent('orto', {
         this.el.sceneEl.camera = this.camera;
     },
 
-    update() {
-        console.log('update');
+    addOrbitControls() {
+        this.controls = new OrbitControls(this.camera);
+        this.controls.enabled = true;
+        this.controls.rotateSpeed = 1.0;
+        this.controls.zoomSpeed = 1.2;
+        this.controls.panSpeed = 8.5;
+        this.controls.noZoom = false;
+        this.controls.noPan = false;
+        this.controls.staticMoving = true;
+        this.controls.dynamicDampingFactor = 0.3;
+        this.controls.minZoom = 0.3;
+        this.controls.maxZoom = 2;
+        this.controls.keyPanSpeed = 25.0;
+        this.controls.minPolarAngle = 0;
+        this.controls.maxPolarAngle = Math.PI / 2;
+        this.controls.enableKeys = true;
     }
 });

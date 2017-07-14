@@ -51,12 +51,23 @@ class Test extends React.Component {
                                 >
                                     <Entity
                                         geometry={{
-                                            primitive: 'box',
+                                            primitive: 'plane',
+                                            width: 1000,
+                                            height: 1000,
                                         }}
-                                        material={{ color: 'red' }}
+                                        material={{
+                                            color: 'red',
+                                            wireframe: true,
+                                            segmentsWidth: 100,
+                                            segmentsHeight: 100,
+                                        }}
                                         position={{ x: 0, y: 0, z: -5 }}
+                                        rotation={{ x: -90, y: 0, z: 0 }}
                                     />
                                     <Entity
+                                        _ref={(...params) => {
+                                            console.log(params);
+                                        }}
                                         orto={{
                                             width,
                                             height,

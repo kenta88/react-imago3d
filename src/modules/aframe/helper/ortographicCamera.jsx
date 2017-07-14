@@ -20,6 +20,9 @@ AFRAME.registerComponent('orto', {
     init() {
         this.createCamera();
         this.addOrbitControls();
+        this.el.sceneEl.addEventListener('render-target-loaded', (event) => {
+            event.target.renderer.setClearColor(0xcce0ff);
+        });
     },
 
     createCamera() {

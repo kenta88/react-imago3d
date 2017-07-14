@@ -48,26 +48,30 @@ class Test extends React.Component {
                                 <Scene
                                     width={width}
                                     height={height}
+                                    fog={{
+                                        type: 'linear',
+                                        color: 0xcce0ff,
+                                        density: 0.3,
+                                    }}
                                 >
                                     <Entity
                                         geometry={{
                                             primitive: 'plane',
                                             width: 1000,
                                             height: 1000,
-                                        }}
-                                        material={{
-                                            color: 'red',
-                                            wireframe: true,
                                             segmentsWidth: 100,
                                             segmentsHeight: 100,
+                                        }}
+                                        material={{
+                                            color: 0x000000,
+                                            opacity: 0.1,
+                                            wireframe: true,
+                                            transparent: true,
                                         }}
                                         position={{ x: 0, y: 0, z: -5 }}
                                         rotation={{ x: -90, y: 0, z: 0 }}
                                     />
                                     <Entity
-                                        _ref={(...params) => {
-                                            console.log(params);
-                                        }}
                                         orto={{
                                             width,
                                             height,

@@ -14,9 +14,8 @@ import getRelativeMouseCoords from '../helper/getRelativeMouseCoords';
 type Props = {
     canvas: Object, // eslint-disable-line
     isAddingMode: boolean,
-    currentObject: Object, // eslint-disable-line
+    currentObject: Object,
 };
-
 
 @connect(
     store => ({
@@ -34,7 +33,7 @@ class GhostObject extends React.Component {
         this.raycaster = new THREE.Raycaster();
 
         this.state = {
-            currentObject: null,
+            currentObject: this.props.currentObject,
         };
     }
     componentWillReceiveProps(nextProps: Props) {
@@ -59,10 +58,23 @@ class GhostObject extends React.Component {
         }
     }
 
-    bindEvent() {
-        this.canvas.addEventListener('mousemove', (event) => {
-            this.onMouseMove(event);
-        }, false);
+    getPositionStep(gridIntersect: Object) {
+        const vector = gridIntersect.point;
+        const step = this.state.currentObject.step;
+        const objectPosition = gridIntersect.point.clone();
+        Object.keys(vector).forEach((coord) => {
+            if (coord !== 'y') {
+                let n = gridIntersect.point[coord];
+                n = Math.ceil(n / step.size) * step.size;
+                n = !(n % step.round) ? n + step.size : n;
+                if (step.orientation && coord === step.orientation) {
+                    n += step.size;
+                }
+                objectPosition[coord] = n;
+            }
+        });
+        objectPosition.y = this.state.currentObject.position.y;
+        return objectPosition;
     }
 
     moveGhostObject(relativeMouseCoords: Object) {
@@ -76,25 +88,17 @@ class GhostObject extends React.Component {
 
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
-            const vector = gridIntersect.point;
-            const step = currentObject.step;
-            Object.keys(vector).forEach((coord) => {
-                if (coord !== 'y') {
-                    let n = gridIntersect.point[coord];
-                    n = Math.ceil(n / step.size) * step.size;
-                    n = !(n % step.round) ? n + step.size : n;
-                    if (step.orientation && coord === step.orientation) {
-                        n += step.size;
-                    }
-                    gridIntersect.point[coord] = n;
-                }
-            });
-            gridIntersect.point.y = currentObject.position.y;
-            currentObject.position = gridIntersect.point;
+            currentObject.position = this.getPositionStep(gridIntersect);
             this.setState({
                 currentObject,
             });
         }
+    }
+
+    bindEvent() {
+        this.canvas.addEventListener('mousemove', (event) => {
+            this.onMouseMove(event);
+        }, false);
     }
 
     render() {
@@ -108,21 +112,18 @@ class GhostObject extends React.Component {
                     <Entity
                         geometry={{
                             primitive: 'box',
-                            width: 10,
-                            height: 1,
-                            depth: 10,
+                            width: this.props.currentObject.width,
+                            height: this.props.currentObject.height,
+                            depth: this.props.currentObject.depth,
                         }}
                         shadow={{
                             receive: true,
                             cast: true,
                         }}
                         material={{
-                            color: 0xff0000,
-                            opacity: 1,
-                            wireframe: false,
-                            transparent: false,
+                            color: this.props.currentObject.color,
                         }}
-                        position={this.props.currentObject.position}
+                        position={this.state.currentObject.position}
                     />
                 ) : null}
             </Entity>

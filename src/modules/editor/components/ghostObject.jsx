@@ -53,7 +53,6 @@ class GhostObject extends React.Component {
             this.bindEvent();
         }
         if (nextProps.currentObject !== this.state.currentObject) {
-            console.log('updated by props!!');
             this.setState({
                 currentObject: nextProps.currentObject
             });
@@ -113,12 +112,7 @@ class GhostObject extends React.Component {
                 return false;
             }) : [];
 
-            currentObject.notAllowed = false;
-            if (boundingBoxCollide) {
-                console.log('boundingBoxCollide');
-                currentObject.notAllowed = true;
-            }
-            console.log('notAllowed?', currentObject);
+            currentObject.notAllowed = boundingBoxCollide;
 
             this.setState({
                 currentObject,
@@ -145,7 +139,6 @@ class GhostObject extends React.Component {
 
     render() {
         const currentObject = this.state.currentObject;
-        console.log(currentObject);
         return (
             <Entity
                 _ref={(item) => {
@@ -166,6 +159,8 @@ class GhostObject extends React.Component {
                         }}
                         material={{
                             color: (currentObject.notAllowed) ? currentObject.notAllowedColor : currentObject.color,
+                            opacity: 0.8,
+                            transparent: true,
                         }}
                         position={currentObject.position}
                     />

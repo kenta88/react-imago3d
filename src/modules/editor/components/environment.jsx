@@ -39,7 +39,6 @@ class Environment extends React.Component {
 
     @autobind
     onRefObj(obj: Object) {
-        console.log(obj);
         this.renderedObject.push(obj);
     }
 

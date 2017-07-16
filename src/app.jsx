@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import AframeRoute from './modules/aframe/routes';
+import EditorRoute from './modules/editor/routes';
 import PageNotFound from './components/PageNotFound';
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
 const App = ({ store } : Props) => {
     const layout = (
         <div>
-            <AframeRoute />
+            <EditorRoute />
             <Miss component={PageNotFound} />
         </div>
     );

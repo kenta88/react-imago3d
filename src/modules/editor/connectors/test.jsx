@@ -46,12 +46,21 @@ class Test extends React.Component {
                         >
                             {this.state.canvasContainerSize ? (
                                 <Scene
+                                    vr-mode-ui={{ enabled: false }}
                                     width={width}
                                     height={height}
                                     fog={{
                                         type: 'linear',
                                         color: 0xcce0ff,
                                         density: 0.3,
+                                    }}
+                                    events={{
+                                        'render-target-loaded': (event) => {
+                                            console.log('renderer ready', event);
+                                        },
+                                    }}
+                                    _ref={(scene) => {
+                                        console.log(scene.canvas);
                                     }}
                                 >
                                     <Entity

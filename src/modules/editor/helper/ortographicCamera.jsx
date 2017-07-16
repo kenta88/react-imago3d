@@ -20,6 +20,7 @@ AFRAME.registerComponent('orto', {
     init() {
         this.createCamera();
         this.addOrbitControls();
+        // this should be moved
         this.el.sceneEl.addEventListener('render-target-loaded', (event) => {
             event.target.renderer.setClearColor(0xcce0ff);
         });
@@ -62,5 +63,9 @@ AFRAME.registerComponent('orto', {
         this.controls.minPolarAngle = 0;
         this.controls.maxPolarAngle = Math.PI / 2;
         this.controls.enableKeys = true;
+    },
+
+    update() {
+        console.log('update');
     }
 });

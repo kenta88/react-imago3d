@@ -7,6 +7,7 @@ type Props = {
     width: number,
     height: number,
     children: React.PropTypes.node,
+    onCanvasReady: () => void,
 };
 
 class EditorScene extends React.Component {
@@ -39,10 +40,12 @@ class EditorScene extends React.Component {
                 }}
                 events={{
                     'render-target-loaded': (event) => {
-                        console.log('renderer ready', event);
+                        console.log('renderer ready', event.target.canvas);
+                        this.props.onCanvasReady(event.target.canvas);
                     },
                 }}
                 _ref={(scene) => {
+                    console.log('here the canvas');
                     console.log(scene.canvas);
                 }}
             >

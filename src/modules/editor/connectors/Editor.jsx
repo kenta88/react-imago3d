@@ -17,10 +17,17 @@ class Editor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            canvasRef: null,
             canvasContainerSize: null,
         };
     }
 
+    @autobind
+    onCanvasReady(canvas) {
+        this.setState({
+            canvasRef: canvas,
+        });
+    }
     @autobind
     onRefCanvasContainer(container) {
         const canvasContainer = container.querySelector('#canvasContainer');
@@ -48,13 +55,16 @@ class Editor extends React.Component {
                                 <EditorScene
                                     width={width}
                                     height={height}
+                                    onCanvasReady={this.onCanvasReady}
                                 >
                                     <Grid />
                                     <OrthoCamera
                                         width={width}
                                         height={height}
                                     />
-                                    <GhostObject />
+                                    <GhostObject
+                                        canvas={this.state.canvasRef}
+                                    />
                                     <SunLight />
                                 </EditorScene>
                             ) : null}

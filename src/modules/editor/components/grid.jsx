@@ -2,32 +2,11 @@ import React from 'react';
 import {
     Entity,
 } from 'aframe-react';
-import { connect } from 'react-redux';
-
-import {
-    getIsAddingMode,
-} from '../../../reducers/editor';
-
-
-type Props = {
-    isAddingMode: boolean,
-};
-
-@connect(
-    store => ({
-        isAddingMode: getIsAddingMode(store),
-    }),
-)
 
 class Grid extends React.Component {
-    constructor(props: Props) {
+    constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    componentWillReceiveProps(nextProps: Props) {
-        console.log('this is the grid');
-        console.log(nextProps.isAddingMode, this.props.isAddingMode);
     }
 
     render() {
@@ -40,8 +19,12 @@ class Grid extends React.Component {
                     segmentsWidth: 100,
                     segmentsHeight: 100,
                 }}
+                shadow={{
+                    receive: true,
+                    cast: false,
+                }}
                 material={{
-                    color: 0x000000,
+                    color: 0xCFD8DC,
                     opacity: 0.1,
                     wireframe: true,
                     transparent: true,

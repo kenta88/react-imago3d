@@ -22,9 +22,16 @@ class EditorScene extends React.Component {
         } = this.props;
         return (
             <Scene
+                inspector={{
+                    url: 'https://aframe.io/releases/0.3.0/aframe-inspector.min.js',
+                }}
                 vr-mode-ui={{ enabled: false }}
+                light={{
+                    defaultLightsEnabled: true,
+                }}
                 width={width}
                 height={height}
+                shadow
                 fog={{
                     type: 'linear',
                     color: 0xcce0ff,

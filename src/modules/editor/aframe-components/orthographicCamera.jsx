@@ -53,10 +53,10 @@ AFRAME.registerComponent('orthocamera', {
         this.controls.rotateSpeed = 1.0;
         this.controls.zoomSpeed = 1.2;
         this.controls.panSpeed = 8.5;
-        this.controls.noZoom = false;
-        this.controls.noPan = false;
-        this.controls.staticMoving = true;
-        this.controls.dynamicDampingFactor = 0.3;
+        this.controls.enableZoom = true;
+        this.controls.enablePan = true;
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = 0.3;
         this.controls.minZoom = 0.3;
         this.controls.maxZoom = 2;
         this.controls.keyPanSpeed = 25.0;

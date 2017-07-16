@@ -2,17 +2,16 @@ import React from 'react';
 import autobind from 'autobind-decorator';
 import 'aframe';
 import {
-    Entity,
-} from 'aframe-react';
-import {
     Row,
     Col,
 } from 'react-materialize';
 
-import '../aframe-components/orthographicCamera';
 import Layout from '../../../connectors/Layout';
 import EditorScene from '../components/editorScene';
 import Grid from '../components/grid';
+import OrthoCamera from '../components/orthoCamera';
+import GhostObject from '../components/ghostObject';
+import SunLight from '../components/sunLight';
 
 class Editor extends React.Component {
     constructor(props) {
@@ -51,12 +50,12 @@ class Editor extends React.Component {
                                     height={height}
                                 >
                                     <Grid />
-                                    <Entity
-                                        orthocamera={{
-                                            width,
-                                            height,
-                                        }}
+                                    <OrthoCamera
+                                        width={width}
+                                        height={height}
                                     />
+                                    <GhostObject />
+                                    <SunLight />
                                 </EditorScene>
                             ) : null}
                         </Col>

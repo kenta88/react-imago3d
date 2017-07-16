@@ -12,6 +12,7 @@ import Grid from '../components/grid';
 import OrthoCamera from '../components/orthoCamera';
 import GhostObject from '../components/ghostObject';
 import SunLight from '../components/sunLight';
+import Environment from '../components/environment';
 
 class Editor extends React.Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class Editor extends React.Component {
         this.state = {
             canvasRef: null,
             canvasContainerSize: null,
+            renderedObject: [],
         };
     }
 
@@ -26,6 +28,12 @@ class Editor extends React.Component {
     onCanvasReady(canvas) {
         this.setState({
             canvasRef: canvas,
+        });
+    }
+    @autobind
+    onItemsRendered(renderedObject: Array<Object>) {
+        this.setState({
+            renderedObject,
         });
     }
     @autobind
@@ -64,6 +72,10 @@ class Editor extends React.Component {
                                     />
                                     <GhostObject
                                         canvas={this.state.canvasRef}
+                                        renderedObject={this.state.renderedObject}
+                                    />
+                                    <Environment
+                                        onItemsRendered={this.onItemsRendered}
                                     />
                                     <SunLight />
                                 </EditorScene>

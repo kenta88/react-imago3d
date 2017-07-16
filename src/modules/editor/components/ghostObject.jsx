@@ -4,17 +4,23 @@ import * as THREE from 'three';
 import {
     Entity,
 } from 'aframe-react';
+import UUID from 'uuid/v4';
 
 import {
     getIsAddingMode,
     getCurrentObject,
 } from '../../../reducers/editor';
+import {
+    addObject,
+} from '../../../actions/editor';
 import getRelativeMouseCoords from '../helper/getRelativeMouseCoords';
 
 type Props = {
     canvas: Object, // eslint-disable-line
     isAddingMode: boolean,
     currentObject: Object,
+    addObject: (Object) => void,
+    renderedObject: Array<Object>
 };
 
 @connect(
@@ -22,6 +28,9 @@ type Props = {
         isAddingMode: getIsAddingMode(store),
         currentObject: getCurrentObject(store),
     }),
+    {
+        addObject,
+    }
 )
 class GhostObject extends React.Component {
     constructor(props: Props) {
@@ -43,7 +52,8 @@ class GhostObject extends React.Component {
             this.grid = document.querySelector('#grid');
             this.bindEvent();
         }
-        if (nextProps.currentObject !== this.props.currentObject) {
+        if (nextProps.currentObject !== this.state.currentObject) {
+            console.log('updated by props!!');
             this.setState({
                 currentObject: nextProps.currentObject
             });
@@ -55,6 +65,12 @@ class GhostObject extends React.Component {
         const relativeMouseCoords = getRelativeMouseCoords(event, this.canvas);
         if (this.props.isAddingMode) {
             this.moveGhostObject(relativeMouseCoords);
+        }
+    }
+    onMouseDbClick(event: Event) {
+        event.preventDefault();
+        if (this.props.isAddingMode) {
+            this.addObject();
         }
     }
 
@@ -89,19 +105,47 @@ class GhostObject extends React.Component {
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
+
+            const boundingBoxCollide = this.props.renderedObject ? this.props.renderedObject.some((item3d) => {
+                if (item3d.getAttribute('type') === currentObject.type) {
+                    return item3d.object3D.position.equals(currentObject.position);
+                }
+                return false;
+            }) : [];
+
+            currentObject.notAllowed = false;
+            if (boundingBoxCollide) {
+                console.log('boundingBoxCollide');
+                currentObject.notAllowed = true;
+            }
+            console.log('notAllowed?', currentObject);
+
             this.setState({
                 currentObject,
             });
         }
     }
 
+    addObject() {
+        const uuid = UUID();
+        this.props.addObject({
+            ...this.state.currentObject,
+            uuid,
+        });
+    }
+
     bindEvent() {
         this.canvas.addEventListener('mousemove', (event) => {
             this.onMouseMove(event);
         }, false);
+        this.canvas.addEventListener('dblclick', () => {
+            this.onMouseDbClick(event);
+        }, false);
     }
 
     render() {
+        const currentObject = this.state.currentObject;
+        console.log(currentObject);
         return (
             <Entity
                 _ref={(item) => {
@@ -112,18 +156,18 @@ class GhostObject extends React.Component {
                     <Entity
                         geometry={{
                             primitive: 'box',
-                            width: this.props.currentObject.width,
-                            height: this.props.currentObject.height,
-                            depth: this.props.currentObject.depth,
+                            width: currentObject.width,
+                            height: currentObject.height,
+                            depth: currentObject.depth,
                         }}
                         shadow={{
                             receive: true,
                             cast: true,
                         }}
                         material={{
-                            color: this.props.currentObject.color,
+                            color: (currentObject.notAllowed) ? currentObject.notAllowedColor : currentObject.color,
                         }}
-                        position={this.state.currentObject.position}
+                        position={currentObject.position}
                     />
                 ) : null}
             </Entity>

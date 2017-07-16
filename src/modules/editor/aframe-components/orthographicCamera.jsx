@@ -1,13 +1,13 @@
 /* global AFRAME */
 import * as THREE from 'three';
 
-import OrbitControls from '../controls/OrbitControls';
+import OrbitControls from './controls/OrbitControls';
 
 if (typeof AFRAME === 'undefined') {
     throw new Error('Component attempted to register before AFRAME was available.');
 }
 
-AFRAME.registerComponent('orto', {
+AFRAME.registerComponent('orthocamera', {
     schema: {
         width: {
             default: 256

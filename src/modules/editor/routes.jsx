@@ -1,10 +1,10 @@
 import { Match } from 'react-router';
 
-import { Test } from './connectors';
+import { Editor } from './connectors';
 
 const Routes = () => (
     <div>
-        <Match exactly pattern="/" component={Test} />
+        <Match exactly pattern="/" component={Editor} />
     </div>
 );
 

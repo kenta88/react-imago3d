@@ -1,5 +1,5 @@
-import Test from './Test';
+import Editor from './Editor';
 
 export {
-    Test,
+    Editor,
 };

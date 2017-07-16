@@ -9,7 +9,7 @@ export default {
         height: 1,
         depth: 10,
         level: 0,
-        position: new THREE.Vector3(0, 0.3, 0),
+        position: new THREE.Vector3(5, 0.5, 5),
         color: 0xCFD8DC,
         opacity: 1,
         transparent: false,

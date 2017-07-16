@@ -12,6 +12,7 @@ class Grid extends React.Component {
     render() {
         return (
             <Entity
+                id="grid"
                 geometry={{
                     primitive: 'plane',
                     width: 1000,
@@ -29,7 +30,7 @@ class Grid extends React.Component {
                     wireframe: true,
                     transparent: true,
                 }}
-                position={{ x: 0, y: 0, z: -5 }}
+                position={{ x: 0, y: 0, z: 0 }}
                 rotation={{ x: -90, y: 0, z: 0 }}
             />
         );

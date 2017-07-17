@@ -65,6 +65,14 @@ AFRAME.registerComponent('orthocamera', {
         this.controls.enableKeys = true;
     },
 
+    disableControls() {
+        this.controls.enabled = false;
+    },
+
+    enableControls() {
+        this.controls.enabled = true;
+    },
+
     update() {
         console.log('update');
     }

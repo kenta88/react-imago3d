@@ -35,6 +35,7 @@ class EditorScene extends React.Component {
     bindEvents() {
         window.addEventListener('keydown', () => {
             // esc
+            console.log(event.keyCode);
             if (event.keyCode === 27) {
                 this.props.exitAddingMode();
                 this.props.exitEditingMode();
@@ -50,7 +51,7 @@ class EditorScene extends React.Component {
         return (
             <Scene
                 inspector={{
-                    url: 'https://aframe.io/releases/0.3.0/aframe-inspector.min.js',
+                    url: 'https://aframe.io/aframe-inspector/dist/aframe-inspector.js',
                 }}
                 vr-mode-ui={{ enabled: false }}
                 light={{
@@ -66,15 +67,10 @@ class EditorScene extends React.Component {
                 }}
                 events={{
                     'render-target-loaded': (event) => {
-                        console.log('renderer ready', event.target.canvas);
                         this.canvas = event.target.canvas;
                         this.props.onCanvasReady(event.target.canvas);
                         this.bindEvents();
                     },
-                }}
-                _ref={(scene) => {
-                    console.log('here the canvas');
-                    console.log(scene.canvas);
                 }}
             >
                 {this.props.children}

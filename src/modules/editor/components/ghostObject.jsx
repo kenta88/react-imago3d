@@ -38,6 +38,8 @@ class GhostObject extends React.Component {
         this.mainEntity = null;
         this.canvas = null;
         this.camera = null;
+        this.mouseDown = false;
+        this.shiftDown = false;
         this.mouse = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
 
@@ -68,7 +70,7 @@ class GhostObject extends React.Component {
     }
     onMouseDbClick(event: Event) {
         event.preventDefault();
-        if (this.props.isAddingMode) {
+        if (this.props.isAddingMode && !this.state.currentObject.notAllowed) {
             this.addObject();
         }
     }
@@ -105,17 +107,24 @@ class GhostObject extends React.Component {
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
 
-            const boundingBoxCollide = this.props.renderedObject ? this.props.renderedObject.some((item3d) => {
+            const objectToRemove = (this.props.renderedObject) ? this.props.renderedObject.find((item3d) => {
                 if (item3d.getAttribute('type') === currentObject.type) {
                     return item3d.object3D.position.equals(currentObject.position);
                 }
                 return false;
             }) : [];
 
-            currentObject.notAllowed = boundingBoxCollide;
+            currentObject.notAllowed = !Object.is(objectToRemove, undefined);
 
             this.setState({
                 currentObject,
+            }, () => {
+                if (this.mouseDown && !this.state.currentObject.notAllowed && !this.shiftDown) {
+                    this.addObject();
+                }
+                if (this.mouseDown && this.state.currentObject.notAllowed && this.shiftDown) {
+                    console.log(objectToRemove);
+                }
             });
         }
     }
@@ -134,6 +143,24 @@ class GhostObject extends React.Component {
         }, false);
         this.canvas.addEventListener('dblclick', () => {
             this.onMouseDbClick(event);
+        }, false);
+        this.canvas.addEventListener('mousedown', () => {
+            this.mouseDown = true;
+        }, false);
+        this.canvas.addEventListener('mouseup', () => {
+            this.mouseDown = false;
+        }, false);
+        window.addEventListener('keydown', () => {
+            // shift
+            if (event.keyCode === 16) {
+                this.shiftDown = true;
+            }
+        }, false);
+        window.addEventListener('keyup', () => {
+            // shift
+            if (event.keyCode === 16) {
+                this.shiftDown = false;
+            }
         }, false);
     }
 

@@ -35,7 +35,6 @@ class EditorScene extends React.Component {
     bindEvents() {
         window.addEventListener('keydown', () => {
             // esc
-            console.log(event.keyCode);
             if (event.keyCode === 27) {
                 this.props.exitAddingMode();
                 this.props.exitEditingMode();

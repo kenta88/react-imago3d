@@ -12,6 +12,7 @@ import {
 } from '../../../reducers/editor';
 import {
     addObject,
+    deleteObject,
 } from '../../../actions/editor';
 import getRelativeMouseCoords from '../helper/getRelativeMouseCoords';
 
@@ -20,6 +21,7 @@ type Props = {
     isAddingMode: boolean,
     currentObject: Object,
     addObject: (Object) => void,
+    deleteObject: (string) => void,
     renderedObject: Array<Object>
 };
 
@@ -30,6 +32,7 @@ type Props = {
     }),
     {
         addObject,
+        deleteObject,
     }
 )
 class GhostObject extends React.Component {
@@ -106,7 +109,7 @@ class GhostObject extends React.Component {
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
-
+            console.log(this.props.renderedObject);
             const objectToRemove = (this.props.renderedObject) ? this.props.renderedObject.find((item3d) => {
                 if (item3d.getAttribute('type') === currentObject.type) {
                     return item3d.object3D.position.equals(currentObject.position);
@@ -116,14 +119,17 @@ class GhostObject extends React.Component {
 
             currentObject.notAllowed = !Object.is(objectToRemove, undefined);
 
+            if (this.mouseDown && this.state.currentObject.notAllowed && this.shiftDown) {
+                if (objectToRemove) {
+                    this.deleteObject(objectToRemove.getAttribute('uuid'));
+                }
+            }
+
             this.setState({
                 currentObject,
             }, () => {
                 if (this.mouseDown && !this.state.currentObject.notAllowed && !this.shiftDown) {
                     this.addObject();
-                }
-                if (this.mouseDown && this.state.currentObject.notAllowed && this.shiftDown) {
-                    console.log(objectToRemove);
                 }
             });
         }
@@ -135,6 +141,10 @@ class GhostObject extends React.Component {
             ...this.state.currentObject,
             uuid,
         });
+    }
+
+    deleteObject(uuid) {
+        this.props.deleteObject(uuid);
     }
 
     bindEvent() {

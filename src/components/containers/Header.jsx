@@ -47,7 +47,6 @@ class Header extends React.Component {
     @autobind
     onClick3dObject(type) {
         this.props.createObject(OBJECTS3D[type]);
-        document.body.style.cursor = 'pointer';
         this.closeDrawner();
     }
 
@@ -124,8 +123,8 @@ class Header extends React.Component {
                             rightIcon={
                                 <ActionInfo />
                             }
-                            primaryText="Cube"
-                            secondaryText="Create a cube"
+                            primaryText="Wall"
+                            secondaryText="Create a wall"
                         />
                         <ListItem
                             onClick={() => {

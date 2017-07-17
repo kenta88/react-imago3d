@@ -12,6 +12,7 @@ import Grid from '../components/grid';
 import OrthoCamera from '../components/orthoCamera';
 import GhostObject from '../components/ghostObject';
 import SunLight from '../components/sunLight';
+import AmbientLight from '../components/AmbientLight';
 import Environment from '../components/environment';
 
 class Editor extends React.Component {
@@ -78,6 +79,7 @@ class Editor extends React.Component {
                                         onItemsRendered={this.onItemsRendered}
                                     />
                                     <SunLight />
+                                    <AmbientLight />
                                 </EditorScene>
                             ) : null}
                         </Col>

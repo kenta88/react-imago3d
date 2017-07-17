@@ -21,12 +21,12 @@ class Grid extends React.Component {
                     segmentsHeight: 100,
                 }}
                 shadow={{
-                    receive: true,
+                    receive: false,
                     cast: false,
                 }}
                 material={{
-                    color: 0xCFD8DC,
-                    opacity: 0.1,
+                    color: 0x000,
+                    opacity: 0.2,
                     wireframe: true,
                     transparent: true,
                 }}

@@ -57,7 +57,7 @@ class GhostObject extends React.Component {
             this.grid = document.querySelector('#grid');
             this.bindEvent();
         }
-        if (nextProps.currentObject !== this.state.currentObject) {
+        if (nextProps.currentObject !== this.props.currentObject) {
             this.setState({
                 currentObject: nextProps.currentObject
             });
@@ -134,6 +134,30 @@ class GhostObject extends React.Component {
         }
     }
 
+    rotateGhostObject() {
+        const currentObject = this.state.currentObject;
+        if (currentObject && this.props.isAddingMode) {
+            const width = currentObject.depth;
+            const depth = currentObject.width;
+            const currentOrientation = currentObject.step.orientation;
+            let orientation = null;
+            if (currentOrientation) {
+                orientation = (currentOrientation === 'z') ? 'x' : 'z';
+            }
+            this.setState({
+                currentObject: {
+                    ...this.state.currentObject,
+                    width,
+                    depth,
+                    step: {
+                        ...this.state.currentObject.step,
+                        orientation,
+                    }
+                }
+            });
+        }
+    }
+
     addObject() {
         const uuid = UUID();
         this.props.addObject({
@@ -163,6 +187,10 @@ class GhostObject extends React.Component {
             // shift
             if (event.keyCode === 16) {
                 this.shiftDown = true;
+            }
+            // r - rotate
+            if (event.keyCode === 82) {
+                this.rotateGhostObject();
             }
         }, false);
         window.addEventListener('keyup', () => {

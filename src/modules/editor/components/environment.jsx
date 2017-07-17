@@ -30,8 +30,11 @@ class Environment extends React.Component {
 
     componentDidUpdate(prevProps: Props) {
         if (prevProps.objects !== this.props.objects) {
-            this.renderedObject = this.renderedObject.filter((item) => {
-                return item !== null;
+            const objects = this.props.objects.toJS();
+            this.renderedObject = this.renderedObject.filter((object3d) => {
+                return objects.find((item) => {
+                    return object3d.getAttribute('uuid') === item.uuid;
+                });
             });
             this.props.onItemsRendered(this.renderedObject);
         }

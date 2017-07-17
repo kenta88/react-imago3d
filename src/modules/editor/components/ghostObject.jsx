@@ -109,7 +109,6 @@ class GhostObject extends React.Component {
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
-            console.log(this.props.renderedObject);
             const objectToRemove = (this.props.renderedObject) ? this.props.renderedObject.find((item3d) => {
                 if (item3d.getAttribute('type') === currentObject.type) {
                     return item3d.object3D.position.equals(currentObject.position);
@@ -119,17 +118,17 @@ class GhostObject extends React.Component {
 
             currentObject.notAllowed = !Object.is(objectToRemove, undefined);
 
-            if (this.mouseDown && this.state.currentObject.notAllowed && this.shiftDown) {
-                if (objectToRemove) {
-                    this.deleteObject(objectToRemove.getAttribute('uuid'));
-                }
-            }
 
             this.setState({
                 currentObject,
             }, () => {
                 if (this.mouseDown && !this.state.currentObject.notAllowed && !this.shiftDown) {
                     this.addObject();
+                }
+                if (this.mouseDown && this.state.currentObject.notAllowed && this.shiftDown) {
+                    if (objectToRemove) {
+                        this.deleteObject(objectToRemove.getAttribute('uuid'));
+                    }
                 }
             });
         }

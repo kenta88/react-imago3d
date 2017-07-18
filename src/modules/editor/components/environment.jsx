@@ -8,6 +8,7 @@ import {
 import {
     getObjects,
 } from '../../../reducers/editor';
+import '../aframe-components/csg';
 
 type Props = {
     canvas: Object, // eslint-disable-line
@@ -59,6 +60,7 @@ class Environment extends React.Component {
                         type={object.type}
                         geometry={{
                             primitive: 'box',
+                            buffer: false,
                             width: object.width,
                             height: object.height,
                             depth: object.depth,
@@ -70,6 +72,7 @@ class Environment extends React.Component {
                         material={{
                             color: object.color,
                         }}
+                        csg
                         position={object.position}
                         _ref={(item) => {
                             this.onRefObj(item);

@@ -95,6 +95,7 @@
     "redux": "^3.7.0",
     "redux-immutable": "^4.0.0",
     "redux-module-builder": "^0.3.2",
-    "three": "^0.85.2"
+    "three": "^0.84.0",
+    "three-js-csg": "^72.0.0"
   }
 }

@@ -67,7 +67,7 @@ class EditorScene extends React.Component {
                 events={{
                     'render-target-loaded': (event) => {
                         this.canvas = event.target.canvas;
-                        this.props.onCanvasReady(event.target.canvas);
+                        this.props.onCanvasReady(event);
                         this.bindEvents();
                     },
                 }}

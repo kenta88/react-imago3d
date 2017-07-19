@@ -77,6 +77,17 @@ class Environment extends React.Component {
                         _ref={(item) => {
                             this.onRefObj(item);
                         }}
+                        events={{
+                            play: (event) => {
+                                console.log(event);
+                            },
+                            loaded: (event) => {
+                                console.log(event);
+                            },
+                            object3dset: (event) => {
+                                console.log(event);
+                            },
+                        }}
                     />
                 ))}
             </Entity>

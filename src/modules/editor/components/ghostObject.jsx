@@ -41,6 +41,8 @@ class GhostObject extends React.Component {
         this.mainEntity = null;
         this.canvas = null;
         this.camera = null;
+        this.ghost = null;
+        this.ghostGeometry = null;
         this.mouseDown = false;
         this.shiftDown = false;
         this.mouse = new THREE.Vector2();
@@ -97,6 +99,23 @@ class GhostObject extends React.Component {
         return objectPosition;
     }
 
+    checkGhostCollision() {
+        const mesh = this.ghost.object3D.children[0];
+        if (mesh.geometry) {
+            const collidableMeshList = this.props.renderedObject.map((el) => {
+                return el.object3D;
+            });
+            const collisions = collidableMeshList.filter((collidableMesh) => {
+                const firstBB =
+                    new THREE.Box3().setFromCenterAndSize(this.ghost.object3D.position,
+                        { x: 0.00001, y: 0.00001, z: 0.00001 });
+                const secondBB = new THREE.Box3().setFromObject(collidableMesh);
+                return firstBB.intersectsBox(secondBB);
+            });
+            console.log(collisions);
+        }
+    }
+
     moveGhostObject(relativeMouseCoords: Object) {
         const currentObject = this.state.currentObject;
         if (!currentObject) {
@@ -115,10 +134,8 @@ class GhostObject extends React.Component {
                 }
                 return false;
             }) : [];
-
             currentObject.notAllowed = !Object.is(objectToRemove, undefined);
-
-
+            this.checkGhostCollision();
             this.setState({
                 currentObject,
             }, () => {
@@ -205,17 +222,21 @@ class GhostObject extends React.Component {
         const currentObject = this.state.currentObject;
         return (
             <Entity
+                id="ghostGroup"
                 _ref={(item) => {
                     this.mainEntity = item;
                 }}
             >
-                {this.props.isAddingMode ? (
+                {this.props.isAddingMode && currentObject !== null ? (
                     <Entity
+                        id="ghost"
                         geometry={{
                             primitive: 'box',
+                            buffer: false,
                             width: currentObject.width,
                             height: currentObject.height,
                             depth: currentObject.depth,
+                            skipCache: true,
                         }}
                         shadow={{
                             receive: true,
@@ -223,10 +244,13 @@ class GhostObject extends React.Component {
                         }}
                         material={{
                             color: (currentObject.notAllowed) ? currentObject.notAllowedColor : currentObject.color,
-                            opacity: 0.8,
                             transparent: true,
+                            opacity: 0.5,
                         }}
                         position={currentObject.position}
+                        _ref={(item) => {
+                            this.ghost = item;
+                        }}
                     />
                 ) : null}
             </Entity>

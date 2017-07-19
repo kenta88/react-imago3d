@@ -128,6 +128,27 @@ class Header extends React.Component {
                         />
                         <ListItem
                             onClick={() => {
+                                this.onClick3dObject('WINDOW');
+                            }}
+                            leftAvatar={
+                                <Avatar
+                                    icon={
+                                        <FontAwesome
+                                            name="cube"
+                                            size="2x"
+                                        />
+                                    }
+                                    backgroundColor={brown500}
+                                />
+                            }
+                            rightIcon={
+                                <ActionInfo />
+                            }
+                            primaryText="Window"
+                            secondaryText="Create a Window"
+                        />
+                        <ListItem
+                            onClick={() => {
                                 this.onClick3dObject('FLOOR');
                             }}
                             leftAvatar={

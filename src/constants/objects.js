@@ -42,4 +42,24 @@ export default {
             orientation: 'z'
         }
     },
+    WINDOW: {
+        uuid: null,
+        type: 'WINDOW',
+        width: 20,
+        height: 10,
+        depth: 1.2,
+        level: 0,
+        position: new THREE.Vector3(0, 12, 0),
+        color: 0x000,
+        opacity: 0.5,
+        transparent: true,
+        ref: null,
+        notAllowed: false,
+        notAllowedColor: 0xff0000,
+        step: {
+            size: 10.0,
+            round: 5,
+            orientation: 'z'
+        }
+    },
 };

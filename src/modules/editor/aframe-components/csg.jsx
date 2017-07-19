@@ -13,13 +13,11 @@ AFRAME.registerComponent('csg', {
     schema: {},
 
     init() {
-
     },
 
     removeObject() {
         const ThreeBSP = BSP(THREE);
         const mesh = this.el.object3D.children[0];
-        console.log(this.el.object3D, mesh);
         const box = new THREE.Mesh(new THREE.SphereGeometry(1, 10, 10));
         box.position.copy(mesh.position);
         const objectBSP = new ThreeBSP(mesh);

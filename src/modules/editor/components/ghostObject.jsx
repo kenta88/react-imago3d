@@ -76,7 +76,11 @@ class GhostObject extends React.Component {
     onMouseDbClick(event: Event) {
         event.preventDefault();
         if (this.props.isAddingMode && !this.state.currentObject.notAllowed) {
-            this.addObject();
+            if (this.state.currentObject.type === 'WINDOW') {
+                this.subtractFromCollisions();
+            } else {
+                this.addObject();
+            }
         }
     }
 
@@ -112,8 +116,9 @@ class GhostObject extends React.Component {
                 const secondBB = new THREE.Box3().setFromObject(collidableMesh);
                 return firstBB.intersectsBox(secondBB);
             });
-            console.log(collisions);
+            return collisions;
         }
+        return [];
     }
 
     moveGhostObject(relativeMouseCoords: Object) {
@@ -135,7 +140,10 @@ class GhostObject extends React.Component {
                 return false;
             }) : [];
             currentObject.notAllowed = !Object.is(objectToRemove, undefined);
-            this.checkGhostCollision();
+            if (currentObject.type === 'WINDOW') {
+                currentObject.collisions = this.checkGhostCollision();
+                currentObject.notAllowed = currentObject.collisions.length < 1;
+            }
             this.setState({
                 currentObject,
             }, () => {
@@ -173,6 +181,13 @@ class GhostObject extends React.Component {
                 }
             });
         }
+    }
+
+    subtractFromCollisions() {
+        const collisions = this.state.currentObject.collisions;
+        collisions.forEach((collidedMesh) => {
+            collidedMesh.el.components.csg.subtractMesh(this.ghost);
+        });
     }
 
     addObject() {

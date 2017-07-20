@@ -137,7 +137,6 @@ class Editor extends React.Component {
                 return obj.uuid === uuidToFind;
             });
             this.props.editObject(objectToEdit);
-            this.highlightedObject.el.components.csg.removeObject();
             this.highlightedObject.material.color.setHex(this.highlightedObject.color);
             this.highlightedObject = null;
         }

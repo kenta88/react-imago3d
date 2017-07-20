@@ -45,7 +45,7 @@ export default {
     WINDOW: {
         uuid: null,
         type: 'WINDOW',
-        width: 20,
+        width: 10,
         height: 10,
         depth: 1.2,
         level: 0,
@@ -57,7 +57,7 @@ export default {
         notAllowed: false,
         notAllowedColor: 0xff0000,
         step: {
-            size: 10.0,
+            size: 5.0,
             round: 5,
             orientation: 'z'
         }

@@ -18,23 +18,23 @@ AFRAME.registerComponent('csg', {
     multiple: true,
 
     init() {
-        // this.el.addEventListener('componentchanged', () => {
-        //     this.createWindows();
-        // });
+        this.el.addEventListener('componentchanged', () => {
+            this.createWindows();
+        });
         this.createWindows();
     },
 
     remove() {
-        // this.el.removeObject3D('mesh');
+        this.el.removeObject3D('mesh');
     },
 
     createWindows() {
         // create windows
         this.data.windows.forEach((window) => {
             const delta = {
-                dx: window.position.x, // - this.el.object3D.position.x,
-                dy: window.position.y, // - this.el.object3D.position.y,
-                dz: window.position.z, // - this.el.object3D.position.z,
+                dx: window.position.x - this.el.object3D.position.x,
+                dy: window.position.y - this.el.object3D.position.y,
+                dz: window.position.z - this.el.object3D.position.z,
             };
             const currentMesh = this.el.object3D.children[0];
             const currentBSP = new ThreeBSP(currentMesh);
@@ -53,6 +53,6 @@ AFRAME.registerComponent('csg', {
     },
 
     update() {
-        // this.createWindows();
+        this.createWindows();
     }
 });

@@ -72,7 +72,9 @@ class Environment extends React.Component {
                         material={{
                             color: object.color,
                         }}
-                        csg
+                        csg={{
+                            windows: object.windows,
+                        }}
                         position={object.position}
                         _ref={(item) => {
                             this.onRefObj(item);

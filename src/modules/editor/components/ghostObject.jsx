@@ -169,6 +169,17 @@ class GhostObject extends React.Component {
             if (currentOrientation) {
                 orientation = (currentOrientation === 'z') ? 'x' : 'z';
             }
+            const windows = [];
+            if (currentObject.windows && currentObject.windows.length) {
+                currentObject.windows.forEach((window) => {
+                    windows.push({
+                        ...window,
+                        width: window.depth,
+                        depth: window.width,
+                    });
+                });
+            }
+
             this.setState({
                 currentObject: {
                     ...this.state.currentObject,
@@ -177,7 +188,8 @@ class GhostObject extends React.Component {
                     step: {
                         ...this.state.currentObject.step,
                         orientation,
-                    }
+                    },
+                    windows,
                 }
             });
         }
@@ -261,6 +273,9 @@ class GhostObject extends React.Component {
                             color: (currentObject.notAllowed) ? currentObject.notAllowedColor : currentObject.color,
                             transparent: true,
                             opacity: 0.5,
+                        }}
+                        csg={{
+                            windows: currentObject.windows,
                         }}
                         position={currentObject.position}
                         _ref={(item) => {

@@ -9,6 +9,11 @@ import {
     getObjects,
 } from '../../../reducers/editor';
 import '../aframe-components/csg';
+import {
+    Floor,
+    Window,
+    Wall,
+} from '../components3D';
 
 type Props = {
     canvas: Object, // eslint-disable-line
@@ -37,6 +42,7 @@ class Environment extends React.Component {
                     return object3d.getAttribute('uuid') === item.uuid;
                 });
             });
+            console.log(this.renderedObject);
             this.props.onItemsRendered(this.renderedObject);
         }
     }
@@ -53,34 +59,69 @@ class Environment extends React.Component {
                     this.mainEntity = item;
                 }}
             >
-                {this.props.objects.toJS().map((object, index) => (
-                    <Entity
-                        key={index}
-                        uuid={object.uuid}
-                        type={object.type}
-                        geometry={{
-                            primitive: 'box',
-                            buffer: false,
-                            width: object.width,
-                            height: object.height,
-                            depth: object.depth,
-                        }}
-                        shadow={{
-                            receive: true,
-                            cast: true,
-                        }}
-                        material={{
-                            color: object.color,
-                        }}
-                        csg={{
-                            windows: object.windows,
-                        }}
-                        position={object.position}
-                        _ref={(item) => {
-                            this.onRefObj(item);
-                        }}
-                    />
-                ))}
+                {this.props.objects.toJS().map((object, index) => {
+                    if (object.type === 'FLOOR') {
+                        return (
+                            <Floor
+                                key={index}
+                                uuid={object.uuid}
+                                position={object.position}
+                                rotation={object.rotation}
+                                _onRef={this.onRefObj}
+                            />
+                        );
+                    }
+                    if (object.type === 'WINDOW') {
+                        return (
+                            <Window
+                                key={index}
+                                uuid={object.uuid}
+                                position={object.position}
+                                rotation={object.rotation}
+                                _onRef={this.onRefObj}
+                            />
+                        );
+                    }
+                    if (object.type === 'WALL') {
+                        return (
+                            <Wall
+                                key={index}
+                                uuid={object.uuid}
+                                position={object.position}
+                                rotation={object.rotation}
+                                _onRef={this.onRefObj}
+                            />
+                        );
+                    }
+                    return (
+                        <Entity
+                            key={index}
+                            uuid={object.uuid}
+                            type={object.type}
+                            geometry={{
+                                primitive: 'box',
+                                buffer: false,
+                                width: object.width,
+                                height: object.height,
+                                depth: object.depth,
+                            }}
+                            shadow={{
+                                receive: true,
+                                cast: true,
+                            }}
+                            material={{
+                                color: object.color,
+                            }}
+                            csg={{
+                                windows: object.windows,
+                            }}
+                            position={object.position}
+                            _ref={(item) => {
+                                this.onRefObj(item);
+                            }}
+                        />
+                    );
+                })}
             </Entity>
         );
     }

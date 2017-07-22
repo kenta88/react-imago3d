@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as THREE from 'three';
-import {
-    Entity,
-} from 'aframe-react';
 import UUID from 'uuid/v4';
 
 import {
@@ -14,6 +11,11 @@ import {
     addObject,
     deleteObject,
 } from '../../../actions/editor';
+import {
+    Floor,
+    Window,
+    Wall,
+} from '../components3D';
 import getRelativeMouseCoords from '../helper/getRelativeMouseCoords';
 
 type Props = {
@@ -38,11 +40,9 @@ type Props = {
 class GhostObject extends React.Component {
     constructor(props: Props) {
         super(props);
-        this.mainEntity = null;
         this.canvas = null;
         this.camera = null;
         this.ghost = null;
-        this.ghostGeometry = null;
         this.mouseDown = false;
         this.shiftDown = false;
         this.mouse = new THREE.Vector2();
@@ -55,8 +55,8 @@ class GhostObject extends React.Component {
     componentWillReceiveProps(nextProps: Props) {
         if (!this.canvas && nextProps.canvas) {
             this.canvas = nextProps.canvas;
-            this.camera = this.mainEntity.sceneEl.camera;
             this.grid = document.querySelector('#grid');
+            this.camera = this.grid.sceneEl.camera;
             this.bindEvent();
         }
         if (nextProps.currentObject !== this.props.currentObject) {
@@ -76,11 +76,7 @@ class GhostObject extends React.Component {
     onMouseDbClick(event: Event) {
         event.preventDefault();
         if (this.props.isAddingMode && !this.state.currentObject.notAllowed) {
-            if (this.state.currentObject.type === 'WINDOW') {
-                this.subtractFromCollisions();
-            } else {
-                this.addObject();
-            }
+            this.addObject();
         }
     }
 
@@ -109,16 +105,18 @@ class GhostObject extends React.Component {
             const collidableMeshList = this.props.renderedObject.map((el) => {
                 return el.object3D;
             });
-            const collisions = collidableMeshList.filter((collidableMesh) => {
-                const firstBB =
-                    new THREE.Box3().setFromCenterAndSize(this.ghost.object3D.position,
-                        { x: 0.00001, y: 0.00001, z: 0.00001 });
+            const isCollided = collidableMeshList.some((collidableMesh) => {
+                const firstBB = new THREE.Box3()
+                    .setFromCenterAndSize(
+                        this.ghost.object3D.position,
+                        { x: 0.00001, y: 0.00001, z: 0.00001 },
+                    );
                 const secondBB = new THREE.Box3().setFromObject(collidableMesh);
                 return firstBB.intersectsBox(secondBB);
             });
-            return collisions;
+            return isCollided;
         }
-        return [];
+        return false;
     }
 
     moveGhostObject(relativeMouseCoords: Object) {
@@ -133,17 +131,16 @@ class GhostObject extends React.Component {
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
+
             const objectToRemove = (this.props.renderedObject) ? this.props.renderedObject.find((item3d) => {
                 if (item3d.getAttribute('type') === currentObject.type) {
                     return item3d.object3D.position.equals(currentObject.position);
                 }
                 return false;
             }) : [];
-            currentObject.notAllowed = !Object.is(objectToRemove, undefined);
-            if (currentObject.type === 'WINDOW') {
-                currentObject.collisions = this.checkGhostCollision();
-                currentObject.notAllowed = currentObject.collisions.length < 1;
-            }
+
+            currentObject.notAllowed = this.checkGhostCollision() || objectToRemove;
+
             this.setState({
                 currentObject,
             }, () => {
@@ -162,44 +159,15 @@ class GhostObject extends React.Component {
     rotateGhostObject() {
         const currentObject = this.state.currentObject;
         if (currentObject && this.props.isAddingMode) {
-            const width = currentObject.depth;
-            const depth = currentObject.width;
-            const currentOrientation = currentObject.step.orientation;
-            let orientation = null;
-            if (currentOrientation) {
-                orientation = (currentOrientation === 'z') ? 'x' : 'z';
-            }
-            const windows = [];
-            if (currentObject.windows && currentObject.windows.length) {
-                currentObject.windows.forEach((window) => {
-                    windows.push({
-                        ...window,
-                        width: window.depth,
-                        depth: window.width,
-                    });
-                });
-            }
-
+            const currentDegree = currentObject.rotation.y;
+            const degreeY = (currentDegree > 0) ? 0 : 90;
             this.setState({
                 currentObject: {
-                    ...this.state.currentObject,
-                    width,
-                    depth,
-                    step: {
-                        ...this.state.currentObject.step,
-                        orientation,
-                    },
-                    windows,
+                    ...currentObject,
+                    rotation: new THREE.Vector3(0, degreeY, 0),
                 }
             });
         }
-    }
-
-    subtractFromCollisions() {
-        const collisions = this.state.currentObject.collisions;
-        collisions.forEach((collidedMesh) => {
-            collidedMesh.el.components.csg.subtractMesh(this.ghost);
-        });
     }
 
     addObject() {
@@ -247,44 +215,48 @@ class GhostObject extends React.Component {
 
     render() {
         const currentObject = this.state.currentObject;
-        return (
-            <Entity
-                id="ghostGroup"
-                _ref={(item) => {
-                    this.mainEntity = item;
-                }}
-            >
-                {this.props.isAddingMode && currentObject !== null ? (
-                    <Entity
-                        id="ghost"
-                        geometry={{
-                            primitive: 'box',
-                            buffer: false,
-                            width: currentObject.width,
-                            height: currentObject.height,
-                            depth: currentObject.depth,
-                            skipCache: true,
-                        }}
-                        shadow={{
-                            receive: true,
-                            cast: true,
-                        }}
-                        material={{
-                            color: (currentObject.notAllowed) ? currentObject.notAllowedColor : currentObject.color,
-                            transparent: true,
-                            opacity: 0.5,
-                        }}
-                        csg={{
-                            windows: currentObject.windows,
-                        }}
+        if (this.props.isAddingMode && currentObject !== null) {
+            if (currentObject.type === 'FLOOR') {
+                return (
+                    <Floor
+                        uuid={currentObject.uuid}
                         position={currentObject.position}
-                        _ref={(item) => {
+                        rotation={currentObject.rotation}
+                        _onRef={(item) => {
                             this.ghost = item;
                         }}
+                        notAllowed={currentObject.notAllowed}
                     />
-                ) : null}
-            </Entity>
-        );
+                );
+            }
+            if (currentObject.type === 'WINDOW') {
+                return (
+                    <Window
+                        uuid={currentObject.uuid}
+                        position={currentObject.position}
+                        rotation={currentObject.rotation}
+                        _onRef={(item) => {
+                            this.ghost = item;
+                        }}
+                        notAllowed={currentObject.notAllowed}
+                    />
+                );
+            }
+            if (currentObject.type === 'WALL') {
+                return (
+                    <Wall
+                        uuid={currentObject.uuid}
+                        position={currentObject.position}
+                        rotation={currentObject.rotation}
+                        _onRef={(item) => {
+                            this.ghost = item;
+                        }}
+                        notAllowed={currentObject.notAllowed}
+                    />
+                );
+            }
+        }
+        return null;
     }
 }
 

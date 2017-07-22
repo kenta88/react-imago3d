@@ -89,9 +89,6 @@ class GhostObject extends React.Component {
                 let n = gridIntersect.point[coord];
                 n = Math.ceil(n / step.size) * step.size;
                 n = !(n % step.round) ? n + step.size : n;
-                if (step.orientation && coord === step.orientation) {
-                    n += step.size;
-                }
                 objectPosition[coord] = n;
             }
         });
@@ -226,6 +223,7 @@ class GhostObject extends React.Component {
                             this.ghost = item;
                         }}
                         notAllowed={currentObject.notAllowed}
+                        isGhost
                     />
                 );
             }
@@ -239,6 +237,7 @@ class GhostObject extends React.Component {
                             this.ghost = item;
                         }}
                         notAllowed={currentObject.notAllowed}
+                        isGhost
                     />
                 );
             }
@@ -252,6 +251,7 @@ class GhostObject extends React.Component {
                             this.ghost = item;
                         }}
                         notAllowed={currentObject.notAllowed}
+                        isGhost
                     />
                 );
             }

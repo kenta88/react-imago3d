@@ -23,6 +23,13 @@ export const addObject = (currentObject: Object) => ({
     }
 });
 
+export const setObjectWillSelected = (objectUUID: String) => ({
+    type: EDITOR.SET_OBJECT_WILL_SELECTED,
+    payload: {
+        objectUUID,
+    }
+});
+
 export const deleteObject = (currentObjectUUID: String) => ({
     type: EDITOR.DELETE_OBJECT,
     payload: {

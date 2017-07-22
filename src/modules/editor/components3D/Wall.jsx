@@ -9,6 +9,8 @@ type Props = {
     rotation: Object,
     _onRef: () => void,
     notAllowed: boolean,
+    isGhost: boolean,
+    willSelected: boolean,
 };
 
 class Wall extends React.Component {
@@ -34,7 +36,9 @@ class Wall extends React.Component {
                     cast: true,
                 }}
                 material={{
-                    color: (this.props.notAllowed) ? 0xff0000 : 0xFFD54F,
+                    color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xFFD54F,
+                    transparent: this.props.isGhost,
+                    opacity: (this.props.isGhost) ? 0.5 : 1,
                 }}
                 position={this.props.position}
                 rotation={this.props.rotation}

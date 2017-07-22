@@ -9,4 +9,5 @@ export default createConstants('editor')(
     'DELETE_OBJECT',
     'EXIT_ADDING_MODE',
     'EXIT_EDITING_MODE',
+    'SET_OBJECT_WILL_SELECTED',
 );

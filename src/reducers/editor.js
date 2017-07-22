@@ -11,9 +11,14 @@ export const initialState: Map<string, any> = fromJS({
     isEditMode: false,
     isAddingMode: false,
     currentObject: null,
+    objectWillSelected: null,
     objects: [],
 });
 
+
+export const getObjectWillSelected = (store: Store) => {
+    return store.getIn(['editor', 'objectWillSelected']);
+};
 export const getIsAddingMode = (store: Store) => {
     return store.getIn(['editor', 'isAddingMode']);
 };
@@ -39,9 +44,7 @@ export default (state: Store = initialState, action: Action) => {
         }
         case EDITOR.ADD_OBJECT: {
             const objects = state.get('objects');
-            // let next = state.set('isAddingMode', false);
             const next = state.set('objects', objects.push(action.payload.currentObject));
-            // return next.set('currentObject', null);
             return next;
         }
         case EDITOR.DELETE_OBJECT: {
@@ -49,6 +52,9 @@ export default (state: Store = initialState, action: Action) => {
                 return action.payload.currentObjectUUID !== object.uuid;
             });
             return state.set('objects', objects);
+        }
+        case EDITOR.SET_OBJECT_WILL_SELECTED: {
+            return state.set('objectWillSelected', action.payload.objectUUID);
         }
         case EDITOR.EXIT_EDITING_MODE: {
             const next = state.set('isEditMode', false);

@@ -27,7 +27,6 @@ import GhostObject from '../components/ghostObject';
 import SunLight from '../components/sunLight';
 import AmbientLight from '../components/AmbientLight';
 import Environment from '../components/environment';
-import getRelativeMouseCoords from '../helper/getRelativeMouseCoords';
 
 type Props = {
     isAddingMode: boolean,
@@ -69,21 +68,6 @@ class Editor extends React.Component {
         };
     }
 
-    onMouseMove(event) {
-        event.preventDefault();
-        const relativeMouseCoords = getRelativeMouseCoords(event, this.canvas);
-        if (!this.props.isAddingMode && !this.props.isEditMode) {
-            this.highlightObjects(relativeMouseCoords);
-        }
-    }
-
-    onMouseDbClick(event) {
-        event.preventDefault();
-        if (!this.props.isAddingMode && !this.props.isEditMode && this.highlightedObject) {
-            this.editObject();
-        }
-    }
-
     @autobind
     onCanvasReady(event) {
         this.canvas = event.target.canvas;
@@ -91,7 +75,6 @@ class Editor extends React.Component {
         this.setState({
             canvasRef: this.canvas,
         });
-        this.bindEvent();
     }
     @autobind
     onItemsRendered(renderedObject: Array<Object>) {
@@ -105,64 +88,6 @@ class Editor extends React.Component {
         this.setState({
             canvasContainerSize: canvasContainer.getBoundingClientRect(),
         });
-    }
-
-    highlightObjects(relativeMouseCoords) {
-        this.mouse.x = relativeMouseCoords.x;
-        this.mouse.y = relativeMouseCoords.y;
-        this.raycaster.setFromCamera(this.mouse.clone(), this.camera);
-        const renderedObject3D = this.state.renderedObject.map((obj) => {
-            return obj.object3D;
-        });
-        const intersects = this.raycaster.intersectObjects(renderedObject3D, true);
-        if (intersects.length) {
-            if (this.highlightedObject) {
-                this.highlightedObject.material.color.setHex(this.highlightedObject.color);
-            }
-            this.highlightedObject = intersects[0].object;
-            this.highlightedObject.color = this.highlightedObject.material.color.getHex();
-            this.highlightedObject.material.color.setHex(0xff0000);
-        } else {
-            if (this.highlightedObject) {
-                this.highlightedObject.material.color.setHex(this.highlightedObject.color);
-            }
-            this.highlightedObject = null;
-        }
-    }
-
-    editObject() {
-        if (this.highlightedObject) {
-            const uuidToFind = this.highlightedObject.parent.el.getAttribute('uuid');
-            const objectToEdit = this.props.objects.find((obj) => { // eslint-disable-line
-                return obj.uuid === uuidToFind;
-            });
-            this.props.editObject(objectToEdit);
-            this.highlightedObject.material.color.setHex(this.highlightedObject.color);
-            this.highlightedObject = null;
-        }
-    }
-
-    deleteObject() {
-        const currentObject = this.props.currentObject;
-        if (this.props.isEditMode && currentObject) {
-            this.props.deleteObject(currentObject.uuid);
-            this.props.exitEditingMode();
-        }
-    }
-
-    bindEvent() {
-        this.canvas.addEventListener('mousemove', () => {
-            this.onMouseMove(event);
-        }, false);
-        this.canvas.addEventListener('dblclick', () => {
-            this.onMouseDbClick(event);
-        }, false);
-        window.addEventListener('keydown', () => {
-            // back || canc - delete object
-            if (event.keyCode === 8 || event.keyCode === 46) {
-                this.deleteObject();
-            }
-        }, false);
     }
 
     render() {
@@ -196,6 +121,7 @@ class Editor extends React.Component {
                                         renderedObject={this.state.renderedObject}
                                     />
                                     <Environment
+                                        canvas={this.state.canvasRef}
                                         onItemsRendered={this.onItemsRendered}
                                     />
                                     <SunLight />

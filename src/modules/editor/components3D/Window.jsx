@@ -10,6 +10,8 @@ type Props = {
     rotation: Object,
     _onRef: () => void,
     notAllowed: boolean,
+    isGhost: boolean,
+    willSelected: boolean,
 };
 
 class Window extends React.Component {
@@ -28,6 +30,7 @@ class Window extends React.Component {
                 _ref={this.props._onRef}
             >
                 <Entity
+                    uuid={this.props.uuid}
                     geometry={{
                         primitive: 'box',
                         buffer: true,
@@ -41,11 +44,14 @@ class Window extends React.Component {
                         cast: true,
                     }}
                     material={{
-                        color: (this.props.notAllowed) ? 0xff0000 : 0xFFD54F,
+                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xFFD54F,
+                        transparent: this.props.isGhost,
+                        opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}
                     position={new THREE.Vector3(0, 19, 0)}
                 />
                 <Entity
+                    uuid={this.props.uuid}
                     geometry={{
                         primitive: 'box',
                         buffer: true,
@@ -60,12 +66,13 @@ class Window extends React.Component {
                     }}
                     material={{
                         transparent: true,
-                        color: (this.props.notAllowed) ? 0xff0000 : 0xCFD8DC,
-                        opacity: 0.1,
+                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xCFD8DC,
+                        opacity: 0.2,
                     }}
                     position={new THREE.Vector3(0, 12, 0)}
                 />
                 <Entity
+                    uuid={this.props.uuid}
                     geometry={{
                         primitive: 'box',
                         buffer: true,
@@ -79,7 +86,9 @@ class Window extends React.Component {
                         cast: true,
                     }}
                     material={{
-                        color: (this.props.notAllowed) ? 0xff0000 : 0xFFD54F,
+                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xFFD54F,
+                        transparent: this.props.isGhost,
+                        opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}
                     position={new THREE.Vector3(0, 2.5, 0)}
                 />

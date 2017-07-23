@@ -44,7 +44,7 @@ class Window extends React.Component {
                         cast: true,
                     }}
                     material={{
-                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xFFD54F,
+                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0x26A69A,
                         transparent: this.props.isGhost,
                         opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}
@@ -56,7 +56,7 @@ class Window extends React.Component {
                         primitive: 'box',
                         buffer: true,
                         width: 10,
-                        height: 15,
+                        height: 18,
                         depth: 0.5,
                         skipCache: true,
                     }}
@@ -69,7 +69,7 @@ class Window extends React.Component {
                         color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xCFD8DC,
                         opacity: 0.2,
                     }}
-                    position={new THREE.Vector3(0, 12, 0)}
+                    position={new THREE.Vector3(0, 10, 0)}
                 />
                 <Entity
                     uuid={this.props.uuid}
@@ -86,7 +86,7 @@ class Window extends React.Component {
                         cast: true,
                     }}
                     material={{
-                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xFFD54F,
+                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0x26A69A,
                         transparent: this.props.isGhost,
                         opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}

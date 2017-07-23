@@ -97,23 +97,37 @@ class GhostObject extends React.Component {
     }
 
     checkGhostCollision() {
-        const mesh = this.ghost.object3D.children[0];
-        if (mesh.geometry) {
-            const collidableMeshList = this.props.renderedObject.map((el) => {
-                return el.object3D;
-            });
-            const isCollided = collidableMeshList.some((collidableMesh) => {
-                const firstBB = new THREE.Box3()
-                    .setFromCenterAndSize(
-                        this.ghost.object3D.position,
-                        { x: 0.00001, y: 0.00001, z: 0.00001 },
-                    );
-                const secondBB = new THREE.Box3().setFromObject(collidableMesh);
-                return firstBB.intersectsBox(secondBB);
-            });
-            return isCollided;
-        }
-        return false;
+        const collidableMeshList = this.props.renderedObject.map((el) => {
+            return el.object3D;
+        });
+        return this.ghost.object3D.children.some((child) => {
+            const mesh = child.el.object3D.children[0];
+            mesh.parent.updateMatrixWorld();
+            const meshPosition = new THREE.Vector3();
+            meshPosition.setFromMatrixPosition(child.matrixWorld);
+            if (mesh.geometry) {
+                const isCollided = collidableMeshList.some((collidableMesh) => {
+                    const meshSize = new THREE.Box3().setFromObject(mesh).getSize();
+                    const firstBB = new THREE.Box3()
+                        .setFromCenterAndSize(meshPosition,
+                            { x: meshSize.x - 1, y: meshSize.y - 1, z: meshSize.z - 0.5 });
+
+                    return collidableMesh.children.some((collidableMeshChild) => {
+                        // const secondBB = new THREE.Box3().setFromObject(collidableMeshChild);
+                        collidableMeshChild.parent.updateMatrixWorld();
+                        const collidableMeshPosition = new THREE.Vector3();
+                        const cMeshSize = new THREE.Box3().setFromObject(collidableMeshChild).getSize();
+                        collidableMeshPosition.setFromMatrixPosition(collidableMeshChild.matrixWorld);
+                        const secondBB = new THREE.Box3()
+                            .setFromCenterAndSize(collidableMeshPosition,
+                                { x: cMeshSize.x - 1, y: cMeshSize.y - 1, z: cMeshSize.z - 0.5 });
+                        return firstBB.intersectsBox(secondBB);
+                    });
+                });
+                return isCollided;
+            }
+            return false;
+        });
     }
 
     moveGhostObject(relativeMouseCoords: Object) {
@@ -128,7 +142,6 @@ class GhostObject extends React.Component {
         const gridIntersect = this.raycaster.intersectObject(this.grid.object3D, true)[0];
         if (gridIntersect) {
             currentObject.position = this.getPositionStep(gridIntersect);
-
             const objectToRemove = (this.props.renderedObject) ? this.props.renderedObject.find((item3d) => {
                 if (item3d.getAttribute('type') === currentObject.type) {
                     return item3d.object3D.position.equals(currentObject.position);

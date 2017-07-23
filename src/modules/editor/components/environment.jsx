@@ -16,7 +16,7 @@ import {
 import {
     createObject,
     deleteObject,
-    setObjectWillSelected
+    setObjectWillSelected,
 } from '../../../actions/editor';
 import '../aframe-components/csg';
 import {
@@ -34,6 +34,8 @@ type Props = {
     isEditMode: boolean,
     objectWillSelected: string,
     setObjectWillSelected: () => void,
+    createObject: () => void,
+    deleteObject: () => void,
 };
 
 @connect(
@@ -88,6 +90,16 @@ class Environment extends React.Component {
             this.highlightObjects(relativeMouseCoords);
         }
     }
+    onMouseDbClick(event: Event) {
+        event.preventDefault();
+        if (!this.props.isAddingMode && !this.props.isEditMode && this.props.objectWillSelected) {
+            const object = this.props.objects.find((obj) => {
+                return obj.uuid === this.props.objectWillSelected;
+            });
+            this.props.deleteObject(object.uuid);
+            this.props.createObject(object);
+        }
+    }
 
     @autobind
     onRefObj(obj: Object) {
@@ -115,6 +127,9 @@ class Environment extends React.Component {
     bindEvent() {
         this.canvas.addEventListener('mousemove', (event) => {
             this.onMouseMove(event);
+        }, false);
+        this.canvas.addEventListener('dblclick', () => {
+            this.onMouseDbClick(event);
         }, false);
     }
 

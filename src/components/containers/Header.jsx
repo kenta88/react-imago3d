@@ -12,21 +12,26 @@ import {
     List,
     ListItem,
     Avatar,
+    Dialog,
+    FlatButton,
 } from 'material-ui';
 import {
     blueGrey600,
     brown500,
 } from 'material-ui/styles/colors';
 import ActionInfo from 'material-ui/svg-icons/action/info';
+import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import CallMadeIcon from 'material-ui/svg-icons/communication/call-made';
 import CallReceivedIcon from 'material-ui/svg-icons/communication/call-received';
+import SaveIcon from 'material-ui/svg-icons/content/save';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { OBJECTS3D } from '../../constants';
 import {
     getLevel,
+    getObjects,
 } from '../../reducers/editor';
 import {
     createObject,
@@ -35,6 +40,7 @@ import {
 } from '../../actions/editor';
 
 type Props = {
+    objects: Array<Object>,
     createObject: (string) => void,
     level: number,
     levelUp: () => void,
@@ -46,6 +52,7 @@ injectTapEventPlugin();
 @connect(
     store => ({
         level: getLevel(store),
+        objects: getObjects(store),
     }),
     {
         createObject,
@@ -58,6 +65,7 @@ class Header extends React.Component {
         super(props);
         this.state = {
             open: false,
+            modal: false,
         };
     }
     @autobind
@@ -74,6 +82,30 @@ class Header extends React.Component {
     }
 
     @autobind
+    saveToLocalStorage() {
+        const objects = this.props.objects.toJS();
+        localStorage.setItem('objects', JSON.stringify(objects));
+        this.setState({
+            modal: true,
+        });
+    }
+
+    @autobind
+    resetLocalStorage() {
+        localStorage.setItem('objects', JSON.stringify([]));
+        this.setState({
+            modal: true,
+        });
+    }
+
+    @autobind
+    closeSaveModal() {
+        this.setState({
+            modal: false,
+        });
+    }
+
+    @autobind
     closeDrawner() {
         this.setState({
             open: false,
@@ -81,6 +113,13 @@ class Header extends React.Component {
     }
 
     render() {
+        const actions = [
+            <FlatButton
+                label="Ok"
+                primary
+                onTouchTap={this.closeSaveModal}
+            />,
+        ];
         const CustomIconMenu = props => (
             <IconMenu
                 {...props}
@@ -105,12 +144,48 @@ class Header extends React.Component {
         );
         return (
             <div>
+                <Dialog
+                    actions={actions}
+                    open={this.state.modal}
+                    onRequestClose={this.closeSaveModal}
+                    repositionOnUpdate
+                >
+                    Local storage updated!
+                </Dialog>
                 <AppBar
                     style={{
                         backgroundColor: blueGrey600,
                     }}
                     iconElementRight={
                         <div>
+                            <IconButton
+                                tooltip="Save to local storage"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 6px',
+                                    marginRight: '12px',
+                                }}
+                                onClick={this.saveToLocalStorage}
+                            >
+                                <SaveIcon
+                                    color="#ffffff"
+                                />
+                            </IconButton>
+                            <IconButton
+                                tooltip="reset local storage"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 6px',
+                                    marginRight: '12px',
+                                }}
+                                onClick={this.resetLocalStorage}
+                            >
+                                <DeleteIcon
+                                    color="#ffffff"
+                                />
+                            </IconButton>
                             <IconButton
                                 tooltip="Level up"
                                 tooltipPosition="bottom-center"

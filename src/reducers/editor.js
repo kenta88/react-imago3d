@@ -8,6 +8,7 @@ import type { Store, Action } from 'redux';
 
 import { EDITOR } from '../constants';
 
+const persistedObjects = localStorage.getItem('objects') ? JSON.parse(localStorage.getItem('objects')) : [];
 export const initialState: Map<string, any> = fromJS({
     isEditMode: false,
     isAddingMode: false,
@@ -15,8 +16,7 @@ export const initialState: Map<string, any> = fromJS({
     objectWillSelected: null,
     objects: [],
     level: 0,
-});
-
+}).set('objects', fromJS([]).concat(persistedObjects));
 
 export const getObjectWillSelected = (store: Store) => {
     return store.getIn(['editor', 'objectWillSelected']);

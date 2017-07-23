@@ -2,13 +2,37 @@ import React from 'react';
 import {
     Entity,
 } from 'aframe-react';
+import { connect } from 'react-redux';
 
+import {
+    getLevel,
+} from '../../../reducers/editor';
+
+type Props = {
+    level: number,
+};
+
+@connect(
+    store => ({
+        level: getLevel(store),
+    })
+)
 class Grid extends React.Component {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
-        this.state = {};
+        this.state = {
+            yPosition: this.props.level,
+        };
     }
 
+    componentWillReceiveProps(nextProps: Props) {
+        if (nextProps.level !== this.props.level) {
+            const yPosition = (nextProps.level > 0) ? nextProps.level * 21 : 0;
+            this.setState({
+                yPosition
+            });
+        }
+    }
     render() {
         return (
             <Entity
@@ -30,7 +54,7 @@ class Grid extends React.Component {
                     wireframe: true,
                     transparent: true,
                 }}
-                position={{ x: 0, y: 0, z: 0 }}
+                position={{ x: 0, y: this.state.yPosition, z: 0 }}
                 rotation={{ x: -90, y: 0, z: 0 }}
             />
         );

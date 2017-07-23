@@ -1,4 +1,5 @@
 // @flow
+import * as THREE from 'three';
 import {
     fromJS,
     type Map,
@@ -13,6 +14,7 @@ export const initialState: Map<string, any> = fromJS({
     currentObject: null,
     objectWillSelected: null,
     objects: [],
+    level: 0,
 });
 
 
@@ -31,12 +33,26 @@ export const getCurrentObject = (store: Store) => {
 export const getObjects = (store: Store) => {
     return store.getIn(['editor', 'objects']);
 };
+export const getLevel = (store: Store) => {
+    return store.getIn(['editor', 'level']);
+};
 
 export default (state: Store = initialState, action: Action) => {
     switch (action.type) {
         case EDITOR.CREATE_OBJECT: {
+            const position = action.payload.currentObject.position;
+            const objectToCreate = {
+                ...action.payload.currentObject,
+                position: new THREE.Vector3(0, 0, 0),
+            };
+            objectToCreate.level = state.get('level');
+            objectToCreate.position.set(
+                position.x,
+                position.y + (21 * objectToCreate.level),
+                position.z,
+            );
             const next = state.set('isAddingMode', true);
-            return next.set('currentObject', action.payload.currentObject);
+            return next.set('currentObject', objectToCreate);
         }
         case EDITOR.EDIT_OBJECT: {
             const next = state.set('isEditMode', true);
@@ -63,6 +79,14 @@ export default (state: Store = initialState, action: Action) => {
         case EDITOR.EXIT_ADDING_MODE: {
             const next = state.set('isAddingMode', false);
             return next.set('currentObject', null);
+        }
+        case EDITOR.LEVEL_UP: {
+            return state.set('level', state.get('level') + 1);
+        }
+        case EDITOR.LEVEL_DOWN: {
+            const currentLevel = state.get('level');
+            const nextLevel = (currentLevel > 1) ? currentLevel - 1 : 0;
+            return state.set('level', nextLevel);
         }
         default: {
             return state;

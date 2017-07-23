@@ -10,4 +10,6 @@ export default createConstants('editor')(
     'EXIT_ADDING_MODE',
     'EXIT_EDITING_MODE',
     'SET_OBJECT_WILL_SELECTED',
+    'LEVEL_UP',
+    'LEVEL_DOWN',
 );

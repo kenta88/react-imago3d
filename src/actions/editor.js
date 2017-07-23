@@ -37,6 +37,14 @@ export const deleteObject = (currentObjectUUID: String) => ({
     }
 });
 
+export const levelUp = () => ({
+    type: EDITOR.LEVEL_UP,
+});
+
+export const levelDown = () => ({
+    type: EDITOR.LEVEL_DOWN,
+});
+
 export const exitAddingMode = () => ({
     type: EDITOR.EXIT_ADDING_MODE,
 });

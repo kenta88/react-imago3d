@@ -19,22 +19,38 @@ import {
 } from 'material-ui/styles/colors';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import CallMadeIcon from 'material-ui/svg-icons/communication/call-made';
+import CallReceivedIcon from 'material-ui/svg-icons/communication/call-received';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { OBJECTS3D } from '../../constants';
-import { createObject } from '../../actions/editor';
+import {
+    getLevel,
+} from '../../reducers/editor';
+import {
+    createObject,
+    levelUp,
+    levelDown,
+} from '../../actions/editor';
 
 type Props = {
     createObject: (string) => void,
+    level: number,
+    levelUp: () => void,
+    levelDown: () => void,
 };
 
 injectTapEventPlugin();
 
 @connect(
-    null,
+    store => ({
+        level: getLevel(store),
+    }),
     {
         createObject,
+        levelUp,
+        levelDown,
     }
 )
 class Header extends React.Component {
@@ -72,7 +88,10 @@ class Header extends React.Component {
                     color: '#ffffff',
                 }}
                 iconButtonElement={
-                    <IconButton>
+                    <IconButton
+                        tooltip="Menu"
+                        tooltipPosition="bottom-center"
+                    >
                         <MoreVertIcon color="#ffffff" />
                     </IconButton>
                 }
@@ -91,7 +110,46 @@ class Header extends React.Component {
                         backgroundColor: blueGrey600,
                     }}
                     iconElementRight={
-                        <CustomIconMenu />
+                        <div>
+                            <IconButton
+                                tooltip="Level up"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 0px',
+                                }}
+                                onClick={this.props.levelUp}
+                            >
+                                <CallMadeIcon
+                                    color="#ffffff"
+                                />
+                            </IconButton>
+                            <IconButton
+                                tooltip="Level Down"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 0px',
+                                }}
+                                onClick={this.props.levelDown}
+                            >
+                                <CallReceivedIcon
+                                    color="#ffffff"
+                                />
+                            </IconButton>
+                            <span
+                                style={{
+                                    verticalAlign: 'middle',
+                                    display: 'inline-block',
+                                    height: '32px',
+                                    color: '#ffffff',
+                                }}
+                            >
+                                {this.props.level}
+                            </span>
+                            <CustomIconMenu />
+                        </div>
+
                     }
                     iconElementLeft={
                         <IconButton onClick={this.openDrawner} >

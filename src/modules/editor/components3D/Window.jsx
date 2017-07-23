@@ -37,7 +37,7 @@ class Window extends React.Component {
                         width: 10,
                         height: 2,
                         depth: 1,
-                        skipCache: true,
+                        skipCache: false,
                     }}
                     shadow={{
                         receive: true,
@@ -58,7 +58,7 @@ class Window extends React.Component {
                         width: 10,
                         height: 18,
                         depth: 0.5,
-                        skipCache: true,
+                        skipCache: false,
                     }}
                     shadow={{
                         receive: true,
@@ -79,7 +79,7 @@ class Window extends React.Component {
                         width: 10,
                         height: 5,
                         depth: 1,
-                        skipCache: true,
+                        skipCache: false,
                     }}
                     shadow={{
                         receive: true,

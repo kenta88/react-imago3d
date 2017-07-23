@@ -230,6 +230,7 @@ class GhostObject extends React.Component {
                 return (
                     <Floor
                         uuid={currentObject.uuid}
+                        level={currentObject.level}
                         position={currentObject.position}
                         rotation={currentObject.rotation}
                         _onRef={(item) => {
@@ -244,6 +245,7 @@ class GhostObject extends React.Component {
                 return (
                     <Window
                         uuid={currentObject.uuid}
+                        level={currentObject.level}
                         position={currentObject.position}
                         rotation={currentObject.rotation}
                         _onRef={(item) => {
@@ -258,6 +260,7 @@ class GhostObject extends React.Component {
                 return (
                     <Wall
                         uuid={currentObject.uuid}
+                        level={currentObject.level}
                         position={currentObject.position}
                         rotation={currentObject.rotation}
                         _onRef={(item) => {

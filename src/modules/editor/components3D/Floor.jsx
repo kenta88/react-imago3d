@@ -12,6 +12,7 @@ type Props = {
     notAllowed: boolean,
     isGhost: boolean,
     willSelected: boolean,
+    level: number,
 };
 
 class Floor extends React.Component {
@@ -30,6 +31,7 @@ class Floor extends React.Component {
             <Entity
                 uuid={this.props.uuid}
                 type="FLOOR"
+                level={this.props.level}
                 geometry={{
                     primitive: 'box',
                     buffer: true,

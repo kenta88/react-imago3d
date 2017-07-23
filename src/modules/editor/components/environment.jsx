@@ -64,7 +64,6 @@ class Environment extends React.Component {
     }
     componentWillReceiveProps(nextProps: Props) {
         if (!this.canvas && nextProps.canvas) {
-            console.log('received another canvas');
             this.canvas = nextProps.canvas;
             this.camera = this.mainEntity.sceneEl.camera;
             this.bindEvent();

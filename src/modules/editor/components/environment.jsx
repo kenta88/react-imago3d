@@ -36,6 +36,7 @@ type Props = {
     setObjectWillSelected: () => void,
     createObject: () => void,
     deleteObject: () => void,
+    isViewer: boolean,
 };
 
 @connect(
@@ -124,6 +125,9 @@ class Environment extends React.Component {
     }
 
     bindEvent() {
+        if (this.props.isViewer) {
+            return;
+        }
         this.canvas.addEventListener('mousemove', (event) => {
             this.onMouseMove(event);
         }, false);

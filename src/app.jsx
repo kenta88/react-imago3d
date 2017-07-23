@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import EditorRoute from './modules/editor/routes';
+import ViewerRoute from './modules/viewer/routes';
 import PageNotFound from './components/PageNotFound';
 
 type Props = {
@@ -16,6 +17,7 @@ const App = ({ store } : Props) => {
     const layout = (
         <div>
             <EditorRoute />
+            <ViewerRoute />
             <Miss component={PageNotFound} />
         </div>
     );

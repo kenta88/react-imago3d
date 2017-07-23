@@ -26,38 +26,39 @@ class Viewer extends React.Component {
     }
     render() {
         return (
-            <Scene
-                inspector={{
-                    url: 'https://aframe.io/aframe-inspector/dist/aframe-inspector.js',
-                }}
-                vr-mode-ui={{ enabled: true }}
-                shadow
-                fog={{
-                    type: 'linear',
-                    color: 0xcce0ff,
-                    density: 0.3,
-                }}
-                events={{
-                    'render-target-loaded': this.onCanvasReady,
-                }}
-            >
-                <Environment
-                    isViewer
-                    canvas={this.state.canvasRef}
-                    onItemsRendered={() => {}}
-                />
-                <Entity
-                    camera={{
-                        userHeight: 12,
+            <div>
+                <Scene
+                    vr-mode-ui={{ enabled: true }}
+                    shadow
+                    width={300}
+                    height={300}
+                    fog={{
+                        type: 'linear',
+                        color: 0xcce0ff,
+                        density: 0.3,
                     }}
-                    look-controls
-                    wasd-controls={{
-                        acceleration: 500,
+                    events={{
+                        'render-target-loaded': this.onCanvasReady,
                     }}
-                />
-                <SunLight />
-                <AmbientLight />
-            </Scene>
+                >
+                    <Environment
+                        isViewer
+                        canvas={this.state.canvasRef}
+                        onItemsRendered={() => {}}
+                    />
+                    <Entity
+                        camera={{
+                            userHeight: 12,
+                        }}
+                        look-controls
+                        wasd-controls={{
+                            acceleration: 500,
+                        }}
+                    />
+                    <SunLight />
+                    <AmbientLight />
+                </Scene>
+            </div>
         );
     }
 }

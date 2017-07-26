@@ -2,6 +2,9 @@
 
 *react-imago3d* is a vr environment editor. Make WebVR easily creating your own scene with built in 3d object and use your browser or vr headset to see what you builded in real time.
 
+### Live demo
+http://alessiodicrescenzo.com/react-imago3d/
+
 ### Getting Started
 
 1. clone or download this repository

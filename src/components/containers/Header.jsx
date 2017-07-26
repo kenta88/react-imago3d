@@ -1,5 +1,6 @@
 // @flow
 import autobind from 'autobind-decorator';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
@@ -24,6 +25,7 @@ import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import CallMadeIcon from 'material-ui/svg-icons/communication/call-made';
 import CallReceivedIcon from 'material-ui/svg-icons/communication/call-received';
+import VisibilityIcon from 'material-ui/svg-icons/action/visibility';
 import SaveIcon from 'material-ui/svg-icons/content/save';
 import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -158,6 +160,29 @@ class Header extends React.Component {
                     }}
                     iconElementRight={
                         <div>
+                            <IconButton
+                                tooltip="See by viewer"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 6px',
+                                    marginRight: '12px',
+                                    color: 'white',
+                                }}
+                            >
+                                <Link
+                                    to="/viewer"
+                                    style={{
+                                        color: 'white',
+                                    }}
+                                >
+                                    <VisibilityIcon
+                                        style={{
+                                            color: 'white',
+                                        }}
+                                    />
+                                </Link>
+                            </IconButton>
                             <IconButton
                                 tooltip="Save to local storage"
                                 tooltipPosition="bottom-center"

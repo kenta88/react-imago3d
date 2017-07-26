@@ -84,10 +84,12 @@ class Editor extends React.Component {
     }
     @autobind
     onRefCanvasContainer(container) {
-        const canvasContainer = container.querySelector('#canvasContainer');
-        this.setState({
-            canvasContainerSize: canvasContainer.getBoundingClientRect(),
-        });
+        if (container) {
+            const canvasContainer = container.querySelector('#canvasContainer');
+            this.setState({
+                canvasContainerSize: canvasContainer.getBoundingClientRect(),
+            });
+        }
     }
 
     render() {

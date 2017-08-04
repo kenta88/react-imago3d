@@ -123,7 +123,6 @@ class Header extends React.Component {
             modal: false,
             isSaving: false,
         });
-
     }
 
     @autobind

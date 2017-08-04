@@ -13,6 +13,7 @@ let persistedObjects = localStorage.getItem('objects') ? JSON.parse(localStorage
 if (!persistedObjects.length && !localStorage.getItem('firstTimeVisit')) {
     persistedObjects = SAMPLE;
     localStorage.setItem('firstTimeVisit', true);
+    localStorage.setItem('objects', JSON.stringify(SAMPLE));
 }
 
 export const initialState: Map<string, any> = fromJS({

@@ -98,6 +98,7 @@ class Header extends React.Component {
     }
 
     @autobind
+    // eslint-disable-next-line
     saveSampleToLocalStorage() {
         localStorage.setItem('objects', JSON.stringify(SAMPLE));
         this.setState({
@@ -115,13 +116,14 @@ class Header extends React.Component {
 
     @autobind
     closeSaveModal() {
-        if (!this.state.isSaving) {
+        if (this.state.isSaving) {
             location.reload();
         }
         this.setState({
             modal: false,
             isSaving: false,
         });
+
     }
 
     @autobind

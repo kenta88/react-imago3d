@@ -7,8 +7,6 @@ import FontAwesome from 'react-fontawesome';
 import {
     AppBar,
     IconButton,
-    IconMenu,
-    MenuItem,
     Drawer,
     List,
     ListItem,
@@ -22,7 +20,6 @@ import {
 } from 'material-ui/styles/colors';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import CallMadeIcon from 'material-ui/svg-icons/communication/call-made';
 import GiftCard from 'material-ui/svg-icons/action/card-giftcard';
 import CallReceivedIcon from 'material-ui/svg-icons/communication/call-received';
@@ -116,13 +113,14 @@ class Header extends React.Component {
 
     @autobind
     closeSaveModal() {
-        if (this.state.isSaving) {
+        if (!this.state.isSaving) {
             location.reload();
+        } else {
+            this.setState({
+                modal: false,
+                isSaving: false,
+            });
         }
-        this.setState({
-            modal: false,
-            isSaving: false,
-        });
     }
 
     @autobind
@@ -140,28 +138,6 @@ class Header extends React.Component {
                 onTouchTap={this.closeSaveModal}
             />,
         ];
-        const CustomIconMenu = props => (
-            <IconMenu
-                {...props}
-                style={{
-                    color: '#ffffff',
-                }}
-                iconButtonElement={
-                    <IconButton
-                        tooltip="Menu"
-                        tooltipPosition="bottom-center"
-                    >
-                        <MoreVertIcon color="#ffffff" />
-                    </IconButton>
-                }
-                targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-            >
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
-            </IconMenu>
-        );
         return (
             <div>
                 <Dialog
@@ -279,7 +255,6 @@ class Header extends React.Component {
                             >
                                 {this.props.level}
                             </span>
-                            <CustomIconMenu />
                         </div>
 
                     }

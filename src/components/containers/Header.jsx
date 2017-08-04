@@ -7,8 +7,6 @@ import FontAwesome from 'react-fontawesome';
 import {
     AppBar,
     IconButton,
-    IconMenu,
-    MenuItem,
     Drawer,
     List,
     ListItem,
@@ -22,8 +20,8 @@ import {
 } from 'material-ui/styles/colors';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import CallMadeIcon from 'material-ui/svg-icons/communication/call-made';
+import GiftCard from 'material-ui/svg-icons/action/card-giftcard';
 import CallReceivedIcon from 'material-ui/svg-icons/communication/call-received';
 import VisibilityIcon from 'material-ui/svg-icons/action/visibility';
 import SaveIcon from 'material-ui/svg-icons/content/save';
@@ -31,6 +29,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { OBJECTS3D } from '../../constants';
+import SAMPLE from '../../constants/sample';
 import {
     getLevel,
     getObjects,
@@ -40,6 +39,7 @@ import {
     levelUp,
     levelDown,
 } from '../../actions/editor';
+
 
 type Props = {
     objects: Array<Object>,
@@ -68,6 +68,7 @@ class Header extends React.Component {
         this.state = {
             open: false,
             modal: false,
+            isSaving: false,
         };
     }
     @autobind
@@ -89,6 +90,16 @@ class Header extends React.Component {
         localStorage.setItem('objects', JSON.stringify(objects));
         this.setState({
             modal: true,
+            isSaving: true,
+        });
+    }
+
+    @autobind
+    // eslint-disable-next-line
+    saveSampleToLocalStorage() {
+        localStorage.setItem('objects', JSON.stringify(SAMPLE));
+        this.setState({
+            modal: true,
         });
     }
 
@@ -102,9 +113,14 @@ class Header extends React.Component {
 
     @autobind
     closeSaveModal() {
-        this.setState({
-            modal: false,
-        });
+        if (!this.state.isSaving) {
+            location.reload();
+        } else {
+            this.setState({
+                modal: false,
+                isSaving: false,
+            });
+        }
     }
 
     @autobind
@@ -122,28 +138,6 @@ class Header extends React.Component {
                 onTouchTap={this.closeSaveModal}
             />,
         ];
-        const CustomIconMenu = props => (
-            <IconMenu
-                {...props}
-                style={{
-                    color: '#ffffff',
-                }}
-                iconButtonElement={
-                    <IconButton
-                        tooltip="Menu"
-                        tooltipPosition="bottom-center"
-                    >
-                        <MoreVertIcon color="#ffffff" />
-                    </IconButton>
-                }
-                targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-            >
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
-            </IconMenu>
-        );
         return (
             <div>
                 <Dialog
@@ -160,6 +154,20 @@ class Header extends React.Component {
                     }}
                     iconElementRight={
                         <div>
+                            <IconButton
+                                tooltip="Load Sample"
+                                tooltipPosition="bottom-center"
+                                style={{
+                                    width: '32px',
+                                    padding: '12px 6px',
+                                    marginRight: '12px',
+                                }}
+                                onClick={this.saveSampleToLocalStorage}
+                            >
+                                <GiftCard
+                                    color="#ffffff"
+                                />
+                            </IconButton>
                             <IconButton
                                 tooltip="See by viewer"
                                 tooltipPosition="bottom-center"
@@ -247,7 +255,6 @@ class Header extends React.Component {
                             >
                                 {this.props.level}
                             </span>
-                            <CustomIconMenu />
                         </div>
 
                     }

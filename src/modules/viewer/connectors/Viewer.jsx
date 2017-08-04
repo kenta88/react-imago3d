@@ -50,6 +50,16 @@ class Viewer extends React.Component {
                         camera={{
                             userHeight: 12,
                         }}
+                        rotation={{
+                            x: 0,
+                            y: 0,
+                            z: 0,
+                        }}
+                        position={{
+                            x: -4,
+                            y: 12,
+                            z: 74,
+                        }}
                         look-controls
                         wasd-controls={{
                             acceleration: 500,

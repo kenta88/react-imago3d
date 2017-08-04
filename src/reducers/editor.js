@@ -7,8 +7,14 @@ import {
 import type { Store, Action } from 'redux';
 
 import { EDITOR } from '../constants';
+import SAMPLE from '../constants/sample';
 
-const persistedObjects = localStorage.getItem('objects') ? JSON.parse(localStorage.getItem('objects')) : [];
+let persistedObjects = localStorage.getItem('objects') ? JSON.parse(localStorage.getItem('objects')) : [];
+if (!persistedObjects.length && !localStorage.getItem('firstTimeVisit')) {
+    persistedObjects = SAMPLE;
+    localStorage.setItem('firstTimeVisit', true);
+}
+
 export const initialState: Map<string, any> = fromJS({
     isEditMode: false,
     isAddingMode: false,

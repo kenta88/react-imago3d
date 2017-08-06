@@ -1,557 +1,6 @@
 export default [
     {
-        uuid: '8e797347-ee94-42b0-aae6-fbe0ff932859',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 5,
-            y: 11,
-            z: 20
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '4e9a01e9-5c79-4a73-a058-3730011e8b92',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 10,
-            y: 11,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '07055bbb-0ad4-4756-ba72-46db7eb2298e',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 0,
-            y: 11,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'b002a184-68e0-43d7-a5de-01103a85b040',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 5,
-            y: 11,
-            z: 10
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'd94ee57e-165f-49a2-94a5-afaa031e8958',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 5,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '3ad1019c-da58-431c-b328-2d5cd360b4df',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 5,
-            y: 21.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'c09cadde-d257-47ca-b1f6-f7ac10d99705',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 5,
-            y: 21.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '606c325d-b934-4d99-9036-473eb2552c95',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 5,
-            y: 21.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '41ac462e-f8e8-423b-a7ae-44e6525abf7a',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 5,
-            y: 21.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '1fb6a7fa-41e0-4fbc-ba85-883c65e7cdac',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 5,
-            y: 21.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'ccf41111-5638-47f5-882d-67a52c7a9cbb',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 5,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '7862cdc3-4594-4007-bdfe-6ec617c0b7a6',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 5,
-            y: 11,
-            z: -20
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'd95e7ba5-c925-4a4b-864f-68245222de52',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 10,
-            y: 11,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '569ad436-984b-4da6-8b8d-e104635f084c',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 5,
-            y: 11,
-            z: -30
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '559a9fc5-308b-41c7-a78c-51ba26d02eff',
-        type: 'WALL',
-        level: 0,
-        position: {
-            x: 0,
-            y: 11,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '4dcdd4a6-1238-4bfc-b1f0-3ed04364a5cc',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '7392720f-c833-4f60-93fe-d9f3210fb65e',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -5,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'ca52a719-3f0e-42c8-998d-962df6af3967',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -5,
-            y: 0.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '4ebc755d-b5f3-4caf-b18f-2f1e1f448dd9',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -5,
-            y: 0.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '199c4ecb-991f-4393-9e87-0514d7e54877',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -5,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '4b348c8e-ce55-4cba-87d9-25df006a3a32',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -5,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '538c417d-fd0a-4bda-b1ed-410612a31731',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '93521e88-474a-42b1-88db-f46702c9cb6d',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '8d7eb341-d06d-4c87-8432-c56cb49f8ac0',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '4ce43306-4496-42e6-97e9-892b65da71f9',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'aaa3fb39-cc04-4b63-97d7-db7d18b333f3',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 5,
-            y: 0.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'fc3e15c4-c078-4c94-9e97-967baca3c79e',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 5,
-            y: 0.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '7c1ee78b-cd0e-435a-a799-34945cd7c00b',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 5,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b4b0b741-3b40-4500-a44c-cc603a8bc4c2',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 35,
-            y: 0.5,
-            z: -35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '703e9d58-6fae-4f71-a23a-d0542695d24c',
+        uuid: 'd6f19993-3e3c-4687-a838-e842c7d11959',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -564,13 +13,274 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'b2309e8a-613c-43c7-94e8-e297f8c7bb7f',
+        uuid: '565a4b71-1bbf-49cb-bea3-2744a6f47897',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '30bf15bf-d943-4cd3-af3d-bd9a62ba45da',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '0c9330a5-f1e9-4345-a08f-fa56267234ad',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'dfd083d4-e879-47e6-9953-573efeb9c8c6',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '3cda2aad-44ff-43af-99f5-58a0636854ac',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '954c06a0-9307-41ae-998e-5e42bd2d467c',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4130e3d1-fb22-4b3d-9fe5-072f002a7e58',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'c67e06c4-c18c-4124-9b8f-545cdf43fa63',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'cfe1966f-43a7-46d2-bb54-e65f78b1e23a',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 25,
+            y: 0.5,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '473c3e9a-6b92-47b6-b0fb-af9999816388',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '6252b20c-3791-4709-a9ac-1a6de571e773',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '507d6fcc-b14c-42e4-94b3-ccc47898c7fe',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '96ebf201-e630-4d6d-bd25-9b2410de6261',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 15,
+            y: 0.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '8cd71934-f386-465e-bf7d-83796eebe764',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -583,13 +293,94 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '37d13180-a4e9-48f2-9d43-1109b6e2710c',
+        uuid: '852d0151-d6d5-48a9-936d-2f68cf8a034c',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 5,
+            y: 0.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '63be54b8-0730-40b3-9ed4-e5b7af314c98',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 5,
+            y: 0.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '6ac6f5de-b836-4a2b-b41f-704b46afea67',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 5,
+            y: 0.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a4542021-7215-41c5-b960-231f1ec49d86',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: 5,
+            y: 0.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '975fb4b2-c635-41e7-a72e-3467d2a44cda',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -602,13 +393,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '124ab36d-00d4-4d20-aa3f-c7e1960e72b3',
+        uuid: 'bbfeb958-2807-4163-a20e-80772af69c92',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -621,13 +413,174 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'b25a796d-fc9a-4ac9-8cda-d22101fa40f2',
+        uuid: '62da597e-a261-409c-92fa-df026f563cd3',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -5,
+            y: 0.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '46e38427-f202-4015-8290-ba4ce6808e61',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -5,
+            y: 0.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '17e49f97-fb09-48f2-bcba-1a1d1116c5b2',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -5,
+            y: 0.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '9b57ef86-5033-4a44-98bd-933d2da1afbe',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -5,
+            y: 0.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '5275d9a8-d2a2-4b76-8453-38db1ef2fe7f',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -15,
+            y: 0.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '50aa8b57-c970-46da-adf0-1ab1c01a9544',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -15,
+            y: 0.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e54bc4d7-6159-47bc-afc7-9c5c8449f889',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -15,
+            y: 0.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '58c6b766-b6ef-461d-b634-98e8ea4800ca',
+        type: 'FLOOR',
+        level: 0,
+        position: {
+            x: -15,
+            y: 0.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e956d359-f9c7-4fae-827b-d32399481985',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -640,13 +593,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'd23d4836-cd67-45f6-8cc7-a31d2f597bd5',
+        uuid: '9b26af26-fe81-4c42-b2e9-85ce0e701ee6',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -659,13 +613,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'bec2c834-31c1-4f6c-ae05-105ff31dba6d',
+        uuid: '21144641-e7c0-49d9-a6f5-2dc3e47cf7b5',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -678,13 +633,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'c3151170-0b48-4a5d-8209-21aae684edbf',
+        uuid: '3f98c24f-1421-4fec-9720-aa73bddf5879',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -697,13 +653,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'cab8b6a0-0148-4f55-92e2-5ab6cbf78d3b',
+        uuid: '6749839c-cd9b-43a2-b8f8-2ed72e54d9a8',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -716,13 +673,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '81b47c9f-12e2-41ef-8058-c4c0c7aa25ed',
+        uuid: '34e148c0-ca51-4487-9418-550ae81a07c4',
         type: 'FLOOR',
         level: 0,
         position: {
@@ -735,170 +693,179 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '07f99761-a0e2-4b39-b1d4-ca0098880428',
-        type: 'FLOOR',
+        uuid: 'e1c2bcb8-8133-48fe-b35a-7d0649f1e51c',
+        type: 'WINDOW',
         level: 0,
         position: {
-            x: -25,
-            y: 0.5,
-            z: 15
+            x: 25,
+            y: 1,
+            z: -45
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '88fd5a48-ded6-40f1-9c83-88b8c6795030',
-        type: 'FLOOR',
+        uuid: '5c9abb9f-6070-43eb-baf6-58483e559878',
+        type: 'WINDOW',
         level: 0,
         position: {
-            x: -25,
-            y: 0.5,
-            z: 25
+            x: 15,
+            y: 1,
+            z: -45
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'b8908cba-62c3-4121-a306-88eb45d46eea',
-        type: 'FLOOR',
+        uuid: '4719194f-b6c5-40dc-8720-00f4d7d5d27b',
+        type: 'WINDOW',
+        level: 0,
+        position: {
+            x: 25,
+            y: 1,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'debd0914-7830-491a-a7a4-fbdb869b3272',
+        type: 'WINDOW',
+        level: 0,
+        position: {
+            x: -35,
+            y: 1,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '56006aab-7269-4b4a-a921-a5c032570c39',
+        type: 'WINDOW',
         level: 0,
         position: {
             x: -25,
-            y: 0.5,
-            z: 35
+            y: 1,
+            z: -45
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '53cac292-b01b-4724-aed5-8ffd10ae8ac6',
-        type: 'FLOOR',
+        uuid: '7af97a60-d7c3-4130-bf42-d4d20ec7bcc5',
+        type: 'WINDOW',
         level: 0,
         position: {
             x: -15,
-            y: 0.5,
-            z: 35
+            y: 1,
+            z: -45
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'ea220145-a19f-4d1a-8680-73d8d968ac9c',
-        type: 'FLOOR',
+        uuid: '97ed23b1-b723-4657-81af-5208bd855270',
+        type: 'WINDOW',
         level: 0,
         position: {
-            x: -5,
-            y: 0.5,
-            z: 35
+            x: -35,
+            y: 1,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'd36da425-283d-4b02-b273-01fd21d80159',
+        type: 'WINDOW',
+        level: 0,
+        position: {
+            x: -25,
+            y: 1,
+            z: 5
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'fb0443ec-f7b5-4fb4-a6e6-65a734312bbc',
-        type: 'FLOOR',
+        uuid: 'bb11c66b-e692-4569-8aba-9c1c646beb9f',
+        type: 'WINDOW',
         level: 0,
         position: {
-            x: 5,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '09825f95-51c8-45eb-bffc-513053e80cda',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 35,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '5a29d72f-3715-4b39-a2ec-d16bb63b87c8',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 45,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '9de38c52-a51a-426b-a83c-0a8d35776f08',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 1,
             z: 25
         },
         rotation: {
@@ -906,56 +873,299 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '461e2f47-9134-4a70-8038-1b50d4d87a9c',
-        type: 'FLOOR',
+        uuid: '9d103370-329b-4662-9a56-37e74e0099b2',
+        type: 'WINDOW',
         level: 0,
         position: {
-            x: 35,
-            y: 0.5,
-            z: -5
+            x: 15,
+            y: 1,
+            z: 25
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'c9f9614d-ed0d-411c-ab4d-18e97d6d044c',
-        type: 'FLOOR',
+        uuid: '4d1d5cad-8118-4e60-84cc-8fa50eb0d0f8',
+        type: 'WALL',
         level: 0,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 11,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4439136f-b1cf-4682-a63e-936373182517',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 25,
+            y: 11,
             z: -15
         },
         rotation: {
             x: 0,
-            y: 0,
+            y: 90,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'ab5c897a-eeb4-47b5-ae38-f9cfa2def799',
-        type: 'FLOOR',
+        uuid: '9160b882-ec9b-4799-a2e0-87b83a7022eb',
+        type: 'WALL',
         level: 0,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 11,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4ef698f8-96fe-4796-b455-933b818e999d',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 25,
+            y: 11,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '9c1a26fd-98f9-4c57-ac39-480d9efe6836',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 25,
+            y: 11,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '2eb9c2e9-a955-4023-8842-a9af1355e4da',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 5,
+            y: 11,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'fadbe0c9-2aa5-47c3-bfaa-a6eb955aadca',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 5,
+            y: 11,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'bf9786e4-4235-415b-b8c0-f14a77f5a308',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: 5,
+            y: 11,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '62ac22d4-7439-4ecd-b6a2-06f565d61cd4',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: -5,
+            y: 11,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '5d6da5cb-dfe7-474d-bba9-c9efdf1a9e8a',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: -15,
+            y: 11,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'ccb592df-d6ea-4242-9dda-47ef44456cd1',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: -35,
+            y: 11,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '125a361c-0141-4f90-9759-629da25bef78',
+        type: 'WALL',
+        level: 0,
+        position: {
+            x: -35,
+            y: 11,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'd5b90ab6-5514-42c8-bd30-d1541ef6c4af',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 25,
+            y: 21.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '459ac57d-b895-4176-bca5-e252d5331222',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 25,
+            y: 21.5,
             z: -35
         },
         rotation: {
@@ -963,18 +1173,39 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '6b2df550-9e7f-4d85-8fd0-33fac61afe10',
+        uuid: '77fbbee1-14ae-4134-be5f-ee4d97e160c4',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 15,
+            y: 21.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4a23dae2-6265-4292-b7a5-e034e202cf0a',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 15,
+            y: 21.5,
             z: -25
         },
         rotation: {
@@ -982,18 +1213,179 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '71d7121e-1483-4ab4-bb3f-9233f97fe411',
+        uuid: '1a4b8a90-2d73-46ce-b9b4-37a343b7db2d',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 35,
-            y: 0.5,
+            x: 5,
+            y: 21.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '59bfc2f7-e48f-416f-8b74-5aca6da36f91',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -5,
+            y: 21.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '98ac0149-a051-406d-b3f2-753f5d9f210f',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -15,
+            y: 21.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a75c09b7-2258-4115-8619-42105c068771',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -25,
+            y: 21.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e3d14315-a8cf-4cac-be01-debddbebe583',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -25,
+            y: 21.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '6f239512-4c51-43d1-b3ec-b24acf66528a',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -15,
+            y: 21.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'de3f9e1f-3d9b-4e1f-97c0-eb7d67b66d38',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -5,
+            y: 21.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f64836c7-4049-4c57-bb2a-dc0214fcdc68',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 5,
+            y: 21.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'da8acb81-fdbe-4113-b4b6-5ce4cd0d1fdd',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 25,
+            y: 21.5,
             z: -15
         },
         rotation: {
@@ -1001,18 +1393,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '69461418-4b5b-4606-ace6-510c22102795',
+        uuid: '46c6f74c-f805-48bd-85be-ab1d66020220',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 21.5,
             z: -5
         },
         rotation: {
@@ -1020,18 +1413,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'c2229b29-0d06-4612-83d2-e8e427d1a112',
+        uuid: '8725e562-3d90-4e32-bd1f-2802acf401dd',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 21.5,
             z: 5
         },
         rotation: {
@@ -1039,18 +1433,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '55988749-1e3b-41b6-bd9e-d4fa1aa5f539',
+        uuid: 'f9fc8b0b-1d0b-4cff-9c9a-76c189e66c98',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 45,
-            y: 0.5,
+            x: 25,
+            y: 21.5,
             z: 15
         },
         rotation: {
@@ -1058,170 +1453,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'd080c7b4-f698-42a1-9c3d-ef3b6937eafb',
+        uuid: '1217eb44-2ac6-4400-9623-c61936b9fb18',
         type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 35,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b8bfaddb-5cea-4fb5-b105-ba1078f144d8',
-        type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
             x: 25,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '5cd71013-e388-401c-b79a-5df213879ba0',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b10e61fe-0e37-4918-b8a4-c15f367266a3',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 35,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'f80b435c-5e20-4524-8cd5-58a6250b065c',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '55f7fad9-d382-4126-babd-228fde44a929',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 15,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '0090000b-5efb-4ea1-bfa9-78adde07be70',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '03d628e0-cb53-49dd-8794-6e4946d2298a',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
-            z: 35
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '3244d22d-b1f0-4021-b810-b408f8b80b4c',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 35,
-            y: 0.5,
+            y: 21.5,
             z: 25
         },
         rotation: {
@@ -1229,56 +1473,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'cbe637af-f7f9-49fa-b503-5bf4ca6bb10e',
+        uuid: '6041a8d3-9daf-4e78-8755-2212c604c7d9',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
-            x: 35,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '704b9caa-46f2-456f-99f6-a9a7379fa2f1',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '7db516c3-78b6-4de4-a37f-c02db6117a91',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: 25,
-            y: 0.5,
+            x: 15,
+            y: 21.5,
             z: 25
         },
         rotation: {
@@ -1286,18 +1493,499 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '51382fc8-3b83-4116-b6ee-f8369a9f0a4a',
+        uuid: 'c9f6c8ad-9219-4214-921d-07fa3912b5f9',
         type: 'FLOOR',
-        level: 0,
+        level: 1,
         position: {
             x: 15,
-            y: 0.5,
+            y: 21.5,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '2d99ea8e-dff2-4e33-bd75-b6df5c9675f3',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 15,
+            y: 21.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4b122431-2182-46c2-9366-28d1eda3c137',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 15,
+            y: 21.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'dc886b7c-413a-4565-9ac4-97ed830186cc',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 15,
+            y: 21.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4381cfad-9bc0-4736-a8c5-37419222a64b',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 5,
+            y: 21.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '2c7a2dc1-f639-4c08-9a53-a0c99203917a',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 5,
+            y: 21.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '11311659-8174-4d96-aef6-5fa39fdeecc5',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: 5,
+            y: 21.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '40f4958a-f037-4777-a7bf-145b03b9fa95',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -5,
+            y: 21.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '9f53a148-783a-482f-99a5-3fba2f679ee6',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -15,
+            y: 21.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '79cd4ef0-96ed-4c5a-a773-587d9cc11e9c',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -25,
+            y: 21.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '5a490bf9-c87d-423a-baa4-67deca9be5c3',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -25,
+            y: 21.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '813078e6-bc78-43f6-a032-9e807e101b0c',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -25,
+            y: 21.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'c8bde0ef-d6e7-4c0f-a533-0a7ac8b60721',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -15,
+            y: 21.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a569d59a-ffa3-438b-99ae-973eecaf6e14',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -5,
+            y: 21.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'c9c47673-0685-4116-835b-1adf44ae67fe',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -5,
+            y: 21.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '32f5c552-d498-4b41-b30a-9c74ee8e4e1e',
+        type: 'FLOOR',
+        level: 1,
+        position: {
+            x: -15,
+            y: 21.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '381d67f5-a074-470b-9101-2370940b921e',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 25,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '8efb9bdb-ace6-4c09-9051-2b42f5f2d659',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 15,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'b90f0a03-3d49-4b22-85ba-df8710b69dbe',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -15,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f7fa4674-58a0-43f5-8c84-a699bdbc2e47',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -15,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '85951ef2-e63e-4852-ba5c-c52a7f2546b6',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -25,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e3624607-bdce-4b6e-afea-e1931a2752bf',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -25,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '391f713b-5d13-4843-8e46-2872a413770e',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -35,
+            y: 22,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'c8d4208f-3221-429b-894d-db2805e1dd84',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -25,
+            y: 22,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '2512269a-e466-409c-97d6-de81f66c12c0',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 25,
+            y: 22,
             z: 25
         },
         rotation: {
@@ -1305,18 +1993,39 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '1264fae0-1e93-40d4-8430-a1937c66ebf8',
-        type: 'FLOOR',
-        level: 0,
+        uuid: '0dec2f35-2fbc-49b1-b7fa-bab74058fce4',
+        type: 'WINDOW',
+        level: 1,
         position: {
-            x: 5,
-            y: 0.5,
+            x: 25,
+            y: 22,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '10257aae-03ae-483f-ad63-0da54d212104',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 15,
+            y: 22,
             z: 25
         },
         rotation: {
@@ -1324,18 +2033,679 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '7eabf1e0-5f6c-425b-b8aa-f624d7133827',
-        type: 'FLOOR',
-        level: 0,
+        uuid: '77711399-7135-4a10-85b8-19baa88735ac',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 5,
+            y: 22,
+            z: 25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e57a50b5-37be-40f4-9b13-307ffde6e185',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f9bf52bd-0c5f-45fa-8bff-4bd99dc0ebf8',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'b7c9e921-d326-4ddf-af9b-c0f534c61cea',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f2c8abf9-af3a-413a-92c1-1d7306b8f51c',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '85ff1eb7-7cc7-4ecd-bb8b-3f5b6dd9f218',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -35,
+            y: 32,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '2ca9bd46-b500-497c-bd57-6a49decbeef4',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -35,
+            y: 32,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '828c82f9-09e7-41b2-805c-0c815b6a1675',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 5,
+            y: 32,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '6f26440c-7645-4def-af9b-ee70d273196a',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 5,
+            y: 32,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '23b89d59-454d-4f99-9651-658d3686c604',
+        type: 'WALL',
+        level: 1,
         position: {
             x: -5,
-            y: 0.5,
+            y: 32,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e3277078-1413-4d4d-8cd5-f55dfd358d6a',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -15,
+            y: 32,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '4102f40f-5693-446a-b20b-2f4712a4fd7f',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '3205308c-a3b8-41f5-aa2c-c89833822656',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '92523ddf-01e4-4362-93a3-db7c25913deb',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 15,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '3b2d2c4b-948c-4fe4-8fa0-f1159785ea7b',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: 25,
+            y: 32,
+            z: -45
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '76cc4b2e-2bf9-45c9-94fb-13c67a3457d6',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -25,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '1716b79c-3df4-4334-b7b3-7c6c12426d5c',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -25,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f334d6d4-c358-4071-b289-7b5f7c78170e',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -35,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'ae991357-6917-4afd-9d01-138ab8545fd6',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -35,
+            y: 32,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'c08b0c5d-3114-45d9-809a-cfbb6677018d',
+        type: 'WALL',
+        level: 1,
+        position: {
+            x: -25,
+            y: 32,
+            z: -45
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '5f2094f2-98e7-4831-9cd2-bf762a6c6dac',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 15,
+            y: 22,
+            z: -45
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'ac915287-c4d3-4ec8-8f0f-7de15d8a1863',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 5,
+            y: 22,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '29317976-7dc8-420e-be2c-d315fc916ece',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -15,
+            y: 22,
+            z: -45
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '44a10b24-f7a5-4001-9d9d-ec3461b41527',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -15,
+            y: 22,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '79910ade-9480-4c23-87cb-cb185bdb1a6f',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 5,
+            y: 22,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '8860b03a-e30f-44c7-864d-4d653333d827',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -5,
+            y: 22,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '6d3a28bb-e5e0-43ee-bec6-508b817d3b2f',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: -35,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'd52a1c2d-832d-4ee9-a5d3-3dcbec334c7e',
+        type: 'WINDOW',
+        level: 1,
+        position: {
+            x: 25,
+            y: 22,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 90,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'ec04d2a2-e021-40d8-aa8a-be540242652a',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '0404a067-69c5-4a39-802b-9b1dc0d7d86f',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '789ae31e-574f-4936-ad14-2bd216d2bb9f',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a2beaf48-3378-4e95-867d-3f5c4f8403c3',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'd78662b5-cb61-4e7e-9ca5-f88d88eb3008',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
+            z: 15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '96640f8c-08aa-45ec-9468-5ddc8db6d928',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 25,
+            y: 42.5,
             z: 25
         },
         rotation: {
@@ -1343,132 +2713,19 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '841b413f-e0d2-439f-abe5-aa328444e8b6',
+        uuid: '62adfd0f-6241-41a7-b64f-888609651654',
         type: 'FLOOR',
-        level: 0,
+        level: 2,
         position: {
-            x: 25,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '2b8863fc-bab9-4df6-8f6f-aad03d002a2d',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b47d9826-d4b9-4619-a13f-d6ee0dd79f0d',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b1fe8824-b050-4b5e-82bf-e04374d4ea55',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '9100053b-b93d-4146-8eb6-39e8cd8ef9fc',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '6b026fc1-64a9-4d38-9c14-0cb47024b9ef',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '67e751e8-571b-484b-aa89-250f883f280a',
-        type: 'FLOOR',
-        level: 0,
-        position: {
-            x: -15,
-            y: 0.5,
+            x: 15,
+            y: 42.5,
             z: 25
         },
         rotation: {
@@ -1476,1043 +2733,18 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '7dc7df5a-4edb-4649-83cf-98192de74462',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: -20,
-            y: 1,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'b5f148a4-94fc-48ff-8f9f-6056d9a493e6',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: -20,
-            y: 1,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '30a2056f-3706-4bb0-b76d-6f13dc511e2b',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: -20,
-            y: 1,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '967c6bb6-565e-431f-b4f3-fe4746365d73',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: 30,
-            y: 1,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '2810c273-ca09-4f93-8ea8-2dbc1344fd48',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: 30,
-            y: 1,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'aaec421b-cfb8-4a5a-a328-426e45f6c340',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: 30,
-            y: 1,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'a987b824-aec6-46d6-99c1-d532a300ce84',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: 30,
-            y: 1,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '98d86989-0684-4368-8907-b6e60a0eaebe',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: 30,
-            y: 1,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '21842085-dd1e-4830-a0f9-018326122391',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -15,
-            y: 21.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '75ec4586-26f6-464a-871b-303074d410f9',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -5,
-            y: 21.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'e7f92be4-a049-49bf-b0f7-253974273c1d',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -5,
-            y: 21.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'e17eb3c6-34a6-4463-add0-209878a3ceb7',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -5,
-            y: 21.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'acbe1f24-3a8b-4c8c-9d2f-7dc96cbaf7c7',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -5,
-            y: 21.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '045d1602-d5a7-4f8d-862d-0c41ad284ea6',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -15,
-            y: 21.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '0e161579-9bab-4b01-ad53-81645b983a46',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -15,
-            y: 21.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '2da021ed-5a08-433a-a0d4-dcf274248d5b',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -15,
-            y: 21.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '5a07834c-2605-4f8e-84cc-970a328e867e',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -15,
-            y: 21.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '6f1b227f-c188-4c31-8c11-2102969d04d9',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: -5,
-            y: 21.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'e958aa80-d9c0-454e-9bfa-345fd994e7a3',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 15,
-            y: 21.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'b123cc3c-b805-479d-8e7f-e21c26b39e4f',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 25,
-            y: 21.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '2052c9f5-c8bd-4c9b-902f-db325e502588',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 15,
-            y: 21.5,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '5aab34ce-cf0b-4d18-b077-abd4d4440df2',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 25,
-            y: 21.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'fd015aca-a724-4405-af02-7bd37097c93b',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 25,
-            y: 21.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'd5148196-6bd7-4156-8b86-99a034e580bc',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 25,
-            y: 21.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'bde3fb8c-60fd-4bb2-a1db-0d045f35f457',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 15,
-            y: 21.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'aae2ebf2-4823-4eb5-b604-9da8bd4363a5',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 15,
-            y: 21.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'd5527a16-d3d0-4576-b844-e8dc9abc3c68',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 15,
-            y: 21.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '356c6dba-1838-41be-9ff9-cf42a6819a8b',
-        type: 'FLOOR',
-        level: 1,
-        position: {
-            x: 25,
-            y: 21.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '6f7554b9-cb32-4c05-aefd-abd91dfa5c99',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: -20,
-            y: 1,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'ea3de211-902b-45e8-ad8a-6857ffcbfa32',
-        type: 'WINDOW',
-        level: 0,
-        position: {
-            x: -20,
-            y: 1,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '3511a4d8-c214-46c4-b202-7b807aa70490',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: 25,
-            y: 32,
-            z: 20
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'cee94dd6-4dbb-4a42-8805-b3c46a9c2e31',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: 20,
-            y: 32,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '0e909e1b-0e39-44c2-a496-686d1a4bd19d',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: 30,
-            y: 32,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '03cdc02c-6164-4260-9a5b-2c67053602b8',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: 25,
-            y: 32,
-            z: 10
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'ce14b48f-0f86-4a39-af34-02f2288d078c',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: -15,
-            y: 32,
-            z: -20
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'e4a9a0ca-1b34-4bde-bfb9-01876534c63c',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: -20,
-            y: 32,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '6d642a4b-ae3e-4f3d-a80b-0a612c984794',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: -10,
-            y: 32,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '8053189d-69ed-4206-bb2b-286b12e76a33',
-        type: 'WALL',
-        level: 1,
-        position: {
-            x: -15,
-            y: 32,
-            z: -30
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'f4c4b353-ff02-4cd0-afab-cff2006c8e44',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -5,
-            y: 22,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '05c50685-09cc-402d-8bdf-7b05c854e318',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 5,
-            y: 22,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '8e120631-5400-4cf5-b16a-b997d56fb897',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 15,
-            y: 22,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '5aaeff02-9930-4fcc-b686-eb5698b87b13',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 25,
-            y: 22,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'dbe3b332-d81a-4656-9915-7907e85a76f3',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 30,
-            y: 22,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'afa693f5-433e-41af-a980-9b167a5af4c8',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 30,
-            y: 22,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: 'b9d3cb6e-1534-4edb-840f-55f9059f11e9',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 30,
-            y: 22,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '3c4b6ee8-50e0-4aba-90fc-d47d734ea6e9',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 30,
-            y: 22,
-            z: -25
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '6bec307b-f677-4972-880b-e4e89e6ec824',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 15,
-            y: 22,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '87de54c3-7742-4531-ab45-6eeb75ab4bc5',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: 5,
-            y: 22,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '1e80015a-91a1-49ad-9aff-b44de1cbffe8',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -5,
-            y: 22,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '0fe148db-148b-4bcc-b9e4-341ff54f0746',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -15,
-            y: 22,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '12c06e23-6556-4af5-9323-d6b3c8e1af13',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -20,
-            y: 22,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '628f0c98-4035-4327-aca1-51c41ae27657',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -20,
-            y: 22,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '5e48f870-e0b7-4a3d-af79-7ed5543f0f98',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -20,
-            y: 22,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '196888f2-47b2-4eac-812b-e4603f620133',
-        type: 'WINDOW',
-        level: 1,
-        position: {
-            x: -20,
-            y: 22,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 90,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 5
-        }
-    },
-    {
-        uuid: '1a9f2e86-ddab-4876-8f25-961b5ac9f135',
+        uuid: '80db48b0-1862-4a57-8dc2-baba1dd50bd2',
         type: 'FLOOR',
         level: 2,
         position: {
-            x: 25,
+            x: 15,
             y: 42.5,
             z: 15
         },
@@ -2521,17 +2753,18 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'cabab6af-bc54-42c2-9b4c-756a8106d779',
+        uuid: '8e596192-fbdd-41e2-ad9e-e594829a4468',
         type: 'FLOOR',
         level: 2,
         position: {
-            x: 25,
+            x: 15,
             y: 42.5,
             z: 5
         },
@@ -2540,36 +2773,18 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '72b809f8-b30c-40d3-bc8f-2123962211f5',
+        uuid: '74b0bbec-4974-44d4-b32e-5a4e22688613',
         type: 'FLOOR',
         level: 2,
         position: {
-            x: 25,
-            y: 42.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'f3c23391-bc8e-4817-b6c0-fef5efe6e7d9',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 25,
+            x: 15,
             y: 42.5,
             z: -5
         },
@@ -2578,13 +2793,34 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '1a7d0174-6622-40c8-90a0-092af3036097',
+        uuid: '2bb1c9e9-01a2-4b70-921a-02b68d438135',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 15,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '321975fc-85c9-4e62-ac3a-9612c675180b',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2597,13 +2833,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'dbb30287-a295-4c07-af49-3013b3be2386',
+        uuid: '8cc3f6cc-e2c6-471b-bc64-2013deb6a195',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2616,13 +2853,34 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'be41675e-9c6c-48a6-8d26-ee7ca20a731c',
+        uuid: '2c5f2b5e-153a-490c-afa5-e9fdbbeca912',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 15,
+            y: 42.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'e7ab1a96-a3bd-4247-8bb2-14b17e2154c6',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2635,13 +2893,94 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'e64b83a4-b7dc-43f8-9558-3ce9c56adad8',
+        uuid: 'b94d15a3-7363-4a05-b8e3-ad365e417455',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -5,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '25c5d4d9-e804-4d06-9aea-8527cb7b2840',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -15,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '0d2b6fe0-47da-45ca-b869-f29fef5fc71e',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -15,
+            y: 42.5,
+            z: -25
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'd88e9f10-0f8a-4a5e-bca1-a1600e5c4173',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -15,
+            y: 42.5,
+            z: -35
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'b821a1f1-6b33-41b0-a0a5-92a2d723defa',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2654,17 +2993,178 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'a9cf8c11-296b-4ef8-8034-987069f8ba39',
+        uuid: 'df562f72-d1a9-4459-9b5f-f16813816737',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 5,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '60c2032c-4694-4e04-ab5a-273254a19f9b',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 5,
+            y: 42.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '9fe96da8-1c72-4445-bd97-f3b4aef3da2b',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: 5,
+            y: 42.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'eeb9eddf-55f5-4273-9aec-12fa2b0eaa94',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -5,
+            y: 42.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: '1faa20ba-58a2-48f7-93a2-9a527a911bd0',
         type: 'FLOOR',
         level: 2,
         position: {
             x: -15,
+            y: 42.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'f845c4e0-bfbe-439c-8ffc-27e62c8ff256',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -25,
+            y: 42.5,
+            z: 5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a7166be8-0d2c-492f-8dc9-adc4839406ea',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -25,
+            y: 42.5,
+            z: -5
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'a53134fa-be93-4e2b-9b2f-bc257c8f9bf6',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -25,
+            y: 42.5,
+            z: -15
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        notAllowed: false,
+        step: {
+            size: 5,
+            round: 10
+        }
+    },
+    {
+        uuid: 'fdad31fc-1bc3-4107-9ac0-a61a94bcd7b7',
+        type: 'FLOOR',
+        level: 2,
+        position: {
+            x: -25,
             y: 42.5,
             z: -25
         },
@@ -2673,32 +3173,34 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: '3592f0ff-3b64-486a-8a66-cdf79daa459b',
+        uuid: '5d3e5a5b-d69b-4bf0-839a-c826fa65b60f',
         type: 'FLOOR',
         level: 2,
         position: {
-            x: -15,
+            x: -25,
             y: 42.5,
-            z: -15
+            z: -35
         },
         rotation: {
             x: 0,
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'ca4d513b-51ad-450e-a060-15866e5caf57',
+        uuid: 'aafa5f75-d02c-41eb-bec5-edf20a1300e4',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2711,203 +3213,14 @@ export default [
             y: 0,
             z: 0
         },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10
         }
     },
     {
-        uuid: 'adc0e0cf-8c77-4430-bc5a-570c754e702e',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: -15,
-            y: 42.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '7d2983c4-822c-4aa5-a450-f19af05a7375',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: -15,
-            y: 42.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '36364a9d-9c3b-419e-9c7d-fe59da45f8f3',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: -5,
-            y: 42.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '95aee902-2f22-4427-a6d7-d93d4e6e2dcd',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 5,
-            y: 42.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '3261bda9-7269-496f-aca4-b3c294273706',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 15,
-            y: 42.5,
-            z: 15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '87d09670-429e-445c-af35-b604aeb66824',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 15,
-            y: 42.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'c55f61af-70f4-41a5-8294-0add0fe783e4',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 15,
-            y: 42.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '87e20f3c-f31a-4b36-abb3-1e1e7a42af64',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 15,
-            y: 42.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'd7042efa-98cb-4bff-8477-94d65b8bf3fc',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 5,
-            y: 42.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'd1f41164-e3b9-4d29-9b78-4bb735e420f5',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: -5,
-            y: 42.5,
-            z: -15
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'a5141195-9b4d-4584-bec5-416a8e94c39c',
+        uuid: 'ea194c02-b995-4b38-b95f-9fed50a08abb',
         type: 'FLOOR',
         level: 2,
         position: {
@@ -2920,63 +3233,7 @@ export default [
             y: 0,
             z: 0
         },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '029d03ad-7785-456e-ad9d-8a1444c01832',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 5,
-            y: 42.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: '85618327-972b-4760-ba4e-c4ac02a5c6fd',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: -5,
-            y: 42.5,
-            z: 5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
-        step: {
-            size: 5,
-            round: 10
-        }
-    },
-    {
-        uuid: 'fb3be3cf-1589-46c0-b475-15294f442e22',
-        type: 'FLOOR',
-        level: 2,
-        position: {
-            x: 5,
-            y: 42.5,
-            z: -5
-        },
-        rotation: {
-            x: 0,
-            y: 0,
-            z: 0
-        },
+        notAllowed: false,
         step: {
             size: 5,
             round: 10

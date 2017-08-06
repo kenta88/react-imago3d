@@ -23,7 +23,7 @@ export default {
         notAllowed: false,
         step: {
             size: 5.0,
-            round: 5.0,
+            round: 10.0,
         }
     },
     WINDOW: {
@@ -35,7 +35,7 @@ export default {
         notAllowed: false,
         step: {
             size: 5.0,
-            round: 5.0,
+            round: 10.0,
         },
     },
 };

@@ -149,7 +149,7 @@ class GhostObject extends React.Component {
                 return false;
             }) : [];
 
-            currentObject.notAllowed = this.checkGhostCollision() || objectToRemove;
+            currentObject.notAllowed = this.checkGhostCollision();
 
             this.setState({
                 currentObject,

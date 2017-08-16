@@ -48,7 +48,7 @@ class Window extends React.Component {
                         transparent: this.props.isGhost,
                         opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}
-                    position={new THREE.Vector3(0, 19, 0)}
+                    position={new THREE.Vector3(0, 19, 5)}
                 />
                 <Entity
                     uuid={this.props.uuid}
@@ -69,7 +69,7 @@ class Window extends React.Component {
                         color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0xCFD8DC,
                         opacity: 0.2,
                     }}
-                    position={new THREE.Vector3(0, 10, 0)}
+                    position={new THREE.Vector3(0, 10, 5)}
                 />
                 <Entity
                     uuid={this.props.uuid}
@@ -90,7 +90,7 @@ class Window extends React.Component {
                         transparent: this.props.isGhost,
                         opacity: (this.props.isGhost) ? 0.5 : 1,
                     }}
-                    position={new THREE.Vector3(0, 2.5, 0)}
+                    position={new THREE.Vector3(0, 2.5, 5)}
                 />
             </Entity>
         );

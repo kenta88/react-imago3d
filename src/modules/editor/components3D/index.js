@@ -3,7 +3,7 @@ import Window from './Window';
 import Wall from './Wall';
 
 export {
-    Floor,
-    Window,
-    Wall,
+  Floor,
+  Window,
+  Wall,
 };

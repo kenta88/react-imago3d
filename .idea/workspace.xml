@@ -2,13 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b93819ec-a2a3-4828-9d3d-1dd446fac2e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageNotFound.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageNotFound.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connectors/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/connectors/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/objects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/objects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/sample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/sample.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/aframe-components/orthographicCamera.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/aframe-components/orthographicCamera.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/ambientLight.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/ambientLight.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/editorScene.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/editorScene.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/environment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/environment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/ghostObject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/ghostObject.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/grid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/grid.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/orthoCamera.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/orthoCamera.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components/sunLight.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components/sunLight.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components3D/Floor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components3D/Floor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components3D/Wall.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components3D/Wall.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components3D/Window.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components3D/Window.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/components3D/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/components3D/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/editor/connectors/Editor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/connectors/Editor.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/connectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/connectors/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/editor/helper/getRelativeMouseCoords.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/helper/getRelativeMouseCoords.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/editor/routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/editor/routes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/viewer/connectors/Viewer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/viewer/connectors/Viewer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/viewer/connectors/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/viewer/connectors/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/viewer/routes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/viewer/routes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,69 +48,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/containers/Header.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="125" column="18" lean-forward="true" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#14#56#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="188">
+              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/editor/routes.jsx">
+        <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="213">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/editor/connectors/Editor.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/editor/components/editorScene.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="59" column="30" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/connectors/Layout.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+            <state relative-caret-position="165">
+              <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.eslintrc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -110,6 +106,8 @@
       <find>frame</find>
       <find>Layout</find>
       <find>createObject</find>
+      <find>jsx-a11y</find>
+      <find>eslint</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -127,8 +125,9 @@
         <option value="$PROJECT_DIR$/src/modules/editor/routes.jsx" />
         <option value="$PROJECT_DIR$/src/modules/viewer/routes.jsx" />
         <option value="$PROJECT_DIR$/src/app.jsx" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/modules/editor/connectors/Editor.jsx" />
+        <option value="$PROJECT_DIR$/.eslintrc" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/containers/Header.jsx" />
       </list>
     </option>
@@ -160,44 +159,6 @@
               <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="connectors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="editor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="editor" type="462c0819:PsiDirectoryNode" />
-              <item name="connectors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-imago3d" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-imago3d" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,12 +202,12 @@
       <workItem from="1553614659660" duration="1471000" />
       <workItem from="1553616212887" duration="443000" />
       <workItem from="1553668716687" duration="10000" />
-      <workItem from="1553693603720" duration="4995000" />
+      <workItem from="1553693603720" duration="6575000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6919000" />
+    <option name="totallyTimeSpent" value="8499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="0" />
@@ -266,7 +227,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32975295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.650913" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -304,24 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#21#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/viewer/routes.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -329,13 +272,6 @@
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -359,7 +295,7 @@
     <entry file="file://$PROJECT_DIR$/src/modules/editor/connectors/Editor.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
-          <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -376,14 +312,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/containers/Header.jsx">
+    <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="125" column="18" lean-forward="true" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#14#56#0" expanded="true" />
+            <element signature="e#21#47#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/containers/Header.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>

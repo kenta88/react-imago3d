@@ -8,14 +8,12 @@ type Props = {
 };
 
 const LayoutConnector = ({
-    children,
-}: Props) => {
-    return (
-        <div>
-            <Header />
-            {children}
-        </div>
-    );
-};
+  children,
+}: Props) => (
+  <div>
+    <Header />
+    {children}
+  </div>
+);
 
 export default LayoutConnector;

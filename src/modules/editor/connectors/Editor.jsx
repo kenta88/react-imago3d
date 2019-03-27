@@ -4,20 +4,20 @@ import * as THREE from 'three';
 import { connect } from 'react-redux';
 import 'aframe';
 import {
-    Row,
-    Col,
+  Row,
+  Col,
 } from 'react-materialize';
 
 import {
-    getIsAddingMode,
-    getIsEditMode,
-    getCurrentObject,
-    getObjects,
+  getIsAddingMode,
+  getIsEditMode,
+  getCurrentObject,
+  getObjects,
 } from '../../../reducers/editor';
 import {
-    editObject,
-    deleteObject,
-    exitEditingMode,
+  editObject,
+  deleteObject,
+  exitEditingMode,
 } from '../../../actions/editor';
 import Layout from '../../../connectors/Layout';
 import EditorScene from '../components/editorScene';
@@ -39,103 +39,105 @@ type Props = {
 };
 
 @connect(
-    store => ({
-        isAddingMode: getIsAddingMode(store),
-        isEditMode: getIsEditMode(store),
-        currentObject: getCurrentObject(store),
-        objects: getObjects(store),
-    }),
-    {
-        editObject,
-        deleteObject,
-        exitEditingMode,
-    }
+  store => ({
+    isAddingMode: getIsAddingMode(store),
+    isEditMode: getIsEditMode(store),
+    currentObject: getCurrentObject(store),
+    objects: getObjects(store),
+  }),
+  {
+    editObject,
+    deleteObject,
+    exitEditingMode,
+  },
 )
 
 class Editor extends React.Component {
-    constructor(props: Props) {
-        super(props);
-        this.canvas = null;
-        this.camera = null;
-        this.mouse = new THREE.Vector2();
-        this.raycaster = new THREE.Raycaster();
-        this.highlightedObject = null;
+  constructor(props: Props) {
+    super(props);
+    this.canvas = null;
+    this.camera = null;
+    this.mouse = new THREE.Vector2();
+    this.raycaster = new THREE.Raycaster();
+    this.highlightedObject = null;
 
-        this.state = {
-            canvasRef: null,
-            canvasContainerSize: null,
-            renderedObject: [],
-        };
-    }
+    this.state = {
+      canvasRef: null,
+      canvasContainerSize: null,
+      renderedObject: [],
+    };
+  }
 
     @autobind
-    onCanvasReady(event) {
-        this.canvas = event.target.canvas;
-        this.camera = event.target.camera;
-        this.setState({
-            canvasRef: this.canvas,
-        });
-    }
+  onCanvasReady(event) {
+    this.canvas = event.target.canvas;
+    this.camera = event.target.camera;
+    this.setState({
+      canvasRef: this.canvas,
+    });
+  }
+
     @autobind
     onItemsRendered(renderedObject: Array<Object>) {
-        this.setState({
-            renderedObject,
-        });
+      this.setState({
+        renderedObject,
+      });
     }
+
     @autobind
     onRefCanvasContainer(container) {
-        if (container) {
-            const canvasContainer = container.querySelector('#canvasContainer');
-            this.setState({
-                canvasContainerSize: canvasContainer.getBoundingClientRect(),
-            });
-        }
+      if (container) {
+        const canvasContainer = container.querySelector('#canvasContainer');
+        this.setState({
+          canvasContainerSize: canvasContainer.getBoundingClientRect(),
+        });
+      }
     }
 
     render() {
-        let width = 0;
-        let height = 0;
-        if (this.state.canvasContainerSize) {
-            width = this.state.canvasContainerSize.width - 24;
-            height = window.innerHeight - 84;
-        }
-        return (
-            <Layout>
-                <div ref={this.onRefCanvasContainer}>
-                    <Row>
-                        <Col
-                            s={12}
-                            id="canvasContainer"
-                        >
-                            <h2>test</h2>
-                            {this.state.canvasContainerSize ? (
-                                <EditorScene
-                                    width={width}
-                                    height={height}
-                                    onCanvasReady={this.onCanvasReady}
-                                >
-                                    <Grid />
-                                    <OrthoCamera
-                                        width={width}
-                                        height={height}
-                                    />
-                                    <GhostObject
-                                        canvas={this.state.canvasRef}
-                                        renderedObject={this.state.renderedObject}
-                                    />
-                                    <Environment
-                                        canvas={this.state.canvasRef}
-                                        onItemsRendered={this.onItemsRendered}
-                                    />
-                                    <SunLight />
-                                    <AmbientLight />
-                                </EditorScene>
-                            ) : null}
-                        </Col>
-                    </Row>
-                </div>
-            </Layout>
-        );
+      let width = 0;
+      let height = 0;
+      if (this.state.canvasContainerSize) {
+        width = this.state.canvasContainerSize.width - 24;
+        height = window.innerHeight - 84;
+      }
+      return (
+        <Layout>
+          <div ref={this.onRefCanvasContainer}>
+            <Row>
+              <Col
+                s={12}
+                id="canvasContainer"
+              >
+                <h2>test</h2>
+                {this.state.canvasContainerSize ? (
+                  <EditorScene
+                    width={width}
+                    height={height}
+                    onCanvasReady={this.onCanvasReady}
+                  >
+                    <Grid />
+                    <OrthoCamera
+                      width={width}
+                      height={height}
+                    />
+                    <GhostObject
+                      canvas={this.state.canvasRef}
+                      renderedObject={this.state.renderedObject}
+                    />
+                    <Environment
+                      canvas={this.state.canvasRef}
+                      onItemsRendered={this.onItemsRendered}
+                    />
+                    <SunLight />
+                    <AmbientLight />
+                  </EditorScene>
+                ) : null}
+              </Col>
+            </Row>
+          </div>
+        </Layout>
+      );
     }
 }
 

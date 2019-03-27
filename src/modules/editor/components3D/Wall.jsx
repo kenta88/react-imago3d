@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Entity,
+  Entity,
 } from 'aframe-react';
 
 type Props = {
@@ -14,50 +14,50 @@ type Props = {
 };
 
 class Wall extends React.Component {
-    constructor(props: Props) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props: Props) {
+    super(props);
+    this.state = {};
+  }
 
-    render() {
-        return (
-            <Entity
-                uuid={this.props.uuid}
-                type="WALL"
-                position={this.props.position}
-                rotation={this.props.rotation}
-                _ref={this.props._onRef}
-            >
-                <Entity
-                    uuid={this.props.uuid}
-                    type="WALL"
-                    geometry={{
-                        primitive: 'box',
-                        buffer: true,
-                        width: 10,
-                        height: 20,
-                        depth: 1,
-                    }}
-                    shadow={{
-                        receive: true,
-                        cast: true,
-                    }}
-                    material={{
-                        color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0x26A69A,
-                        transparent: this.props.isGhost,
-                        opacity: (this.props.isGhost) ? 0.5 : 1,
-                    }}
-                    position={{
-                        x: 0,
-                        y: 0,
-                        z: 5,
-                    }}
+  render() {
+    return (
+      <Entity
+        uuid={this.props.uuid}
+        type="WALL"
+        position={this.props.position}
+        rotation={this.props.rotation}
+        _ref={this.props._onRef}
+      >
+        <Entity
+          uuid={this.props.uuid}
+          type="WALL"
+          geometry={{
+            primitive: 'box',
+            buffer: true,
+            width: 10,
+            height: 20,
+            depth: 1,
+          }}
+          shadow={{
+            receive: true,
+            cast: true,
+          }}
+          material={{
+            color: (this.props.notAllowed || this.props.willSelected) ? 0xff0000 : 0x26A69A,
+            transparent: this.props.isGhost,
+            opacity: (this.props.isGhost) ? 0.5 : 1,
+          }}
+          position={{
+            x: 0,
+            y: 0,
+            z: 5,
+          }}
                     // rotation={this.props.rotation}
-                    _ref={this.props._onRef}
-                />
-            </Entity>
-        );
-    }
+          _ref={this.props._onRef}
+        />
+      </Entity>
+    );
+  }
 }
 
 export default Wall;

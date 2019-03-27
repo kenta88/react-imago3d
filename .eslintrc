@@ -16,65 +16,6 @@
             "onlyFilesWithFlowAnnotation": true
         }
     },
-    "rules" : {
-        // enforce indentation of 4 spaces
-        // http://eslint.org/docs/rules/indent
-        "indent": ["error", 4, { "SwitchCase": 1 }],
-
-        "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4],
-        "react/react-in-jsx-scope": "off", // React is global.
-        "react/forbid-prop-types": 1,
-
-        // enforce the max line length to be 120 chars
-        // http://eslint.org/docs/rules/max-len
-        "max-len": ["error", 120],
-
-        // disallowing space after function name
-        // http://eslint.org/docs/rules/space-before-function-paren
-        "space-before-function-paren": "error",
-
-        // allowing unary operators
-        // http://eslint.org/docs/rules/no-plusplus
-        "no-plusplus": "off",
-
-        // Forbid the use of dev packages
-        // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md
-        "import/no-extraneous-dependencies": ["error", {
-            "devDependencies": true
-        }],
-        "import/named": 1,
-        "import/namespace": 1,
-        "import/default": 1,
-        "import/export": 1,
-        "import/imports-first": 1,
-        "import/no-duplicates": 1,
-        "import/prefer-default-export": 1,
-        "import/order": [
-            "error", {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "internal",
-                    "parent",
-                    "sibling",
-                    "index"
-                ],
-                "newlines-between": "always"
-            }
-        ],
-        "import/no-unresolved": 1,
-
-        // enforce braces in arrow function bodies
-        // http://eslint.org/docs/rules/arrow-body-style
-        "arrow-body-style": ["warn", "as-needed"],
-        "no-underscore-dangle": ["off"],
-
-        // disallowing comma trailing
-        // http://eslint.org/docs/rules/comma-dangle
-        "comma-dangle": ["warn", "only-multiline"],
-        "no-debugger": ["warn"]
-    },
     "globals" : {
         "window": true,
         "IS_PRODUCTION": true,

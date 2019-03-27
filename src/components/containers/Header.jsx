@@ -1,130 +1,115 @@
-/* eslint-disable */
-
 // @flow
 import autobind from 'autobind-decorator';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
-import {
-    AppBar,
-    IconButton,
-    Drawer,
-    List,
-    ListItem,
-    Avatar,
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    Button,
-} from '@material-ui/core/';
 
 import { OBJECTS3D } from '../../constants';
 import SAMPLE from '../../constants/sample';
 import {
-    getLevel,
-    getObjects,
+  getLevel,
+  getObjects,
 } from '../../reducers/editor';
 import {
-    createObject,
-    levelUp,
-    levelDown,
+  createObject,
+  levelUp,
+  levelDown,
 } from '../../actions/editor';
 
 
 type Props = {
     objects: Array<Object>,
     createObject: (string) => void,
-    level: number,
-    levelUp: () => void,
-    levelDown: () => void,
+    // level: number,
+    // levelUp: () => void,
+    // levelDown: () => void,
 };
 
 @connect(
-    store => ({
-        level: getLevel(store),
-        objects: getObjects(store),
-    }),
-    {
-        createObject,
-        levelUp,
-        levelDown,
-    }
+  store => ({
+    level: getLevel(store),
+    objects: getObjects(store),
+  }),
+  {
+    createObject,
+    levelUp,
+    levelDown,
+  },
 )
 class Header extends React.Component {
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-            open: false,
-            modal: false,
-            isSaving: false,
-        };
-    }
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      open: false,
+      modal: false,
+      isSaving: false,
+    };
+  }
+
     @autobind
-    onClick3dObject(type) {
-        this.props.createObject(OBJECTS3D[type]);
-        this.closeDrawner();
-    }
+  onClick3dObject(type) {
+    this.props.createObject(OBJECTS3D[type]);
+    this.closeDrawner();
+  }
 
     @autobind
     openDrawner() {
-        this.setState({
-            open: true,
-        });
+      this.setState({
+        open: true,
+      });
     }
 
     @autobind
     saveToLocalStorage() {
-        const objects = this.props.objects.toJS();
-        localStorage.setItem('objects', JSON.stringify(objects));
-        this.setState({
-            modal: true,
-            isSaving: true,
-        });
+      const objects = this.props.objects.toJS();
+      localStorage.setItem('objects', JSON.stringify(objects));
+      this.setState({
+        modal: true,
+        isSaving: true,
+      });
     }
 
     @autobind
     // eslint-disable-next-line
     saveSampleToLocalStorage() {
-        localStorage.setItem('objects', JSON.stringify(SAMPLE));
-        this.setState({
-            modal: true,
-        });
+      localStorage.setItem('objects', JSON.stringify(SAMPLE));
+      this.setState({
+        modal: true,
+      });
     }
 
     @autobind
     resetLocalStorage() {
-        localStorage.setItem('objects', JSON.stringify([]));
-        this.setState({
-            modal: true,
-        });
+      localStorage.setItem('objects', JSON.stringify([]));
+      this.setState({
+        modal: true,
+      });
     }
 
     @autobind
     closeSaveModal() {
-        if (!this.state.isSaving) {
-            location.reload();
-        } else {
-            this.setState({
-                modal: false,
-                isSaving: false,
-            });
-        }
+      if (!this.state.isSaving) {
+        location.reload();
+      } else {
+        this.setState({
+          modal: false,
+          isSaving: false,
+        });
+      }
     }
 
     @autobind
     closeDrawner() {
-        this.setState({
-            open: false,
-        });
+      this.setState({
+        open: false,
+      });
     }
 
     render() {
-        return (
-            <div>
-                test
-            </div>
-        );
+      return (
+        <>
+          <h2>test</h2>
+        </>
+      );
     }
 }
 

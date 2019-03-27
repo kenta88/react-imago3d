@@ -1,4 +1,5 @@
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { createStore } from 'redux';
 
@@ -13,17 +14,19 @@ const store = createStore(
 
 
 function renderApp(RootComponent) {
-    ReactDOM.render(
+    return (
         <AppContainer>
             <RootComponent
                 store={store}
             />
-        </AppContainer>,
-        document.getElementById('app')
+        </AppContainer>
     );
 }
 
-renderApp(App);
+const test = renderApp(App);
+
+const appEl = document.getElementById('app');
+render(test, appEl);
 
 if (module.hot) {
     const NextApp = require('./app').default; // eslint-disable-line global-require

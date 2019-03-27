@@ -107,6 +107,7 @@ class Editor extends React.Component {
                             s={12}
                             id="canvasContainer"
                         >
+                            <h2>test</h2>
                             {this.state.canvasContainerSize ? (
                                 <EditorScene
                                     width={width}
